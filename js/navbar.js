@@ -7,10 +7,10 @@ class SpecialHeader extends HTMLElement {
               <!-- <i></i> -->
               <nav>
                   <ul>
-                      <li class="nav"><a href="/alostaz/">الصفحة الرئيسية</a></li>
-                      <li class="nav"><a href="/alostaz/sessions">المحاضرات</a></li>
-                      <li class="nav"><a href="/alostaz/pricing">الاسعار</a></li>
-                      <li class="nav"><a href="/alostaz/contact">تواصل معنا</a></li>
+                      <li class="nav"><a href="/alostaz.github.io/">الصفحة الرئيسية</a></li>
+                      <li class="nav"><a href="/alostaz.github.io/sessions">المحاضرات</a></li>
+                      <li class="nav"><a href="/alostaz.github.io/pricing">الاسعار</a></li>
+                      <li class="nav"><a href="/alostaz.github.io/contact">تواصل معنا</a></li>
                   </ul>
               </nav>
               <!-- <ul class="sec">
@@ -55,11 +55,11 @@ class MetaGroup extends HTMLElement {
     <meta name="description" content="دروس فيزياء اونلاين">
     <meta name="keywords" content="Pysics, alostaz, elostaz, MR.Bakr, فيزياء, تعليم, teatcher, teatching, alostaz222">
     <meta name="author" content="MR.Bakr Mohamed (alostaz)">
-    <link rel="shortcut icon" href="/alostaz/favicon/fav-ico.ico" type="image/x-icon" />
-    <link rel="icon" href="/alostaz/favicon/fav-png(32).png" sizes="32x32" />
-    <link rel="icon" href="/alostaz/favicon/fav-png(48).png" sizes="48x48" />
-    <link rel="icon" href="/alostaz/favicon/fav-png(96).png" sizes="96x96" />
-    <link rel="icon" href="/alostaz/favicon/fav-png(144).png" sizes="144x144" />
+    <link rel="shortcut icon" href="/alostaz.github.io/favicon/fav-ico.ico" type="image/x-icon" />
+    <link rel="icon" href="/alostaz.github.io/favicon/fav-png(32).png" sizes="32x32" />
+    <link rel="icon" href="/alostaz.github.io/favicon/fav-png(48).png" sizes="48x48" />
+    <link rel="icon" href="/alostaz.github.io/favicon/fav-png(96).png" sizes="96x96" />
+    <link rel="icon" href="/alostaz.github.io/favicon/fav-png(144).png" sizes="144x144" />
     `;
     head.insertAdjacentHTML("beforeend", metaContent);
   }
