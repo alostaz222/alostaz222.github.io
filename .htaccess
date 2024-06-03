@@ -1,0 +1,9 @@
+DirectoryIndex /alostaz/index
+ErrorDocument 404 /alostaz/404
+Options +MultiViews
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.html[? ].*$"
+RewriteRule .* - [L,R=404]

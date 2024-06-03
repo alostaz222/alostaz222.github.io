@@ -1,0 +1,316 @@
+:root {
+    --background: aliceblue;
+    --color: rgb(95, 94, 94);
+    --hover: rgb(57, 143, 214);
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: var(--background);
+    width: 100%;
+    overflow-x: hidden;
+}
+
+header {
+    direction: rtl;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    display: flex;
+    background-color: var(--background);
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: right;
+}
+
+header li a,
+.dropbtn {
+    border: none;
+    background-color: transparent;
+    display: block;
+    color: var(--color);
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+header li a:hover {
+    background-color: var(--hover);
+    color: var(--background);
+}
+
+header .dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+header .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--background);
+    width: fit-content;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+header .dropdown-content button:hover {
+    background-color: var(--hover);
+}
+
+header .dropdown:hover .dropdown-content {
+    display: block;
+}
+
+header .dropdown:hover .dropbtn {
+    color: var(--background);
+    background-color: var(--hover);
+}
+
+header .dropbtn2 {
+    background-color: var(--background);
+    margin-top: 2px;
+    color: var(--color);
+    text-decoration: none;
+    display: block;
+    padding: 14px 16px;
+    text-align: center;
+    font-size: 76.2%;
+    border: none;
+}
+
+header .dropdown2 {
+    position: relative;
+    display: inline-block;
+}
+
+header .dropdown-content2 {
+    display: none;
+    position: absolute;
+    background-color: var(--background);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+header .dropdown-content2 a {
+    padding: 15.66px;
+    margin-top: 2px;
+    color: var(--color);
+    text-align: center;
+    text-decoration: none;
+    display: block;
+}
+
+header .dropdown-content2 a:hover {
+    background-color: var(--hover);
+}
+
+header .dropdown2:hover .dropdown-content2 {
+    display: block;
+}
+
+header .dropdown2:hover .dropbtn2 {
+    background-color: var(--hover);
+}
+
+header .dropbtn2:hover {
+    color: var(--background);
+}
+
+.active {
+    background-color: var(--hover);
+}
+
+.active a {
+    color: var(--background);
+}
+
+#sidebar {
+    grid-area: side;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: var(--background);
+    max-width: 300px;
+    width: 100%;
+    height: 100%;
+}
+
+.video-container {
+    grid-area: video;
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-area: button;
+}
+
+#button button {
+    background-color: #4CAF50; /* Green background */
+    border: none;
+    color: white; /* White text */
+    padding: 15px 32px; /* Padding */
+    text-align: center; /* Centered text */
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Make the container fit the content */
+    font-size: 16px; /* Text size */
+    margin: 4px 2px; /* Margin between buttons */
+    cursor: pointer; /* Pointer/hand icon on hover */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+    border-radius: 8px; /* Rounded corners */
+}
+
+#button button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+main {
+    direction: rtl;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr minmax(20px, 0.3fr) 2fr minmax(20px, 0.3fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: 
+        'side . . .'
+        'side . video .'
+        'side . video .'
+        'side . button .';
+    gap: 10px; /* Adjust gap between elements */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+footer {
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    background-color: var(--background);
+    padding: 10px;
+    width: 100%;
+    margin-top: auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1200px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            'video'
+            'video'
+            'button';
+    }
+
+    header ul {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            'video'
+            'video'
+            'button';
+    }
+
+    header ul {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            'video'
+            'video'
+            'button';
+    }
+
+    header ul {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            'video'
+            'video'
+            'button';
+    }
+
+    header ul {
+        flex-direction: column;
+    }
+
+    header li a,
+    .dropbtn,
+    .dropbtn2 {
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    #button button {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        grid-template-areas:
+            'video'
+            'video'
+            'button';
+    }
+
+    header ul {
+        flex-direction: column;
+    }
+
+    header li a,
+    .dropbtn,
+    .dropbtn2 {
+        padding: 8px;
+        font-size: 12px;
+    }
+
+    #button button {
+        padding: 8px 16px;
+        font-size: 12px;
+    }
+}
