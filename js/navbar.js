@@ -51,10 +51,6 @@ class SpecialVideo extends HTMLElement {
 class MetaGroup extends HTMLElement {
   connectedCallback() {
     const metaContent = `
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="دروس فيزياء اونلاين">
-    <meta name="keywords" content="Pysics, alostaz, elostaz, MR.Bakr, فيزياء, تعليم, teatcher, teatching, alostaz222">
-    <meta name="author" content="MR.Bakr Mohamed (alostaz)">
     <link rel="shortcut icon" href="/favicon/fav-ico.ico" type="image/x-icon" />
     <link rel="icon" href="/favicon/fav-png(32).png" sizes="32x32" />
     <link rel="icon" href="/favicon/fav-png(48).png" sizes="48x48" />
