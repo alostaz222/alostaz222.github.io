@@ -7,10 +7,10 @@ class SpecialHeader extends HTMLElement {
               <!-- <i></i> -->
               <nav>
                   <ul>
-                      <li class="nav"><a href="/"><b>الصفحة الرئيسية</b></a></li>
-                      <li class="nav"><a href="/sessions"><b>المحاضرات</b></a></li>
-                      <li class="nav"><a href="/pricing"><b>الاسعار</b></a></li>
-                      <li class="nav"><a href="/contact"><b>تواصل معنا</b></a></li>
+                      <li class="nav"><a href="/">الصفحة الرئيسية</a></li>
+                      <li class="nav"><a href="/sessions">المحاضرات</a></li>
+                      <li class="nav"><a href="/pricing">الاسعار</a></li>
+                      <li class="nav"><a href="/contact">تواصل معنا</a></li>
                   </ul>
               </nav>
               <!-- <ul class="sec">
@@ -31,7 +31,7 @@ class SpecialFooter extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
         <footer>
-          <p><b>Copyright @ <a href='mailto:alostaz222@yahoo.com'>alostaz222@yahoo.com</a></b></p>
+          <p>Copyright @ <a href='mailto:alostaz222@yahoo.com'>alostaz222@yahoo.com</a></p>
         </footer>
       `;
   }
