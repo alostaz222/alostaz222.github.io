@@ -23,7 +23,7 @@ class SpecialHeader extends HTMLElement {
       if (item.href === window.location.href) {
         item.parentElement.classList.add('active');
       }
-    })
+    });
   }
 }
 
@@ -61,8 +61,6 @@ class MetaGroup extends HTMLElement {
   }
 }
 
-
-
 let metaGroup = document.createElement("meta-group");
 head.appendChild(metaGroup)
 
@@ -70,3 +68,20 @@ customElements.define("special-header", SpecialHeader);
 customElements.define("special-footer", SpecialFooter);
 customElements.define("special-video", SpecialVideo);
 customElements.define("meta-group", MetaGroup);
+
+// Fetch video list and display in the sidebar
+fetch('/media/videos/others')
+  .then(response => response.json())
+  .then(videos => {
+    const sidebar = document.getElementById('sidebar');
+    videos.forEach(video => {
+      const button = document.createElement('button');
+      button.innerText = video;
+      button.onclick = () => {
+        window.VideoPlayer = `/media/videos/others/${video}`;
+        document.getElementById('videoPlayer').src = window.VideoPlayer;
+      };
+      sidebar.appendChild(button);
+    });
+  })
+  .catch(err => console.error('Failed to fetch videos:', err));
