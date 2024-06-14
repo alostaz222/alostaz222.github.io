@@ -32,7 +32,7 @@ class VideoHandler(FileSystemEventHandler):
 
 if __name__ == "__main__":
     watch_dir = '/media/videos/others'
-    json_file = '/media/videos/others/videos.json'
+    json_file = '/api/videos.json'
     url_prefix = 'http://alostaz222.github.io/media/videos/others'
 
     event_handler = VideoHandler(json_file, watch_dir, url_prefix)
