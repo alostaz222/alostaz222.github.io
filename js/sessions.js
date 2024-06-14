@@ -1,2 +1,1 @@
-window.VideoPlayer = ``
-window.VideoName =``
+fetch("../api/videos").then(res => console.log(res)).then(data => console.log(data)).catch(err => console.error(err))
