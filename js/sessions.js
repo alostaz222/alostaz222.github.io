@@ -1,5 +1,7 @@
 window.VideoPlayer = ``
 window.VideoName =``
 
-fetch("/media/videos/others/")
+fetch("/api/videos.json")
+    .then(res => console.log(res))
     .then(data => console.log(data))
+    .catch(err => console.error(err));
