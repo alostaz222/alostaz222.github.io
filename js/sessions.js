@@ -1,1 +1,1 @@
-fetch("../api/videos").then(res => console.log(res)).then(data => console.log(data)).catch(err => console.error(err))
+fetch("../api/videos.json").then(res => console.log(res)).then(data => console.log(data)).catch(err => console.error(err))
