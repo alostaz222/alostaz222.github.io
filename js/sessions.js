@@ -1,1 +1,5 @@
-fetch("../api/videos.json").then(res => console.log(res)).then(data => console.log(data)).catch(err => console.error(err))
+fetch('https://alostaz222.github.io/api/videos.json').then((res) => {
+    return res.json();
+}).then((data) => {
+    console.log(data);
+});
