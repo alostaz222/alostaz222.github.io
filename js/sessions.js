@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
             data.forEach(e => {
                 AddElement(e.url, e.name);
             });
-            addEventListenersToButtons(video); // Pass the video element to the function
+            addEventListenersToButtons(video);
         })
         .catch((err) => console.error('Error fetching data:', err));
 });
@@ -15,26 +15,36 @@ document.addEventListener('DOMContentLoaded', () => {
 function AddElement(url, name) {
     let sidebar = document.getElementById('sidecontainer');
     sidebar.innerHTML += `
-        <button class="Vbtn" data-url="${url}" data-name="${name}">${name}</button>
+        <div class="video-entry">
+            <button class="Vbtn" data-url="${url}" data-name="${name}">${name}</button>
+        </div>
     `;
+
+    let mp4 = ".mp4"
+
+    let btnContainer = document.querySelectorAll(`div.btnCont${mp4}`);
+
+    // Symbol processing example
+    if (name.includes(mp4) && btnContainer.length > 0) {
+        console.log("contains");
+    } else {
+        console.log("no");
+    }
 }
 
 function addEventListenersToButtons(video) {
     let buttons = document.getElementsByClassName('Vbtn');
-    for (let button of buttons) {
+
+    for (let i = 0; i < buttons.length; i++) {
+        let button = buttons[i];
+
         button.addEventListener('click', function() {
             let url = this.getAttribute('data-url');
-            let name = this.getAttribute('data-name');
             let source = video.querySelector('source');
             
-            // Check if source element exists
             if (source) {
-                // Update source URL
                 source.src = url;
-                
-                // Load and play the new video
                 video.load();  // Ensure the new video is loaded
-                video.play();  // Start playing the video
             } else {
                 console.error('Source element not found.');
                 console.log(url);
