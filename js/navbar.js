@@ -1,4 +1,5 @@
 const head = document.head;
+window.VideoPlayer;
 
 class SpecialHeader extends HTMLElement {
   connectedCallback() {
@@ -40,8 +41,8 @@ class SpecialFooter extends HTMLElement {
 class SpecialVideo extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
-        <video controls>
-          <source id='videoPlayer' src="${window.VideoPlayer}">
+        <video id='videoPlayer' controls>
+          <source  src="">
           Your browser does not support the video tag.
         </video>
       `;
