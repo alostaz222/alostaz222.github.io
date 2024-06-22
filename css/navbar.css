@@ -39,7 +39,8 @@ header ul {
 }
 
 header li a,
-.dropbtn {
+.dropbtn, #stage {
+    outline: none;
     border: none;
     background-color: transparent;
     display: block;
@@ -49,86 +50,14 @@ header li a,
     text-decoration: none;
 }
 
-header li a:hover {
+header li a:hover, #stage:hover {
     background-color: var(--hover);
     color: var(--background);
 }
 
-header .dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-header .dropdown-content {
-    display: none;
-    position: absolute;
+option {
     background-color: var(--background);
-    width: fit-content;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-header .dropdown-content button:hover {
-    background-color: var(--hover);
-}
-
-header .dropdown:hover .dropdown-content {
-    display: block;
-}
-
-header .dropdown:hover .dropbtn {
-    color: var(--background);
-    background-color: var(--hover);
-}
-
-header .dropbtn2 {
-    background-color: var(--background);
-    margin-top: 2px;
     color: var(--color);
-    text-decoration: none;
-    display: block;
-    padding: 14px 16px;
-    text-align: center;
-    font-size: 76.2%;
-    border: none;
-}
-
-header .dropdown2 {
-    position: relative;
-    display: inline-block;
-}
-
-header .dropdown-content2 {
-    display: none;
-    position: absolute;
-    background-color: var(--background);
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-}
-
-header .dropdown-content2 a {
-    padding: 15.66px;
-    margin-top: 2px;
-    color: var(--color);
-    text-align: center;
-    text-decoration: none;
-    display: block;
-}
-
-header .dropdown-content2 a:hover {
-    background-color: var(--hover);
-}
-
-header .dropdown2:hover .dropdown-content2 {
-    display: block;
-}
-
-header .dropdown2:hover .dropbtn2 {
-    background-color: var(--hover);
-}
-
-header .dropbtn2:hover {
-    color: var(--background);
 }
 
 .active {
