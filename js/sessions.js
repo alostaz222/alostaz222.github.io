@@ -78,7 +78,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     for (let i = 0; i < buttons.length; i++) {
                         let button = buttons[i];
                         let btnName = button.getAttribute("data-name");
-                        console.log(btnName);
 
                         // naming and catecorization
                         if (btnName.includes('@')) {
