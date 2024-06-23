@@ -43,12 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function updatePopup() {
+        const stgGroups = document.getElementsByClassName('stgGroup');
         if (stage == "") {
             popupContainer.style.display = 'block';
+            for (let group of stgGroups) {
+                group.style.display = 'none'
+            }
         } else {
             popupContainer.style.display = 'none';
             console.log(stage);
-            const stgGroups = document.getElementsByClassName('stgGroup');
             for (let group of stgGroups) {
                 group.style.display = 'none'
             }
