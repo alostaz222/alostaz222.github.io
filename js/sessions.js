@@ -1,6 +1,7 @@
 let buttons = document.getElementsByClassName('Vbtn');
 let stage = "" ;
-let stgOpt = document.getElementById("stage").cloneNode(true);
+let stgOpt1 = document.getElementById('stage')
+let stgOpt = stgOpt1.cloneNode(true);
 
 // Get the popup container and content elements
 const popupContainer = document.querySelector('.popup-container');
@@ -11,14 +12,24 @@ document.addEventListener('DOMContentLoaded', () => {
     stgOpt.id = `${stgOpt.id}-C`
     container.prepend(stgOpt)
 
-// Add an event listener to the original stgOpt
-    document.getElementById("stage").addEventListener("input", (e) => {
+    // Add an event listener to the original stgOpt
+    stgOpt1.addEventListener("input", (e) => {
         stgOpt.value = e.target.value;
     });
 
     // Add an event listener to the duplicated stgOpt
     stgOpt.addEventListener("input", (e) => {
-        document.getElementById("stage").value = e.target.value;
+        stgOpt1.value = e.target.value;
+    });
+
+    stgOpt1.addEventListener("change", () => {
+        if (stgOpt1.value != "") {
+            stage = stgOpt1.value;
+            updatePopup()
+        } else {
+            updatePopup()
+            stage = ""
+        }
     });
 
     stgOpt.addEventListener("change", () => {
