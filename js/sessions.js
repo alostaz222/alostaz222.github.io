@@ -5,45 +5,49 @@ let stgOpt = document.getElementById("stage").cloneNode(true);
 // Get the popup container and content elements
 const popupContainer = document.querySelector('.popup-container');
 const popupContent = document.querySelector('.popup-content');
-const closeButton = document.querySelector('.close-popup');
+const container = document.querySelector('.container');
 
 document.addEventListener('DOMContentLoaded', () => {
     stgOpt.id = `${stgOpt.id}-C`
-popupContent.appendChild(stgOpt)
+    container.prepend(stgOpt)
 
 // Add an event listener to the original stgOpt
-document.getElementById("stage").addEventListener("input", (e) => {
-    stgOpt.value = e.target.value;
-});
+    document.getElementById("stage").addEventListener("input", (e) => {
+        stgOpt.value = e.target.value;
+    });
 
-  // Add an event listener to the duplicated stgOpt
+    // Add an event listener to the duplicated stgOpt
     stgOpt.addEventListener("input", (e) => {
-    document.getElementById("stage").value = e.target.value;
-});
+        document.getElementById("stage").value = e.target.value;
+    });
 
 
-stgOpt.addEventListener("change", () => {
-    document.getElementById('stage').value
-    if (stgOpt.value != "") {
-        stage = stgOpt.value;
-        updatePopup()
-    } else {
-        updatePopup()
-        stage = ""
+    stgOpt.addEventListener("change", () => {
+        document.getElementById('stage').value
+        if (stgOpt.value != "") {
+            stage = stgOpt.value;
+            updatePopup()
+        } else {
+            updatePopup()
+            stage = ""
+        }
+    });
+
+    function updatePopup() {
+        if (stage == "") {
+            popupContainer.style.display = 'block';
+        } else {
+            popupContainer.style.display = 'none';
+            console.log(stage);
+            const stgGroups = document.getElementsByClassName('stgGroup');
+            for (let group of stgGroups) {
+                group.style.display = 'none'
+            }
+            document.getElementById(`${stage}`).style.display = 'block'
+        }
     }
-    
-});
 
-function updatePopup() {
-    if (stage == "") {
-        popupContainer.style.display = 'block';
-    } else {
-        popupContainer.style.display = 'none';
-        console.log(stage);
-    }
-}
-
-updatePopup()
+    updatePopup()
 
     let video = document.getElementById('videoPlayer');
 
@@ -62,9 +66,12 @@ updatePopup()
                     for (let i = 0; i < buttons.length; i++) {
                         let button = buttons[i];
                         let btnName = button.getAttribute("data-name");
-                        console.log();
+                        console.log(btnName);
 
                         // naming and catecorization
+                        if (btnName.includes('@')) {
+                            console.log(indexOf('@'))
+                        }
                     }
             });
             addEventListenersToButtons(video);

@@ -46,4 +46,20 @@ body {
     /* Adjust the width as needed */
     margin: auto;
     /* Center the popup */
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+}
+
+.remember {
+    grid-column: 2;
+}
+
+#stage-C {
+    grid-column: 1;
 }
