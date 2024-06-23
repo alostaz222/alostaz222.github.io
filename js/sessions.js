@@ -21,9 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("stage").value = e.target.value;
     });
 
-
     stgOpt.addEventListener("change", () => {
-        document.getElementById('stage').value
         if (stgOpt.value != "") {
             stage = stgOpt.value;
             updatePopup()
