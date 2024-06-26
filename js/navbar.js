@@ -71,11 +71,11 @@ class SpecialVideo extends HTMLElement {
 class MetaGroup extends HTMLElement {
   connectedCallback() {
     const metaContent = `
-    <link rel="shortcut icon" href="/favicon/fav-ico.ico" type="image/x-icon" />
-    <link rel="icon" href="/favicon/fav-png(32).png" sizes="32x32" />
-    <link rel="icon" href="/favicon/fav-png(48).png" sizes="48x48" />
-    <link rel="icon" href="/favicon/fav-png(96).png" sizes="96x96" />
-    <link rel="icon" href="/favicon/fav-png(144).png" sizes="144x144" />
+    <link rel="shortcut icon" href="" type="image/x-icon" />
+    <link rel="icon" href="" sizes="32x32" />
+    <link rel="icon" href="" sizes="48x48" />
+    <link rel="icon" href="" sizes="96x96" />
+    <link rel="icon" href="" sizes="144x144" />
     `;
     head.insertAdjacentHTML("beforeend", metaContent);
   }

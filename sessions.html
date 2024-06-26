@@ -32,44 +32,55 @@
 
 <body>
     <special-header></special-header>
-    <main>
-        <!-- The popup container -->
-        <div class="popup-container">
-            <!-- The blur overlay -->
-            <div class="blur-overlay"></div>
-            <!-- The popup content -->
-            <div class="popup-content">
-                <h2>اختر الصف الدراسي ...</h2>
-                <div class="container">
-                    <div class="remember">
-                        <input type="checkbox" name="remember" id="remember">
-                        <label for="remember">حفظ</label>
+    <div class="main-container">
+        <div class="second-container">
+            <aside id="sidebar">
+                <div id="sidecontainer">
+                    <div class="stgGroup" id="4pm"></div>
+                    <div class="stgGroup" id="5pm"></div>
+                    <div class="stgGroup" id="6pm"></div>
+                    <div class="stgGroup" id="1pp"></div>
+                    <div class="stgGroup" id="2pp"></div>
+                    <div class="stgGroup" id="3pp"></div>
+                    <div class="stgGroup" id="1s"></div>
+                    <div class="stgGroup" id="2s"></div>
+                    <div class="stgGroup" id="3s"></div>
+                </div>
+            </aside>
+            <main>
+                <!-- The popup container -->
+                <div class="popup-container">
+                    <!-- The blur overlay -->
+                    <div class="blur-overlay"></div>
+                    <!-- The popup content -->
+                    <div class="popup-content">
+                        <h2>اختر الصف الدراسي ...</h2>
+                        <div class="container">
+                            <div class="remember">
+                                <input type="checkbox" name="remember" id="remember">
+                                <label for="remember">حفظ</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <div class="third-container">
+                    <h1 id="video-name"></h1>
+                    <div class="video-container">
+                        <special-video></special-video>
+                    </div>
+                    <div id="button">
+                        <button id="button3"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button id="button2">تم</button>
+                        <button id="button1"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                </div>
+            </main>
         </div>
-        <section id="sidebar">
-            <div id="sidecontainer">
-                <div class="stgGroup" id="4pm"></div>
-                <div class="stgGroup" id="5pm"></div>
-                <div class="stgGroup" id="6pm"></div>
-                <div class="stgGroup" id="1pp"></div>
-                <div class="stgGroup" id="2pp"></div>
-                <div class="stgGroup" id="3pp"></div>
-                <div class="stgGroup" id="1s"></div>
-                <div class="stgGroup" id="2s"></div>
-                <div class="stgGroup" id="3s"></div>
-            </div>
-        </section>
-        <div class="video-container">
-            <special-video></special-video>
-        </div>
-        <div id="button">
-            <button id="button1"><i class="fa-solid fa-arrow-right"></i></button>
-            <button id="button2">تم</button>
-            <button id="button3"><i class="fa-solid fa-arrow-left"></i></button>
-        </div>
-    </main>
+        <aside id="ads">
+            <p>نحن غير مسؤلين عن اي اعلان غير لائق</p>
+            <!-- ads -->
+        </aside>
+    </div>
     <special-footer></special-footer>
     <script type="module" src="/js/navbar.js"></script>
     <script type="module" src="/js/sessions.js"></script>

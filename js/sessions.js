@@ -2,6 +2,7 @@ let buttons = document.getElementsByClassName('Vbtn');
 let stage = "" ;
 let stgOpt1 = document.getElementById('stage')
 let stgOpt = stgOpt1.cloneNode(true);
+let videoName = document.getElementById('video-name');
 
 // Get the popup container and content elements
 const popupContainer = document.querySelector('.popup-container');
@@ -9,6 +10,12 @@ const popupContent = document.querySelector('.popup-content');
 const container = document.querySelector('.container');
 
 document.addEventListener('DOMContentLoaded', () => {
+
+    
+    if (videoName.innerHTML == "") {
+        videoName.innerHTML = stage;
+    }
+
     stgOpt.id = `${stgOpt.id}-C`
     container.prepend(stgOpt)
 
@@ -98,6 +105,7 @@ function addEventListenersToButtons(video) {
             let source = video.querySelector('source');
             if (source) {
                 source.src = url;
+                videoName.innerHTML = this.getAttribute('data-name');
                 video.load();  // Ensure the new video is loaded
             } else {
                 console.error('Source element not found.');
