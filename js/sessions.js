@@ -13,7 +13,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     
     if (videoName.innerHTML == "") {
-        videoName.innerHTML = stage;
+        videoName.style.display = 'none'
+    } else {
+        videoName.style.display = 'block'
     }
 
     stgOpt.id = `${stgOpt.id}-C`
