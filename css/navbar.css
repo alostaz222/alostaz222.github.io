@@ -190,15 +190,7 @@ footer {
 
 /* Responsive Design */
 
-@media all and (max-width: 480px) {
-    .second-container{
-        flex-direction: column;
-    }
-}
-
-
-
-
+/*------------------code------------------*/
 
 /* Extra small devices (phones, less than 480px) */
 /* @media (max-width: 479px) {} */
