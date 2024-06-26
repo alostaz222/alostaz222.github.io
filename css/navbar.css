@@ -25,7 +25,6 @@ body {
 /* header */
 
 header {
-    gap: 0px;
     direction: rtl;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     display: flex;
@@ -38,6 +37,7 @@ header {
 }
 
 header ul {
+    gap: 0px;
     list-style-type: none;
     margin: 0;
     padding: 0;
