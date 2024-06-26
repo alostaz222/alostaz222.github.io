@@ -10,7 +10,6 @@
 
 * {
     box-sizing: border-box;
-    gap: 10px;
 }
 
 body {
@@ -79,6 +78,7 @@ option {
 /* Main Content */
 
 .main-container {
+    gap: 10px;
     display: flex;
     flex-direction: column;
     flex: 1;
