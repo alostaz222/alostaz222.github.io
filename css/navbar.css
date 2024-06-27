@@ -180,6 +180,10 @@ video {
     border-radius: 8px; /* Rounded corners */
 }
 
+#button button p {
+    display: inline;
+}
+
 #button button:hover {
     background-color: #45a049; /* Darker green on hover */
 }
