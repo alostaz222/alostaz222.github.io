@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function updatePopup() {
         const stgGroups = document.getElementsByClassName('stgGroup');
         if (stage == "") {
-            popupContainer.style.display = 'block';
+            popupContainer.style.display = 'flex';
             for (let group of stgGroups) {
                 group.style.display = 'none'
             }
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let group of stgGroups) {
                 group.style.display = 'none'
             }
-            document.getElementById(`${stage}`).style.display = 'block'
+            document.getElementById(`${stage}`).style.display = 'flex'
         }
     }
 
