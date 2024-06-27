@@ -20,7 +20,7 @@ body {
     /* Hide by default */
     z-index: 1;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
 }
@@ -48,7 +48,7 @@ body {
     margin: auto;
     /* Center the popup */
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
 }
 
 .container {
