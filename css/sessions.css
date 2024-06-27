@@ -53,7 +53,7 @@ body {
 }
 
 .remember {
-    order: 1; /* Ensure this appears first */
+    order: 2; /* Ensure this appears first */
 }
 
 #stage-C {
