@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } else {
             popupContainer.style.display = 'none';
-            console.log(stage);
             for (let group of stgGroups) {
                 group.style.display = 'none'
             }
@@ -111,7 +110,6 @@ function addEventListenersToButtons(video) {
                 video.load();  // Ensure the new video is loaded
             } else {
                 console.error('Source element not found.');
-                console.log(url);
             }
         });
     }

@@ -51,15 +51,7 @@ body {
 }
 
 .container {
-    display: grid;
-    grid-template-columns: 1fr auto;
+    display: flex;
+    flex-direction: column-reverse;
     gap: 10px;
-}
-
-.remember {
-    grid-column: 2;
-}
-
-#stage-C {
-    grid-column: 1;
 }
