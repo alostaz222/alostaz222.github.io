@@ -89,7 +89,7 @@ head.appendChild(metaGroup)
 customElements.define("special-header", SpecialHeader);
 customElements.define("special-footer", SpecialFooter);
 customElements.define("special-video", SpecialVideo);
-customElements.define("meta-group", MetaGroup);
+// customElements.define("meta-group", MetaGroup);
 
 
 
