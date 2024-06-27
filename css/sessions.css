@@ -49,13 +49,20 @@ body {
 
 .container {
     display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
 .remember {
-    order: 2; /* Ensure this appears first */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.checkbox {
+    flex-shrink: 0;
 }
 
 #stage-C {
-    flex: 1; /* Take the remaining space */
+    flex-grow: 1;
 }
