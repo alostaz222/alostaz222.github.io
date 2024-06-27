@@ -68,18 +68,18 @@ class SpecialVideo extends HTMLElement {
   }
 }
 
-class MetaGroup extends HTMLElement {
-  connectedCallback() {
-    const metaContent = `
-    <link rel="shortcut icon" href="" type="image/x-icon" />
-    <link rel="icon" href="" sizes="32x32" />
-    <link rel="icon" href="" sizes="48x48" />
-    <link rel="icon" href="" sizes="96x96" />
-    <link rel="icon" href="" sizes="144x144" />
-    `;
-    head.insertAdjacentHTML("beforeend", metaContent);
-  }
-}
+// class MetaGroup extends HTMLElement {
+//   connectedCallback() {
+//     const metaContent = `
+//     <link rel="shortcut icon" href="" type="image/x-icon" />
+//     <link rel="icon" href="" sizes="32x32" />
+//     <link rel="icon" href="" sizes="48x48" />
+//     <link rel="icon" href="" sizes="96x96" />
+//     <link rel="icon" href="" sizes="144x144" />
+//     `;
+//     head.insertAdjacentHTML("beforeend", metaContent);
+//   }
+// }
 
 
 
