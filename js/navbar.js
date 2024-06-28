@@ -35,7 +35,7 @@ class SpecialHeader extends HTMLElement {
                 <ul class="sec">
                     <li class="showS" id="showS">
                         <i class="material-icons" id="sideOpen">menu_open</i>
-                        <i class="material-icons hide" id="sideClose">keyboard_tab</i>
+                        <i class="material-icons" id="sideClose">keyboard_tab</i>
                     </li>
                 </ul>
             </header>
@@ -97,7 +97,7 @@ customElements.define("special-header", SpecialHeader);
 customElements.define("special-footer", SpecialFooter);
 customElements.define("special-video", SpecialVideo);
 
-document.addEventListener('DOMContentLoaded', function() {
+// document.addEventListener('DOMContentLoaded', function() {
     let sideOpen = document.getElementById('sideOpen');
     let sidebar = document.getElementById('sidebar');
     let thirdContainer = document.getElementById('third-container'); 
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         sidebar.style.display = 'flex';
     }
-});
+// });
 
 if (window.location.pathname == '/sessions') {
     document.getElementById('stage').style.display = 'block';
