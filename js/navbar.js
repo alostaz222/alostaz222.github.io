@@ -110,10 +110,10 @@ customElements.define("special-header", SpecialHeader);
 customElements.define("special-footer", SpecialFooter);
 customElements.define("special-video", SpecialVideo);
 
-// if (window.location.pathname == '/sessions') {
-//     document.getElementById('stage').style.display = 'block';
-//     document.getElementById('showS').style.display = 'inline';
-// } else {
-//     document.getElementById('stage').style.display = 'none';
-//     document.getElementById('showS').style.display = 'none';
-// }
+if (window.location.pathname == '/sessions') {
+    document.getElementById('stage').style.display = 'block';
+    document.getElementById('showS').style.display = 'inline';
+} else {
+    document.getElementById('stage').style.display = 'none';
+    document.getElementById('showS').style.display = 'none';
+}
