@@ -76,7 +76,7 @@ header li a, #stage, .material-icons {
     color: var(--background);
 }
 
-.material-icons.hide {
+.hide {
     display: none;
 }
 
