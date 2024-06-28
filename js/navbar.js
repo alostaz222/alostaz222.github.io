@@ -35,7 +35,7 @@ class SpecialHeader extends HTMLElement {
                 <ul class="sec">
                     <li class="showS" id="showS">
                         <i class="material-icons" id="sideOpen">menu_open</i>
-                        <i class="material-icons" id="sideClose">keyboard_tab</i>
+                        <i class="material-icons hide" id="sideClose">keyboard_tab</i>
                     </li>
                 </ul>
             </header>
