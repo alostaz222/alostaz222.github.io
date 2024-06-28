@@ -46,6 +46,10 @@ header {
     font-size: 15px;
 }
 
+.headerShow {
+    display: none;
+}
+
 #showMenu {
     display: none;
 }
@@ -245,6 +249,7 @@ footer {
     }
 
     .mainHeader {
+        display: flex;
         width: 50%;
         display: none;
         position: absolute;
@@ -264,24 +269,6 @@ footer {
 
     #showMenu {
         display: block;
-    }
-}
-
-@media screen and (min-width: 768px) {
-    .mainHeader {
-        display: flex;
-    }
-
-    .headerShow {
-        display: none;
-    }
-
-    #showMenu {
-        display: none;
-    }
-
-    #hideMenu {
-        display: none;
     }
 }
 
