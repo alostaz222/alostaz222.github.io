@@ -34,8 +34,8 @@ class SpecialHeader extends HTMLElement {
                 </nav>
                 <ul class="sec">
                     <li class="showS" id="showS">
-                        <i class="material-icons" id="sideOpen">menu_open</i>
-                        <i class="material-icons" id="sideClose">keyboard_tab</i>
+                        <i class="material-icons">menu_open</i>
+                        <i class="material-icons hide">keyboard_tab</i>
                     </li>
                 </ul>
             </header>
@@ -46,28 +46,6 @@ class SpecialHeader extends HTMLElement {
             if (item.href === window.location.href) {
                 item.parentElement.classList.add('active');
             }
-        });
-
-
-        document.addEventListener('DOMContentLoaded', function() {
-            let sideOpen = document.getElementById('sideOpen');
-            let sideClose = document.getElementById('sideClose');
-            let sidebar = document.getElementById('sidebar');
-            let thirdContainer = document.getElementById('third-container'); // Assuming this is your third-container element
-        
-            sideOpen.addEventListener('click', function() {
-                sidebar.style.display = 'flex'; // Show sidebar when sideOpen is clicked
-                sideOpen.classList.add('hide'); // Hide sideOpen icon
-                sideClose.classList.remove('hide'); // Show sideClose icon
-                thirdContainer.style.marginRight = ''; // Reset margin right
-            });
-        
-            sideClose.addEventListener('click', function() {
-                sidebar.style.display = 'none'; // Hide sidebar when sideClose is clicked
-                sideOpen.classList.remove('hide'); // Show sideOpen icon
-                sideClose.classList.add('hide'); // Hide sideClose icon
-                thirdContainer.style.marginRight = '12px'; // Adjust margin right as needed
-            });
         });
     }
 }
@@ -97,22 +75,10 @@ customElements.define("special-header", SpecialHeader);
 customElements.define("special-footer", SpecialFooter);
 customElements.define("special-video", SpecialVideo);
 
-// document.addEventListener('DOMContentLoaded', function() {
-    let sideOpen = document.getElementById('sideOpen');
-    let sidebar = document.getElementById('sidebar');
-    let thirdContainer = document.getElementById('third-container'); 
-    if (sideOpen.style.display !== 'none') {
-        sidebar.style.display = 'none';
-        thirdContainer.style.marginRight = '12px'; 
-    } else {
-        sidebar.style.display = 'flex';
-    }
-// });
-
-if (window.location.href == 'alostaz222.github.io/sessions') {
-    document.getElementById('stage').style.display = 'block';
-    document.getElementById('showS').style.display = 'inline';
-} else {
-    document.getElementById('stage').style.display = 'none';
-    document.getElementById('showS').style.display = 'none';
-}
+// if (window.location.pathname == '/sessions') {
+//     document.getElementById('stage').style.display = 'block';
+//     document.getElementById('showS').style.display = 'inline';
+// } else {
+//     document.getElementById('stage').style.display = 'none';
+//     document.getElementById('showS').style.display = 'none';
+// }
