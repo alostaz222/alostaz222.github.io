@@ -245,7 +245,17 @@ footer {
     }
 
     .mainHeader {
+        width: 50%;
         display: none;
+        position: absolute;
+        height: 100%;
+        background-color: var(--background);
+        flex-direction: column;
+        z-index: 1;
+    }
+
+    .mainHeader li, #stage {
+        width: 100%;
     }
 
     .headerShow {
