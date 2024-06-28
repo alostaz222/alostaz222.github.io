@@ -76,10 +76,6 @@ header li a, #stage, .material-icons {
     color: var(--background);
 }
 
-.hide {
-    display: none;
-}
-
 header li a:hover, #stage:hover {
     background-color: var(--hover);
     color: var(--background);

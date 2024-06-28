@@ -55,7 +55,6 @@ class SpecialHeader extends HTMLElement {
 
             sideShow1.style.display = 'none'
 
-            let sideShow = document.getElementsByClassName('material-icons');
             let sidebar = document.getElementById('sidebar');
             let thirdContainer = document.getElementById('third-container');
 
@@ -72,6 +71,16 @@ class SpecialHeader extends HTMLElement {
                 sideShow2.style.display = 'none'
                 sideShow1.style.display = 'block'
             });
+
+            if (sidebar.style.display == 'none') {
+                sideShow1.style.display = 'block'
+                sideShow2.style.display = 'none'
+                thirdContainer.style.marginRight = '12px';
+            } else if (sidebar.style.display == 'flex') {
+                sideShow2.style.display = 'block'
+                sideShow1.style.display = 'none'
+                thirdContainer.style.marginRight = '0px';
+            }
         })
     }
 }
@@ -101,10 +110,10 @@ customElements.define("special-header", SpecialHeader);
 customElements.define("special-footer", SpecialFooter);
 customElements.define("special-video", SpecialVideo);
 
-if (window.location.pathname == '/sessions') {
-    document.getElementById('stage').style.display = 'block';
-    document.getElementById('showS').style.display = 'inline';
-} else {
-    document.getElementById('stage').style.display = 'none';
-    document.getElementById('showS').style.display = 'none';
-}
+// if (window.location.pathname == '/sessions') {
+//     document.getElementById('stage').style.display = 'block';
+//     document.getElementById('showS').style.display = 'inline';
+// } else {
+//     document.getElementById('stage').style.display = 'none';
+//     document.getElementById('showS').style.display = 'none';
+// }
