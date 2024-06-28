@@ -33,7 +33,7 @@ class SpecialHeader extends HTMLElement {
                     </ul>
                 </nav>
                 <ul class="sec">
-                    <li class="showS">
+                    <li class="showS" id="showS">
                         <i class="material-icons" id="sideOpen">menu_open</i>
                         <i class="material-icons hide" id="sideClose">keyboard_tab</i>
                     </li>
@@ -110,13 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     if (window.location.pathname == '/sessions') {
         document.getElementById('stage').style.display = 'block';
-        document.querySelectorAll('.material-icons').forEach(function(item) {
-            item.style.display = 'inline';
-        });
+        document.getElementById('showS').style.display = 'inline';
     } else {
         document.getElementById('stage').style.display = 'none';
-        document.querySelectorAll('.material-icons').forEach(function(item) {
-            item.style.display = 'none';
-        });
+        document.getElementById('showS').style.display = 'none';
     }
 });
