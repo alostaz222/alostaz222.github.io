@@ -5,7 +5,11 @@ class SpecialHeader extends HTMLElement {
         this.innerHTML = `
             <header class="header">
                 <nav>
-                    <ul>
+                    <ul class="headerShow">
+                        <li><i class="material-icons" id='showMenu'>menu</i></li>
+                        <li><i class="material-icons" id='hideMenu'>close</i></li>
+                    </ul>
+                    <ul class="mainHeader" id="mainHeader">
                         <li class="nav"><a href="/">الصفحة الرئيسية</a></li>
                         <li class="nav"><a href="/sessions">المحاضرات</a></li>
                         <li class="nav">
@@ -52,11 +56,13 @@ class SpecialHeader extends HTMLElement {
 
             let sideShow1 = document.getElementById('sideShow1');
             let sideShow2 = document.getElementById('sideShow2');
-
-            sideShow1.style.display = 'none'
-
             let sidebar = document.getElementById('sidebar');
             let thirdContainer = document.getElementById('third-container');
+            let showMenu = document.getElementById('showMenu');
+            let hideMenu = document.getElementById('hideMenu');
+            let menu = document.getElementById('mainMenu');
+            
+            sideShow1.style.display = 'none'
 
             sideShow1.addEventListener( 'click', () => {
                 sidebar.style.display = 'flex';
@@ -81,6 +87,22 @@ class SpecialHeader extends HTMLElement {
                 sideShow1.style.display = 'none'
                 thirdContainer.style.marginRight = '0px';
             }
+
+            // show/hide menu
+
+            hideMenu.style.display = "none";
+
+            showMenu.addEventListener( 'click', () => {
+                menu.style.display = 'flex';
+                showMenu.style.display = 'none'
+                hideMenu.style.display = 'block'
+            });
+
+            hideMenu.addEventListener( 'click', () => {
+                menu.style.display = 'none';
+                hideMenu.style.display = 'none'
+                showMenu.style.display = 'block'
+            });
         })
     }
 }
@@ -110,10 +132,10 @@ customElements.define("special-header", SpecialHeader);
 customElements.define("special-footer", SpecialFooter);
 customElements.define("special-video", SpecialVideo);
 
-if (window.location.pathname == '/sessions') {
-    document.getElementById('stage').style.display = 'block';
-    document.getElementById('showS').style.display = 'inline';
-} else {
-    document.getElementById('stage').style.display = 'none';
-    document.getElementById('showS').style.display = 'none';
-}
+// if (window.location.pathname == '/sessions') {
+//     document.getElementById('stage').style.display = 'block';
+//     document.getElementById('showS').style.display = 'inline';
+// } else {
+//     document.getElementById('stage').style.display = 'none';
+//     document.getElementById('showS').style.display = 'none';
+// }

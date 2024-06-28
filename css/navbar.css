@@ -46,6 +46,14 @@ header {
     font-size: 15px;
 }
 
+#showMenu {
+    display: none;
+}
+
+#hideMenu {
+    display: none;
+}
+
 header ul {
     gap: 0px;
     list-style-type: none;
@@ -234,6 +242,18 @@ footer {
 
     .third-container {
         margin-right: 12px;
+    }
+
+    .mainHeader {
+        display: none;
+    }
+
+    .headerShow {
+        display: flex;
+    }
+
+    #showMenu {
+        display: block;
     }
 }
 
