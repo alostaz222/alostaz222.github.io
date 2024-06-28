@@ -60,7 +60,7 @@ class SpecialHeader extends HTMLElement {
             let thirdContainer = document.getElementById('third-container');
             let showMenu = document.getElementById('showMenu');
             let hideMenu = document.getElementById('hideMenu');
-            let menu = document.getElementById('mainMenu');
+            let menu = document.getElementById('mainHeader');
             
             sideShow1.style.display = 'none'
 
