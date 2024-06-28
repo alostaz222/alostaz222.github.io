@@ -61,7 +61,7 @@ class SpecialHeader extends HTMLElement {
             let showMenu = document.getElementById('showMenu');
             let hideMenu = document.getElementById('hideMenu');
             let menu = document.getElementById('mainHeader');
-            
+
             sideShow1.addEventListener('click', () => {
                 sidebar.style.display = 'flex';
                 thirdContainer.style.marginRight = '0px';
@@ -99,17 +99,26 @@ class SpecialHeader extends HTMLElement {
 
             hideMenu.style.display = "none";
 
-            showMenu.addEventListener( 'click', () => {
+            showMenu.addEventListener('click', () => {
                 menu.style.display = 'flex';
-                showMenu.style.display = 'none'
-                hideMenu.style.display = 'block'
+                showMenu.style.display = 'none';
+                hideMenu.style.display = 'block';
             });
-
-            hideMenu.addEventListener( 'click', () => {
+        
+            hideMenu.addEventListener('click', () => {
                 menu.style.display = 'none';
-                hideMenu.style.display = 'none'
-                showMenu.style.display = 'block'
+                hideMenu.style.display = 'none';
+                showMenu.style.display = 'block';
             });
+        
+            // Check initial state of mainHeader to sync with show/hide menu buttons
+            if (menu.style.display === 'none') {
+                showMenu.style.display = 'block';
+                hideMenu.style.display = 'none';
+            } else if (menu.style.display === 'flex') {
+                showMenu.style.display = 'none';
+                hideMenu.style.display = 'block';
+            }
         })
     }
 }
