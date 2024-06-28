@@ -257,6 +257,24 @@ footer {
     }
 }
 
+@media screen and (min-width: 768px) {
+    .mainHeader {
+        display: flex;
+    }
+
+    .headerShow {
+        display: none;
+    }
+
+    #showMenu {
+        display: none;
+    }
+
+    #hideMenu {
+        display: none;
+    }
+}
+
 
 /* Extra small devices (phones, less than 480px) */
 /* @media (max-width: 479px) {} */
