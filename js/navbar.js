@@ -77,7 +77,8 @@ class SpecialHeader extends HTMLElement {
             });
         
             // Check if sidebar is visible initially for smaller screens
-            if (window.matchMedia('(max-width: 767px)').matches) {
+            if (window.location.pathname == '/sessions' || window.location.pathname == '/sessions.html') {
+                if (window.matchMedia('(max-width: 767px)').matches) {
                 sidebar.style.display = 'none';
                 sideShow1.style.display = 'block';
                 sideShow2.style.display = 'none';
@@ -93,7 +94,7 @@ class SpecialHeader extends HTMLElement {
                     sideShow1.style.display = 'none';
                     thirdContainer.style.marginRight = '0px';
                 }
-            }
+            }}
 
             // show/hide menu
 
@@ -148,10 +149,10 @@ customElements.define("special-header", SpecialHeader);
 customElements.define("special-footer", SpecialFooter);
 customElements.define("special-video", SpecialVideo);
 
-// if (window.location.pathname == '/sessions') {
-//     document.getElementById('stage').style.display = 'block';
-//     document.getElementById('showS').style.display = 'inline';
-// } else {
-//     document.getElementById('stage').style.display = 'none';
-//     document.getElementById('showS').style.display = 'none';
-// }
+if (window.location.pathname == '/sessions' || window.location.pathname == '/sessions.html') {
+    document.getElementById('stage').style.display = 'block';
+    document.getElementById('showS').style.display = 'inline';
+} else {
+    document.getElementById('stage').style.display = 'none';
+    document.getElementById('showS').style.display = 'none';
+}
