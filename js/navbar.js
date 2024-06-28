@@ -34,8 +34,8 @@ class SpecialHeader extends HTMLElement {
                 </nav>
                 <ul class="sec">
                     <li class="showS" id="showS">
-                        <i class="material-icons">menu_open</i>
-                        <i class="material-icons hide">keyboard_tab</i>
+                        <i class="material-icons" id="sideShow1">menu_open</i>
+                        <i class="material-icons" id="sideShow2">keyboard_tab</i>
                     </li>
                 </ul>
             </header>
@@ -47,6 +47,32 @@ class SpecialHeader extends HTMLElement {
                 item.parentElement.classList.add('active');
             }
         });
+
+        document.addEventListener('DOMContentLoaded', () =>{
+
+            let sideShow1 = document.getElementById('sideShow1');
+            let sideShow2 = document.getElementById('sideShow2');
+
+            sideShow1.style.display = 'none'
+
+            let sideShow = document.getElementsByClassName('material-icons');
+            let sidebar = document.getElementById('sidebar');
+            let thirdContainer = document.getElementById('third-container');
+
+            sideShow1.addEventListener( 'click', () => {
+                sidebar.style.display = 'flex';
+                thirdContainer.style.marginRight = '0px';
+                sideShow1.style.display = 'none'
+                sideShow2.style.display = 'block'
+            });
+
+            sideShow2.addEventListener( 'click', () => {
+                sidebar.style.display = 'none';
+                thirdContainer.style.marginRight = '12px';
+                sideShow2.style.display = 'none'
+                sideShow1.style.display = 'block'
+            });
+        })
     }
 }
 
@@ -75,10 +101,10 @@ customElements.define("special-header", SpecialHeader);
 customElements.define("special-footer", SpecialFooter);
 customElements.define("special-video", SpecialVideo);
 
-// if (window.location.pathname == '/sessions') {
-//     document.getElementById('stage').style.display = 'block';
-//     document.getElementById('showS').style.display = 'inline';
-// } else {
-//     document.getElementById('stage').style.display = 'none';
-//     document.getElementById('showS').style.display = 'none';
-// }
+if (window.location.pathname == '/sessions') {
+    document.getElementById('stage').style.display = 'block';
+    document.getElementById('showS').style.display = 'inline';
+} else {
+    document.getElementById('stage').style.display = 'none';
+    document.getElementById('showS').style.display = 'none';
+}
