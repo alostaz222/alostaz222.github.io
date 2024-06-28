@@ -62,30 +62,37 @@ class SpecialHeader extends HTMLElement {
             let hideMenu = document.getElementById('hideMenu');
             let menu = document.getElementById('mainHeader');
             
-            sideShow1.style.display = 'none'
-
-            sideShow1.addEventListener( 'click', () => {
+            sideShow1.addEventListener('click', () => {
                 sidebar.style.display = 'flex';
                 thirdContainer.style.marginRight = '0px';
-                sideShow1.style.display = 'none'
-                sideShow2.style.display = 'block'
+                sideShow1.style.display = 'none';
+                sideShow2.style.display = 'block';
             });
-
-            sideShow2.addEventListener( 'click', () => {
+        
+            sideShow2.addEventListener('click', () => {
                 sidebar.style.display = 'none';
                 thirdContainer.style.marginRight = '12px';
-                sideShow2.style.display = 'none'
-                sideShow1.style.display = 'block'
+                sideShow2.style.display = 'none';
+                sideShow1.style.display = 'block';
             });
-
-            if (sidebar.style.display == 'none') {
-                sideShow1.style.display = 'block'
-                sideShow2.style.display = 'none'
+        
+            // Check if sidebar is visible initially for smaller screens
+            if (window.matchMedia('(max-width: 767px)').matches) {
+                sidebar.style.display = 'none';
+                sideShow1.style.display = 'block';
+                sideShow2.style.display = 'none';
                 thirdContainer.style.marginRight = '12px';
-            } else if (sidebar.style.display == 'flex') {
-                sideShow2.style.display = 'block'
-                sideShow1.style.display = 'none'
-                thirdContainer.style.marginRight = '0px';
+            } else {
+                // Default behavior for larger screens
+                if (sidebar.style.display === 'none') {
+                    sideShow1.style.display = 'block';
+                    sideShow2.style.display = 'none';
+                    thirdContainer.style.marginRight = '12px';
+                } else if (sidebar.style.display === 'flex') {
+                    sideShow2.style.display = 'block';
+                    sideShow1.style.display = 'none';
+                    thirdContainer.style.marginRight = '0px';
+                }
             }
 
             // show/hide menu
