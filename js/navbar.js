@@ -1,4 +1,5 @@
 const head = document.head;
+let sidebar = document.getElementById('sidebar');
 
 class SpecialHeader extends HTMLElement {
   connectedCallback() {
@@ -33,9 +34,12 @@ class SpecialHeader extends HTMLElement {
                     <li class="nav"><a href="/contact">تواصل معنا</a></li>
                   </ul>
               </nav>
-              <!-- <ul class="sec">
-                  Account
-              </ul> -->
+              <ul class="sec">
+                <li class="showS">
+                  <i class="material-icons" onclick="sidebarS()">menu_open</i>
+                  <i class="material-icons hide" onclick="sidebarH()">keyboard_tab</i>
+                </li>
+              </ul>
             </header>
         `;
     const listItems = this.querySelectorAll('.nav a');
@@ -44,6 +48,17 @@ class SpecialHeader extends HTMLElement {
         item.parentElement.classList.add('active');
       }
     })
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const navBtn = document.querySelectorAll('.material-icons');
+      navBtn.forEach(function(item) {
+          item.addEventListener('click', function() {
+            this.parentElement.querySelectorAll('.material-icons').forEach(icon => {
+                icon.classList.toggle('hide');
+            });
+          });
+      });
+    });
   }
 }
 
@@ -83,8 +98,8 @@ class SpecialVideo extends HTMLElement {
 
 
 
-let metaGroup = document.createElement("meta-group");
-head.appendChild(metaGroup)
+// let metaGroup = document.createElement("meta-group");
+// head.appendChild(metaGroup)
 
 customElements.define("special-header", SpecialHeader);
 customElements.define("special-footer", SpecialFooter);
@@ -93,8 +108,26 @@ customElements.define("special-video", SpecialVideo);
 
 
 
-if (window.location.pathname == '/sessions') {
-  document.getElementById('stage').style.display = 'block'
-} else {
-  document.getElementById('stage').style.display = 'none'
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.location.pathname == '/sessions') {
+      document.getElementById('stage').style.display = 'block';
+      document.querySelectorAll('.material-icons').forEach(function(item) {
+          item.style.display = 'inline';
+      });
+  } else {
+      document.getElementById('stage').style.display = 'none';
+      document.querySelectorAll('.material-icons').forEach(function(item) {
+          item.style.display = 'none';
+      });
+  }
+});
+
+let sidebarS = () =>{
+  sidebar.style.display = 'flex'
+}
+
+let sidebarH = () =>{
+  sidebar.style.display = 'none'
 }

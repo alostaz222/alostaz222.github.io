@@ -3,7 +3,6 @@ body {
     padding: 0;
     display: flex;
     background-color: var(--background);
-    width: 100%;
     overflow-x: hidden;
 }
 
@@ -61,4 +60,50 @@ body {
 
 #stage-C {
     flex: 1;
+    cursor: pointer;
+}
+
+#sidecontainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between groups */
+    flex: 1;
+}
+
+/* Style for the main groups */
+.mainG {
+    background-color: #f9f9f9; /* Light background color for groups */
+    border: 1px solid #ddd; /* Light border for separation */
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style for sub groups */
+.subG {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd; /* Divider between items */
+    margin-right: 20px;
+}
+
+.subG:last-child {
+    border-bottom: none; /* No divider for the last item */
+}
+
+/* Link styling within sub groups */
+.subG a {
+    flex: 1;
+    text-decoration: none;
+    color: #007bff; /* Link color */
+    padding-right: 10px; /* Space between link and checkbox */
+    direction: rtl;
+}
+
+/* Checkbox styling */
+.subG input[type="checkbox"] {
+    margin-left: 10px; /* Space between checkbox and link */
 }
