@@ -3,13 +3,16 @@ const head = document.head;
 class SpecialHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
-            <header class="header">
+            <header class="header" id="header">
                 <nav>
                     <ul class="headerShow">
                         <li><i class="material-icons" id='showMenu'>menu</i></li>
                         <li><i class="material-icons" id='hideMenu'>close</i></li>
                     </ul>
                     <ul class="mainHeader" id="mainHeader">
+                        <div class="headerShow">
+                            <li><i class="material-icons" id='hideMenuInner'>close</i></li>
+                        </div>
                         <li class="nav"><a href="/">الصفحة الرئيسية</a></li>
                         <li class="nav"><a href="/sessions">المحاضرات</a></li>
                         <li class="nav">
@@ -52,16 +55,17 @@ class SpecialHeader extends HTMLElement {
             }
         });
 
-        document.addEventListener('DOMContentLoaded', () =>{
-
+        document.addEventListener('DOMContentLoaded', () => {
             let sideShow1 = document.getElementById('sideShow1');
             let sideShow2 = document.getElementById('sideShow2');
             let sidebar = document.getElementById('sidebar');
             let thirdContainer = document.getElementById('third-container');
             let showMenu = document.getElementById('showMenu');
             let hideMenu = document.getElementById('hideMenu');
+            let hideMenuInner = document.getElementById('hideMenuInner');
             let menu = document.getElementById('mainHeader');
-
+            // let header = document.getElementById('header');
+        
             sideShow1.addEventListener('click', () => {
                 sidebar.style.display = 'flex';
                 thirdContainer.style.marginRight = '0px';
@@ -79,35 +83,40 @@ class SpecialHeader extends HTMLElement {
             // Check if sidebar is visible initially for smaller screens
             if (window.location.pathname == '/sessions' || window.location.pathname == '/sessions.html') {
                 if (window.matchMedia('(max-width: 767px)').matches) {
-                sidebar.style.display = 'none';
-                sideShow1.style.display = 'block';
-                sideShow2.style.display = 'none';
-                thirdContainer.style.marginRight = '12px';
-            } else {
-                // Default behavior for larger screens
-                if (sidebar.style.display === 'none') {
+                    sidebar.style.display = 'none';
                     sideShow1.style.display = 'block';
                     sideShow2.style.display = 'none';
                     thirdContainer.style.marginRight = '12px';
-                } else if (sidebar.style.display === 'flex') {
-                    sideShow2.style.display = 'block';
-                    sideShow1.style.display = 'none';
+                } else {
+                    // Default behavior for larger screens
+                    sidebar.style.display = 'flex';
+                    sideShow1.style.display = 'block';
+                    sideShow2.style.display = 'none';
                     thirdContainer.style.marginRight = '0px';
                 }
-            }}
-
-            // show/hide menu
-
+            }
+        
+            // Show/hide menu
             hideMenu.style.display = "none";
-
+            hideMenu.style.display = 'none';
+        
             showMenu.addEventListener('click', () => {
                 menu.style.display = 'flex';
                 showMenu.style.display = 'none';
                 hideMenu.style.display = 'block';
+                hideMenuInner.style.display = 'block';
             });
         
             hideMenu.addEventListener('click', () => {
                 menu.style.display = 'none';
+                hideMenu.style.display = 'none';
+                hideMenu.style.display = 'none';
+                showMenu.style.display = 'block';
+            });
+
+            hideMenuInner.addEventListener('click', () => {
+                menu.style.display = 'none';
+                hideMenu.style.display = 'none';
                 hideMenu.style.display = 'none';
                 showMenu.style.display = 'block';
             });
@@ -116,11 +125,14 @@ class SpecialHeader extends HTMLElement {
             if (menu.style.display === 'none') {
                 showMenu.style.display = 'block';
                 hideMenu.style.display = 'none';
+                hideMenuInner.style.display = 'none';
             } else if (menu.style.display === 'flex') {
                 showMenu.style.display = 'none';
                 hideMenu.style.display = 'block';
+                hideMenuInner.style.display = 'block';
             }
-        })
+        });
+        
     }
 }
 
