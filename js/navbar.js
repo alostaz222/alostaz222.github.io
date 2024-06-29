@@ -90,8 +90,8 @@ class SpecialHeader extends HTMLElement {
                 } else {
                     // Default behavior for larger screens
                     sidebar.style.display = 'flex';
-                    sideShow1.style.display = 'block';
-                    sideShow2.style.display = 'none';
+                    sideShow1.style.display = 'none';
+                    sideShow2.style.display = 'block';
                     thirdContainer.style.marginRight = '0px';
                 }
             }
