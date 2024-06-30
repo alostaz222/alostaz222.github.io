@@ -335,6 +335,31 @@ footer {
     }
 }
 
+@media (max-width: 374px) {
+    .third-container {
+        margin-left: 12px; /* Remove left margin */
+        padding: 10px; /* Adjust padding if needed */
+    }
+
+    #sidebar {
+        margin-right: 0; /* Remove right margin */
+        display: none; /* Optionally hide sidebar on very small screens */
+    }
+
+    #ads {
+        margin-left: 0px 12px; /* Adjust margins for ads section */
+    }
+
+    .main-container {
+        flex-direction: column; /* Stack elements vertically */
+    }
+
+    .second-container {
+        flex-direction: column; /* Stack elements vertically */
+    }
+}
+
+
 /* Extra small devices (phones, less than 480px) */
 /* @media (max-width: 479px) {} */
 
