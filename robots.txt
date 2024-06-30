@@ -1,0 +1,14 @@
+# Allow all web crawlers to access all content
+User-agent: *
+Disallow:
+
+# Block web crawlers from accessing certain pages
+Disallow: /404
+Disallow: /account
+
+# Allow specific web crawlers to access everything
+User-agent: Googlebot
+Disallow:
+
+# Sitemap location
+Sitemap: https://alostaz222.github.io/sitemap.xml
