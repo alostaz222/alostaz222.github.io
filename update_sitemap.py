@@ -9,6 +9,7 @@ base_url = 'https://alostaz222.github.io'
 
 # Define the name of the sitemap file
 sitemap_file = os.path.join(root_dir, 'sitemap.xml')
+stylesheet_path = 'sitemap.xsl'  # Define the path to your stylesheet
 
 # List of file extensions to include in the sitemap
 valid_extensions = ['.html', '.htm']
@@ -67,6 +68,17 @@ def generate_sitemap(url_entries):
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{"".join(url_entries)}
 </urlset>'''
 
+# Function to add the stylesheet reference
+def add_stylesheet_reference(sitemap_path, stylesheet_path):
+    with open(sitemap_path, 'r', encoding='UTF-8') as file:
+        lines = file.readlines()
+
+    if '<?xml-stylesheet' not in lines[1]:
+        lines.insert(1, f'<?xml-stylesheet type="text/xsl" href="{stylesheet_path}"?>\n')
+
+    with open(sitemap_path, 'w', encoding='UTF-8') as file:
+        file.writelines(lines)
+
 # Generate URL entries by scanning the root directory
 url_entries = scan_directory(root_dir, base_url)
 
@@ -76,5 +88,8 @@ sitemap_xml = generate_sitemap(url_entries)
 # Write the sitemap XML to the sitemap file
 with open(sitemap_file, 'w') as file:
     file.write(sitemap_xml)
+
+# Add the stylesheet reference to the sitemap file
+add_stylesheet_reference(sitemap_file, stylesheet_path)
 
 print(f'Sitemap updated and saved to {sitemap_file}')
