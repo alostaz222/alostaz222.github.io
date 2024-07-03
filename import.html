@@ -1,0 +1,32 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destination Page</title>
+</head>
+<body>
+    <div id="imported-section">
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function importContent() {
+                fetch('sessions.html')
+                    .then(response => response.text())
+                    .then(data => {
+                        const parser = new DOMParser();
+                        const doc = parser.parseFromString(data, 'text/html');
+                        const sectionToImport = doc.getElementsByClassName('main-container');
+                        if (sectionToImport) {
+                            const importedSection = document.getElementById('imported-section');
+                            importedSection.innerHTML = '';
+                            importedSection.appendChild(sectionToImport);
+                        }
+                    })
+                    .catch(error => console.error('Error importing content:', error));
+            }
+            importContent();
+        });
+    </script>
+</body>
+</html> -->
