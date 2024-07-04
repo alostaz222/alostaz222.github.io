@@ -4,7 +4,6 @@ Disallow:
 
 # Block web crawlers from accessing certain pages
 Disallow: /404
-Disallow: /account
 
 # Allow specific web crawlers to access everything
 User-agent: Googlebot
