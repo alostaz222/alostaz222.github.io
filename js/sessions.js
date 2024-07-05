@@ -1,5 +1,5 @@
 let buttons = document.getElementsByClassName('Vbtn');
-let stage = "" ;
+let stage = "";
 let stgOpt1 = document.getElementById('stage')
 let stgOpt = stgOpt1.cloneNode(true);
 let videoName = document.getElementById('video-name');
@@ -11,7 +11,6 @@ const container = document.querySelector('.container');
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    
     if (videoName.innerHTML == "") {
         videoName.style.display = 'none'
     } else {
@@ -75,22 +74,22 @@ document.addEventListener('DOMContentLoaded', () => {
         .then((res) => res.json())
         .then((data) => {
             data.forEach(e => {
-                    let sidebar = document.getElementById('sidecontainer');
-                    let name = e.name;
-                    sidebar.innerHTML += `
+                let sidebar = document.getElementById('sidecontainer');
+                let name = e.name;
+                sidebar.innerHTML += `
                         <div class="video-entry">
                             <button class="Vbtn" data-url="${e.url}" data-name="${name}">${name}</button>
                         </div>
                     `;
 
-                    for (let i = 0; i < buttons.length; i++) {
-                        let button = buttons[i];
-                        let btnName = button.getAttribute("data-name");
+                for (let i = 0; i < buttons.length; i++) {
+                    let button = buttons[i];
+                    let btnName = button.getAttribute("data-name");
 
-                        // naming and catecorization
-                        if (btnName.includes('@')) {
-                        }
+                    // naming and catecorization
+                    if (btnName.includes('@')) {
                     }
+                }
             });
             addEventListenersToButtons(video);
         })
@@ -101,7 +100,7 @@ function addEventListenersToButtons(video) {
     for (let i = 0; i < buttons.length; i++) {
         let button = buttons[i];
 
-        button.addEventListener('click', function() {
+        button.addEventListener('click', function () {
             let url = this.getAttribute('data-url');
             let source = video.querySelector('source');
             if (source) {

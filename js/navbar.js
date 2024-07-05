@@ -49,7 +49,7 @@ class SpecialHeader extends HTMLElement {
         `;
 
         const listItems = this.querySelectorAll('.nav a');
-        listItems.forEach(function(item) {
+        listItems.forEach(function (item) {
             if (item.href === window.location.href) {
                 item.parentElement.classList.add('active');
             }
@@ -65,21 +65,21 @@ class SpecialHeader extends HTMLElement {
             let hideMenuInner = document.getElementById('hideMenuInner');
             let menu = document.getElementById('mainHeader');
             // let header = document.getElementById('header');
-        
+
             sideShow1.addEventListener('click', () => {
                 sidebar.style.display = 'flex';
                 thirdContainer.style.marginRight = '0px';
                 sideShow1.style.display = 'none';
                 sideShow2.style.display = 'block';
             });
-        
+
             sideShow2.addEventListener('click', () => {
                 sidebar.style.display = 'none';
                 thirdContainer.style.marginRight = '12px';
                 sideShow2.style.display = 'none';
                 sideShow1.style.display = 'block';
             });
-        
+
             // Check if sidebar is visible initially for smaller screens
             if (window.location.pathname == '/sessions' || window.location.pathname == '/sessions.html') {
                 if (window.matchMedia('(max-width: 767px)').matches) {
@@ -95,18 +95,18 @@ class SpecialHeader extends HTMLElement {
                     thirdContainer.style.marginRight = '0px';
                 }
             }
-        
+
             // Show/hide menu
             hideMenu.style.display = "none";
             hideMenu.style.display = 'none';
-        
+
             showMenu.addEventListener('click', () => {
                 menu.style.display = 'flex';
                 showMenu.style.display = 'none';
                 hideMenu.style.display = 'block';
                 hideMenuInner.style.display = 'block';
             });
-        
+
             hideMenu.addEventListener('click', () => {
                 menu.style.display = 'none';
                 hideMenu.style.display = 'none';
@@ -120,7 +120,7 @@ class SpecialHeader extends HTMLElement {
                 hideMenu.style.display = 'none';
                 showMenu.style.display = 'block';
             });
-        
+
             // Check initial state of mainHeader to sync with show/hide menu buttons
             if (menu.style.display === 'none') {
                 showMenu.style.display = 'block';
@@ -132,7 +132,7 @@ class SpecialHeader extends HTMLElement {
                 hideMenuInner.style.display = 'block';
             }
         });
-        
+
     }
 }
 
