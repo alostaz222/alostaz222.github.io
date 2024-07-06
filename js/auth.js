@@ -88,4 +88,49 @@ signInBtn.addEventListener('click', (event) => {
         });
 });
 
-show
+let showSignUp = document.getElementById('showSignUp');
+let showSignIn = document.getElementById('showSignIn');
+let signUpForm = document.getElementById('signUpForm');
+let signInForm = document.getElementById('signInForm');
+let welcome = document.getElementById('welcome');
+let container = document.getElementById('container');
+let authContainer = document.getElementById('authContainer');
+let switchToLogin = document.getElementById('switchToLogin');
+let switchToSignUp = document.getElementById('switchToSignUp');
+const phoneInputField = document.querySelector("#phone");
+const phoneInput = window.intlTelInput(phoneInputField, {
+    initialCountry: "us",
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+});
+
+showSignUp.addEventListener('click', () => {
+    signUpForm.style.display = 'flex';
+    signInForm.style.display = 'none';
+    welcome.style.display = 'none';
+    container.style.display = 'none';
+    authContainer.style.cssText = `
+        background-color: transparent;
+        box-shadow: none;
+    `;
+});
+
+showSignIn.addEventListener('click', () => {
+    signInForm.style.display = 'flex';
+    signUpForm.style.display = 'none';
+    welcome.style.display = 'none';
+    container.style.display = 'none';
+    authContainer.style.cssText = `
+        background-color: transparent;
+        box-shadow: none;
+    `;
+});
+
+switchToLogin.addEventListener('click', () => {
+    signInForm.style.display = 'flex';
+    signUpForm.style.display = 'none';
+});
+
+switchToSignUp.addEventListener('click', () => {
+    signInForm.style.display = 'none';
+    signUpForm.style.display = 'flex';
+});

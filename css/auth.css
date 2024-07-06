@@ -17,7 +17,7 @@ body {
     display: flex;
     flex-direction: row;
     gap: 20px;
-    justify-content: space-evenly center;
+    justify-content: center;
     align-items: center;
 }
 
@@ -65,11 +65,40 @@ body {
     gap: 15px;
 }
 
-.form input {
+.form input, .form select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
+    flex: 1;
+}
+
+.phoneContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Add this CSS to your auth.css file */
+
+.iti {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.iti__flag-container {
+    margin-right: 10px;
+}
+
+.iti input[type="tel"] {
+    width: 100%;
+}
+
+
+form a {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
 }
 
 button {
@@ -91,7 +120,7 @@ button:hover {
     display: none;
 }
 
-#signupForm {
+#signUpForm {
     display: none;
 }
 
@@ -100,7 +129,11 @@ button:hover {
         flex-direction: column;
     }
 
+    .container {
+        width: 100%;
+    }
+
     .welcome {
-        order: 2;
+        display: none;
     }
 }

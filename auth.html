@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication</title>
     <link rel="stylesheet" href="/css/auth.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
 </head>
 
 <body id="auth">
@@ -13,39 +14,47 @@
     <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
     
-    <div class="auth">
+    <div class="auth" id="authContainer">
 
-        <div class="welcome">
+        <div class="welcome" id="welcome">
             <h1>انضم الى عائلة الأستاذ</h1>
         </div>
 
-        <div class="container">
+        <div class="container" id="container">
             <div class="logo">
                 <img src="/favicon/fav-png(144).png" alt="logo">
             </div>
             
             <div class="showButtons">
-                <button onclick="showSignUp()">انشئ حسابًا</button>
-                <button onclick="showSignIn()">تسجيل الدخول</button>
+                <button id="showSignUp">انشئ حسابًا</button>
+                <button id="showSignIn">تسجيل الدخول</button>
             </div>
         </div>
 
-        <form id="signupForm" class="form">
+        <form id="signUpForm" class="form">
+            <h2>Create an account</h2>
             <input type="text" id="username"  placeholder="Username">
             <input type="email" id="email" placeholder="Email">
-            <input type="tel" id="phone" placeholder="Phone Number">
+            <div class="phoneContainer">
+                <input type="tel" id="phone" placeholder="Phone Number">
+            </div>
             <input type="password" id="password1" placeholder="Password">
             <input type="password" id="password2" placeholder="Re-write Password">
+            <p>already a member? <a id="switchToLogin">login</a></p>
             <button type="submit" id="sign-up">Sign Up</button>
         </form>
 
         <form id="signInForm" class="form">
+            <h2>Sign in</h2>
             <input type="text" id="authenticator" placeholder="Username or Email">
             <input type="password" id="password" placeholder="Password">
+            <p>don't have an account? <a id="switchToSignUp">create an  account</a></p>
             <button type="submit" id="sign-in">Sign In</button>
         </form>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
     <script type="module" src="/js/auth.js"></script>
 </body>
 
