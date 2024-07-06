@@ -62,28 +62,43 @@ signupBtn.addEventListener('click', (event) => {
         return;
     }
 
-    const fullPhoneNumber = phoneInput.getNumber(); // Get the full phone number with the country code
+    // Check if username is already taken
+    database.ref('usernames/' + username).once('value')
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                alert('Username is already taken. Please choose another one.');
+            } else {
+                const fullPhoneNumber = phoneInput.getNumber(); // Get the full phone number with the country code
 
-    firebase.auth().createUserWithEmailAndPassword(email, password1)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            const userId = user.uid;
+                firebase.auth().createUserWithEmailAndPassword(email, password1)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        const userId = user.uid;
 
-            database.ref(`users/${userId}`).set({
-                username: username,
-                email: email,
-                phone: fullPhoneNumber, // Store the full phone number
-            })
-            .then(() => {
-                console.log('User data added to database');
-            })
-            .catch((error) => {
-                console.error('Database error:', error);
-            });
+                        // Save username to usernames list
+                        database.ref('usernames/' + username).set(userId);
 
+                        // Save user data
+                        database.ref(`users/${userId}`).set({
+                            username: username,
+                            email: email,
+                            phone: fullPhoneNumber, // Store the full phone number
+                        })
+                        .then(() => {
+                            console.log('User data added to database');
+                        })
+                        .catch((error) => {
+                            console.error('Database error:', error);
+                        });
+
+                    })
+                    .catch((error) => {
+                        console.error('Signup error:', error);
+                    });
+            }
         })
         .catch((error) => {
-            console.error('Signup error:', error);
+            console.error('Database error:', error);
         });
 });
 
@@ -97,14 +112,35 @@ signInBtn.addEventListener('click', (event) => {
         return;
     }
 
-    firebase.auth().signInWithEmailAndPassword(authenticator, password)
-        .then((userCredential) => {
-            console.log('User signed in:', userCredential.user);
-            // Redirect to protected area, etc.
-        })
-        .catch((error) => {
-            console.error('Signin error:', error);
-        });
+    // Determine if authenticator is email or username
+    let signInPromise;
+    if (validateEmail(authenticator)) {
+        signInPromise = firebase.auth().signInWithEmailAndPassword(authenticator, password);
+    } else {
+        // Look up the username to get the corresponding email
+        database.ref('usernames/' + authenticator).once('value')
+            .then((snapshot) => {
+                const userId = snapshot.val();
+                if (userId) {
+                    return database.ref('users/' + userId).once('value');
+                } else {
+                    throw new Error('Username not found.');
+                }
+            })
+            .then((userSnapshot) => {
+                const userEmail = userSnapshot.val().email;
+                return firebase.auth().signInWithEmailAndPassword(userEmail, password);
+            })
+            .then((userCredential) => {
+                console.log('User signed in:', userCredential.user);
+                // Redirect to protected area, etc.
+            })
+            .catch((error) => {
+                console.error('Signin error:', error);
+            });
+
+        return;
+    }
 });
 
 let showSignUp = document.getElementById('showSignUp');
