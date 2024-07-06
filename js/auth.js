@@ -75,12 +75,14 @@ signupBtn.addEventListener('click', (event) => {
                         const user = userCredential.user;
                         const userId = user.uid;
 
+                        // Save username to usernames list
+                        database.ref('usernames/' + username).set(userId);
+
                         // Save user data
-                        database.ref(`users/${username}`).set({
+                        database.ref(`users/${userId}`).set({
                             username: username,
                             email: email,
                             phone: fullPhoneNumber, // Store the full phone number
-                            userId: userId
                         })
                         .then(() => {
                             console.log('User data added to database');
@@ -140,6 +142,7 @@ signInBtn.addEventListener('click', (event) => {
         return;
     }
 });
+
 
 let showSignUp = document.getElementById('showSignUp');
 let showSignIn = document.getElementById('showSignIn');
