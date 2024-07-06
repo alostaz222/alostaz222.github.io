@@ -99,7 +99,7 @@ signupBtn.addEventListener('click', (event) => {
         });
 });
 
-signInBtn.addEventListener('click', (event) => {
+signInBtn.addEventListener('click', async (event) => {
     event.preventDefault();
     const authenticator = document.getElementById('authenticator').value.trim();
     const password = document.getElementById('password').value.trim();
@@ -109,36 +109,37 @@ signInBtn.addEventListener('click', (event) => {
         return;
     }
 
-    // Determine if authenticator is email or username
-    let signInPromise;
-    if (validateEmail(authenticator)) {
-        signInPromise = firebase.auth().signInWithEmailAndPassword(authenticator, password);
-    } else {
-        // Look up the username to get the corresponding email
-        database.ref('usernames/' + authenticator).once('value')
-            .then((snapshot) => {
-                const userId = snapshot.val();
-                if (userId) {
-                    return database.ref('users/' + userId).once('value');
-                } else {
-                    throw new Error('Username not found.');
-                }
-            })
-            .then((userSnapshot) => {
-                const userEmail = userSnapshot.val().email;
-                return firebase.auth().signInWithEmailAndPassword(userEmail, password);
-            })
-            .then((userCredential) => {
-                console.log('User signed in:', userCredential.user);
-                // Redirect to protected area, etc.
-            })
-            .catch((error) => {
-                console.error('Signin error:', error);
-            });
+    try {
+        let signInPromise;
+        if (validateEmail(authenticator)) {
+            // Signing in with email
+            signInPromise = firebase.auth().signInWithEmailAndPassword(authenticator, password);
+        } else {
+            // Signing in with username
+            const username = authenticator;
+            const userIdSnapshot = await database.ref('usernames/' + username).once('value');
+            const userId = userIdSnapshot.val();
+            
+            if (!userId) {
+                throw new Error('Username not found or incorrect.');
+            }
 
-        return;
+            const userSnapshot = await database.ref('users/' + username).once('value');
+            const userEmail = userSnapshot.val().email;
+
+            signInPromise = firebase.auth().signInWithEmailAndPassword(userEmail, password);
+        }
+
+        const userCredential = await signInPromise;
+        console.log('User signed in:', userCredential.user);
+        // Redirect or handle authentication success
+    } catch (error) {
+        console.error('Signin error:', error.message);
+        alert('Signin failed. Please check your credentials and try again.');
     }
 });
+
+
 
 let showSignUp = document.getElementById('showSignUp');
 let showSignIn = document.getElementById('showSignIn');
