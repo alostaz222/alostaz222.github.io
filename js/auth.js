@@ -34,7 +34,7 @@ const phoneInput = window.intlTelInput(phoneInputField, {
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
 });
 
-signupBtn.addEventListener('click', async (event) => {
+signupBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const username = document.getElementById('username').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -62,37 +62,45 @@ signupBtn.addEventListener('click', async (event) => {
         return;
     }
 
-    try {
-        const usernameExists = await database.ref('usernames/' + username).once('value');
-        if (usernameExists.exists()) {
-            alert('Username is already taken. Please choose another one.');
-            return;
-        }
+    // Check if username is already taken
+    database.ref('usernames/' + username).once('value')
+        .then((snapshot) => {
+            if (snapshot.exists()) {
+                alert('Username is already taken. Please choose another one.');
+            } else {
+                const fullPhoneNumber = phoneInput.getNumber(); // Get the full phone number with the country code
 
-        const fullPhoneNumber = phoneInput.getNumber(); // Get the full phone number with the country code
+                firebase.auth().createUserWithEmailAndPassword(email, password1)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        const userId = user.uid;
 
-        const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password1);
-        const userId = userCredential.user.uid;
+                        // Save user data
+                        database.ref(`users/${username}`).set({
+                            username: username,
+                            email: email,
+                            phone: fullPhoneNumber, // Store the full phone number
+                            userId: userId
+                        })
+                        .then(() => {
+                            console.log('User data added to database');
+                        })
+                        .catch((error) => {
+                            console.error('Database error:', error);
+                        });
 
-        // Save user data under 'users/${username}'
-        await database.ref(`users/${username}`).set({
-            email: email,
-            phone: fullPhoneNumber,
-            userId: userId,
+                    })
+                    .catch((error) => {
+                        console.error('Signup error:', error);
+                    });
+            }
+        })
+        .catch((error) => {
+            console.error('Database error:', error);
         });
-
-        // Also save username to 'usernames/${username}'
-        await database.ref(`usernames/${username}`).set(userId);
-
-        console.log('User data added to database');
-    } catch (error) {
-        console.error('Signup error:', error);
-        alert('Signup failed. Please try again.');
-    }
 });
 
-
-signInBtn.addEventListener('click', async (event) => {
+signInBtn.addEventListener('click', (event) => {
     event.preventDefault();
     const authenticator = document.getElementById('authenticator').value.trim();
     const password = document.getElementById('password').value.trim();
@@ -102,37 +110,36 @@ signInBtn.addEventListener('click', async (event) => {
         return;
     }
 
-    try {
-        let signInPromise;
-        if (validateEmail(authenticator)) {
-            // Signing in with email
-            signInPromise = firebase.auth().signInWithEmailAndPassword(authenticator, password);
-        } else {
-            // Signing in with username
-            const username = authenticator;
-            const userIdSnapshot = await database.ref('usernames/' + username).once('value');
-            const userId = userIdSnapshot.val();
-            
-            if (!userId) {
-                throw new Error('Username not found or incorrect.');
-            }
+    // Determine if authenticator is email or username
+    let signInPromise;
+    if (validateEmail(authenticator)) {
+        signInPromise = firebase.auth().signInWithEmailAndPassword(authenticator, password);
+    } else {
+        // Look up the username to get the corresponding email
+        database.ref('usernames/' + authenticator).once('value')
+            .then((snapshot) => {
+                const userId = snapshot.val();
+                if (userId) {
+                    return database.ref('users/' + userId).once('value');
+                } else {
+                    throw new Error('Username not found.');
+                }
+            })
+            .then((userSnapshot) => {
+                const userEmail = userSnapshot.val().email;
+                return firebase.auth().signInWithEmailAndPassword(userEmail, password);
+            })
+            .then((userCredential) => {
+                console.log('User signed in:', userCredential.user);
+                // Redirect to protected area, etc.
+            })
+            .catch((error) => {
+                console.error('Signin error:', error);
+            });
 
-            const userSnapshot = await database.ref('users/' + username).once('value');
-            const userEmail = userSnapshot.val().email;
-
-            signInPromise = firebase.auth().signInWithEmailAndPassword(userEmail, password);
-        }
-
-        const userCredential = await signInPromise;
-        console.log('User signed in:', userCredential.user);
-        // Redirect or handle authentication success
-    } catch (error) {
-        console.error('Signin error:', error.message);
-        alert('Signin failed. Please check your credentials and try again.');
+        return;
     }
 });
-
-
 
 let showSignUp = document.getElementById('showSignUp');
 let showSignIn = document.getElementById('showSignIn');
