@@ -27,14 +27,22 @@ function validatePhone(phone) {
     return re.test(String(phone));
 }
 
+// Initialize the intl-tel-input plugin
+const phoneInputField = document.querySelector("#phone");
+const phoneInput = window.intlTelInput(phoneInputField, {
+    initialCountry: "us",
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+});
+
 signupBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    const fullName = document.getElementById('full_name').value.trim();
+    const username = document.getElementById('username').value.trim();
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
-    const password = document.getElementById('password').value.trim();
+    const password1 = document.getElementById('password1').value.trim();
+    const password2 = document.getElementById('password2').value.trim();
 
-    if (!fullName || !email || !phone || !password) {
+    if (!username || !email || !phone || !password1 || !password2) {
         alert('All fields are required.');
         return;
     }
@@ -49,16 +57,22 @@ signupBtn.addEventListener('click', (event) => {
         return;
     }
 
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    if (password1 !== password2) {
+        alert('Passwords do not match.');
+        return;
+    }
+
+    const fullPhoneNumber = phoneInput.getNumber(); // Get the full phone number with the country code
+
+    firebase.auth().createUserWithEmailAndPassword(email, password1)
         .then((userCredential) => {
             const user = userCredential.user;
             const userId = user.uid;
 
             database.ref(`users/${userId}`).set({
-                fullName: fullName,
+                username: username,
                 email: email,
-                phone: phone,
-                // Add other user data if needed
+                phone: fullPhoneNumber, // Store the full phone number
             })
             .then(() => {
                 console.log('User data added to database');
@@ -75,10 +89,15 @@ signupBtn.addEventListener('click', (event) => {
 
 signInBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const authenticator = document.getElementById('authenticator').value.trim();
+    const password = document.getElementById('password').value.trim();
 
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    if (!authenticator || !password) {
+        alert('All fields are required.');
+        return;
+    }
+
+    firebase.auth().signInWithEmailAndPassword(authenticator, password)
         .then((userCredential) => {
             console.log('User signed in:', userCredential.user);
             // Redirect to protected area, etc.
@@ -97,11 +116,6 @@ let container = document.getElementById('container');
 let authContainer = document.getElementById('authContainer');
 let switchToLogin = document.getElementById('switchToLogin');
 let switchToSignUp = document.getElementById('switchToSignUp');
-const phoneInputField = document.querySelector("#phone");
-const phoneInput = window.intlTelInput(phoneInputField, {
-    initialCountry: "us",
-    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
-});
 
 showSignUp.addEventListener('click', () => {
     signUpForm.style.display = 'flex';
