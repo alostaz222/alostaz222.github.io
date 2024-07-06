@@ -1,4 +1,4 @@
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAulOUDi39BQc6DvYulOKqHymlLHjv8Bmo",
     authDomain: "alostaz222-9a139.firebaseapp.com",
@@ -14,43 +14,64 @@ firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const database = firebase.database();
 
-
-
 const signupBtn = document.getElementById('sign-up');
 const signInBtn = document.getElementById('sign-in');
 
+function validateEmail(email) {
+    const re = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return re.test(String(email).toLowerCase());
+}
+
+function validatePhone(phone) {
+    const re = /^[0-9]{10}$/;
+    return re.test(String(phone));
+}
+
 signupBtn.addEventListener('click', (event) => {
     event.preventDefault();
-    const email = document.getElementById('email').value;
-    const password = document.getElementById('password').value;
+    const fullName = document.getElementById('full_name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const password = document.getElementById('password').value.trim();
+
+    if (!fullName || !email || !phone || !password) {
+        alert('All fields are required.');
+        return;
+    }
+
+    if (!validateEmail(email)) {
+        alert('Please enter a valid email address.');
+        return;
+    }
+
+    if (!validatePhone(phone)) {
+        alert('Please enter a valid 10-digit phone number.');
+        return;
+    }
 
     firebase.auth().createUserWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            // userCredential is available INSIDE this .then() block 
-
-            console.log('User created:', userCredential.user);
-
-            // Now you can safely access userCredential here:
             const user = userCredential.user;
             const userId = user.uid;
 
             database.ref(`users/${userId}`).set({
-                email: user.email,
-                // ...other user data
+                fullName: fullName,
+                email: email,
+                phone: phone,
+                // Add other user data if needed
             })
-                .then(() => {
-                    console.log('User data added to database');
-                })
-                .catch((error) => {
-                    console.error('Database error:', error);
-                });
+            .then(() => {
+                console.log('User data added to database');
+            })
+            .catch((error) => {
+                console.error('Database error:', error);
+            });
 
         })
         .catch((error) => {
             console.error('Signup error:', error);
         });
 });
-
 
 signInBtn.addEventListener('click', (event) => {
     event.preventDefault();
@@ -59,12 +80,12 @@ signInBtn.addEventListener('click', (event) => {
 
     firebase.auth().signInWithEmailAndPassword(email, password)
         .then((userCredential) => {
-            // Successful signin
             console.log('User signed in:', userCredential.user);
-            // ... (redirect to protected area, etc.)
+            // Redirect to protected area, etc.
         })
         .catch((error) => {
             console.error('Signin error:', error);
-            // Handle signin errors
         });
 });
+
+show
