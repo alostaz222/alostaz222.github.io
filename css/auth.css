@@ -1,3 +1,7 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
@@ -19,6 +23,10 @@ body {
     gap: 20px;
     justify-content: center;
     align-items: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 .welcome {
@@ -122,6 +130,11 @@ button:hover {
 
 #signUpForm {
     display: none;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
 }
 
 @media screen and (max-width: 767px) {

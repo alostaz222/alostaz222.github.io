@@ -22,7 +22,7 @@
 
         <div class="container" id="container">
             <div class="logo">
-                <img src="/favicon/fav-png(144).png" alt="logo">
+                <img src="/logos/logo(144).png" alt="logo">
             </div>
             
             <div class="showButtons">
@@ -33,22 +33,38 @@
 
         <form id="signUpForm" class="form">
             <h2>Create an account</h2>
-            <input type="text" id="username"  placeholder="Username">
+
+            <input type="text" id="username" placeholder="Username">
+            <span id="usernameError" class="error-message"></span>
+            
             <input type="email" id="email" placeholder="Email">
+            <span id="emailError" class="error-message"></span>
+            
             <div class="phoneContainer">
                 <input type="tel" id="phone" placeholder="Phone Number">
             </div>
+            <span id="phoneError" class="error-message"></span>
+            
             <input type="password" id="password1" placeholder="Password">
-            <input type="password" id="password2" placeholder="Re-write Password">
+            <span id="password1Error" class="error-message"></span>
+            
+            <input type="password" id="password2" placeholder="Rewrite Password">
+            <span id="password2Error" class="error-message"></span>
+            
             <p>already a member? <a id="switchToLogin">login</a></p>
             <button type="submit" id="sign-up">Sign Up</button>
         </form>
 
         <form id="signInForm" class="form">
             <h2>Sign in</h2>
+            
             <input type="text" id="authenticator" placeholder="Username or Email">
+            <span id="authenticatorError" class="error-message"></span>
+            
             <input type="password" id="password" placeholder="Password">
-            <p>don't have an account? <a id="switchToSignUp">create an  account</a></p>
+            <span id="passwordError" class="error-message"></span>
+            
+            <p>don't have an account? <a id="switchToSignUp">create an account</a></p>
             <button type="submit" id="sign-in">Sign In</button>
         </form>
     </div>
