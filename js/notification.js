@@ -92,3 +92,6 @@ document.addEventListener('DOMContentLoaded', updateCounters);
 // addNotification('info', 'This is an info message.', '.popupContainer');
 // addNotification('success', 'This is a success message.', '.popupContainer');
 // addNotification('warning', 'This is a warning message.', '.popupContainer');
+
+
+export { addNotification, updateCounters };

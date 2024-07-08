@@ -1,3 +1,7 @@
+import { addNotification, updateCounters } from './notification.js';
+
+document.addEventListener('DOMContentLoaded', updateCounters);
+
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAulOUDi39BQc6DvYulOKqHymlLHjv8Bmo",
@@ -35,7 +39,8 @@ const phoneInput = window.intlTelInput(phoneInputField, {
 });
 
 function clearErrors() {
-    document.querySelectorAll('.error-message').forEach(span => span.textContent = '');
+    document.querySelectorAll('.message').forEach(message => message.remove());
+    updateCounters()
 }
 
 signupBtn.addEventListener('click', (event) => {
@@ -51,31 +56,31 @@ signupBtn.addEventListener('click', (event) => {
     let hasError = false;
 
     if (!username || !email || !phone || !password1 || !password2) {
-        if (!username) document.getElementById('usernameError').textContent = 'Username is required.';
-        if (!email) document.getElementById('emailError').textContent = 'Email is required.';
-        if (!phone) document.getElementById('phoneError').textContent = 'Phone is required.';
-        if (!password1) document.getElementById('password1Error').textContent = 'Password is required.';
-        if (!password2) document.getElementById('password2Error').textContent = 'Confirm Password is required.';
+        if (!username) addNotification('error', 'Username is required.', '.popupContainer');
+        if (!email) addNotification('error', 'Email is required.', '.popupContainer');
+        if (!phone) addNotification('error', 'Phone is required.', '.popupContainer');
+        if (!password1) addNotification('error', 'Password is required.', '.popupContainer');
+        if (!password2) addNotification('error', 'Confirm Password is required.', '.popupContainer');
         hasError = true;
     }
 
     if (!validateEmail(email)) {
-        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+        addNotification('error', 'Please enter a valid email address.', '.popupContainer');
         hasError = true;
     }
 
     if (!validatePhone(phone)) {
-        document.getElementById('phoneError').textContent = 'Please enter a valid 10-digit phone number.';
+        addNotification('error', 'Please enter a valid 10-digit phone number.', '.popupContainer');
         hasError = true;
     }
 
     if (password1 !== password2) {
-        document.getElementById('password2Error').textContent = 'Passwords do not match.';
+        addNotification('error', 'Passwords do not match.', '.popupContainer');
         hasError = true;
     }
 
     if (password1.length < 6) { // Minimum password length validation
-        document.getElementById('password1Error').textContent = 'Password must be at least 6 characters long.';
+        addNotification('error', 'Password must be at least 6 characters long.', '.popupContainer');
         hasError = true;
     }
 
@@ -87,7 +92,7 @@ signupBtn.addEventListener('click', (event) => {
     database.ref(`users/${username}`).once('value')
         .then((snapshot) => {
             if (snapshot.exists()) {
-                document.getElementById('usernameError').textContent = 'Username already taken. Please choose another one.';
+                addNotification('error', 'Username already taken. Please choose another one.', '.popupContainer');
             } else {
                 // Create user
                 firebase.auth().createUserWithEmailAndPassword(email, password1)
@@ -102,29 +107,31 @@ signupBtn.addEventListener('click', (event) => {
                         })
                             .then(() => {
                                 console.log('User data added to database');
+                                addNotification('success', 'User data added to database.', '.popupContainer');
                                 for (let i = 0; i < SInputs.length; i++) {
                                     SInputs[i].value = '';
                                 }
+                                setTimeout(clearErrors, 3000);
                             })
                             .catch((error) => {
                                 console.error('Database error:', error);
-                                document.getElementById('usernameError').textContent = 'Database error. Please try again.';
+                                addNotification('error', 'Database error. Please try again.', '.popupContainer');
                             });
 
                     })
                     .catch((error) => {
                         console.error('Signup error:', error);
                         if (error.code === 'auth/email-already-in-use') {
-                            document.getElementById('emailError').textContent = 'Email is already in use. Please use a different email.';
+                            addNotification('error', 'Email is already in use. Please use a different email.', '.popupContainer');
                         } else {
-                            document.getElementById('emailError').textContent = 'Signup error. Please try again.';
+                            addNotification('error', 'Signup error. Please try again.', '.popupContainer');
                         }
                     });
             }
         })
         .catch((error) => {
             console.error('Error checking username:', error);
-            document.getElementById('usernameError').textContent = 'Error checking username. Please try again.';
+            addNotification('error', 'Error checking username. Please try again.', '.popupContainer');
         });
 });
 
@@ -137,8 +144,8 @@ signInBtn.addEventListener('click', (event) => {
     let hasError = false;
 
     if (!authenticator || !password) {
-        if (!authenticator) document.getElementById('authenticatorError').textContent = 'Username or Email is required.';
-        if (!password) document.getElementById('passwordError').textContent = 'Password is required.';
+        if (!authenticator) addNotification('error', 'Username or Email is required.', '.popupContainer');
+        if (!password) addNotification('error', 'Password is required.', '.popupContainer');
         hasError = true;
     }
 
@@ -149,11 +156,12 @@ signInBtn.addEventListener('click', (event) => {
         firebase.auth().signInWithEmailAndPassword(authenticator, password)
             .then((userCredential) => {
                 console.log('User signed in:', userCredential.user);
+                addNotification('success', 'User signed in successfully.', '.popupContainer');
                 // Redirect to protected area, etc.
             })
             .catch((error) => {
                 console.error('Signin error:', error);
-                document.getElementById('authenticatorError').textContent = 'Signin error. Please try again.';
+                addNotification('error', 'Signin error. Please try again.', '.popupContainer');
             });
     } else {
         // Assume authenticator is a username
@@ -165,19 +173,20 @@ signInBtn.addEventListener('click', (event) => {
                     firebase.auth().signInWithEmailAndPassword(email, password)
                         .then((userCredential) => {
                             console.log('User signed in:', userCredential.user);
+                            addNotification('success', 'User signed in successfully.', '.popupContainer');
                             // Redirect to protected area, etc.
                         })
                         .catch((error) => {
                             console.error('Signin error:', error);
-                            document.getElementById('authenticatorError').textContent = 'Signin error. Please try again.';
+                            addNotification('error', 'Signin error. Please try again.', '.popupContainer');
                         });
                 } else {
-                    document.getElementById('authenticatorError').textContent = 'Invalid username or email.';
+                    addNotification('error', 'Invalid username or email.', '.popupContainer');
                 }
             })
             .catch((error) => {
                 console.error('Error checking username:', error);
-                document.getElementById('authenticatorError').textContent = 'Error checking username. Please try again.';
+                addNotification('error', 'Error checking username. Please try again.', '.popupContainer');
             });
     }
 });
@@ -220,6 +229,9 @@ switchToLogin.addEventListener('click', () => {
 });
 
 switchToSignUp.addEventListener('click', () => {
-    signInForm.style.display = 'none';
     signUpForm.style.display = 'flex';
+    signInForm.style.display = 'none';
 });
+
+
+document.addEventListener('DOMContentLoaded', updateCounters);

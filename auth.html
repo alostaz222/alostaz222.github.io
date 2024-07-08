@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication</title>
     <link rel="stylesheet" href="/css/auth.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/css/notification.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/notification.css" />
     <script src="js/notification.js" type="module" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -61,21 +61,16 @@
                 <h2>Create an account</h2>
 
                 <input type="text" class="SInput" id="username" placeholder="Username">
-                <span id="usernameError" class="error-message"></span>
 
                 <input type="email" class="SInput" id="email" placeholder="Email">
-                <span id="emailError" class="error-message"></span>
 
                 <div class="phoneContainer">
                     <input type="tel" class="SInput" id="phone" placeholder="Phone Number">
                 </div>
-                <span id="phoneError" class="error-message"></span>
 
                 <input type="password" class="SInput" id="password1" placeholder="Password">
-                <span id="password1Error" class="error-message"></span>
 
                 <input type="password" class="SInput" id="password2" placeholder="Rewrite Password">
-                <span id="password2Error" class="error-message"></span>
 
                 <p>already a member? <a id="switchToLogin">login</a></p>
                 <button type="submit" id="sign-up">Sign Up</button>
@@ -84,11 +79,9 @@
             <form id="signInForm" class="form">
                 <h2>Sign in</h2>
 
-                <input type="text" id="authenticator" placeholder="Username or Email">
-                <span id="authenticatorError" class="error-message"></span>
+                <input type="text" class="LInput" id="authenticator" placeholder="Username or Email">
 
-                <input type="password" id="password" placeholder="Password">
-                <span id="passwordError" class="error-message"></span>
+                <input type="password" class="LInput" id="password" placeholder="Password">
 
                 <p>don't have an account? <a id="switchToSignUp">create an account</a></p>
                 <button type="submit" id="sign-in">Sign In</button>
