@@ -6,67 +6,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Authentication</title>
     <link rel="stylesheet" href="/css/auth.css" type="text/css">
+    <link rel="stylesheet" type="text/css" href="/css/notification.css"/>
+    <script src="js/notification.js" type="module" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body id="auth">
     <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
-    
-    <div class="auth" id="authContainer">
 
-        <div class="welcome" id="welcome">
-            <h1>انضم الى عائلة الأستاذ</h1>
+    <div class="popupContainer">
+        <div class="counters">
+            <div class="counter error" id="errorCounter">
+                <i class="material-icons">error</i>
+                <span>0</span>
+            </div>
+            <div class="counter info" id="infoCounter">
+                <i class="material-icons">info</i>
+                <span>0</span>
+            </div>
+            <div class="counter success" id="successCounter">
+                <i class="material-icons">check_circle</i>
+                <span>0</span>
+            </div>
+            <div class="counter warning" id="warningCounter">
+                <i class="material-icons">warning</i>
+                <span>0</span>
+            </div>
         </div>
+    </div>
 
-        <div class="container" id="container">
-            <div class="logo">
-                <img src="favicon.ico" alt="logo" style="width: 144px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); border-radius: 50%;">
+    <div class="pageContainer">
+        <div class="auth" id="authContainer">
+
+            <div class="welcome" id="welcome">
+                <h1>انضم الى عائلة الأستاذ</h1>
             </div>
-            
-            <div class="showButtons">
-                <button id="showSignUp">انشئ حسابًا</button>
-                <button id="showSignIn">تسجيل الدخول</button>
+
+            <div class="container" id="container">
+                <div class="logo">
+                    <img src="favicon.ico" alt="logo"
+                        style="width: 144px; box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); border-radius: 50%;">
+                </div>
+
+                <div class="showButtons">
+                    <button id="showSignUp">انشئ حسابًا</button>
+                    <button id="showSignIn">تسجيل الدخول</button>
+                </div>
             </div>
+
+            <form id="signUpForm" class="form">
+                <h2>Create an account</h2>
+
+                <input type="text" class="SInput" id="username" placeholder="Username">
+                <span id="usernameError" class="error-message"></span>
+
+                <input type="email" class="SInput" id="email" placeholder="Email">
+                <span id="emailError" class="error-message"></span>
+
+                <div class="phoneContainer">
+                    <input type="tel" class="SInput" id="phone" placeholder="Phone Number">
+                </div>
+                <span id="phoneError" class="error-message"></span>
+
+                <input type="password" class="SInput" id="password1" placeholder="Password">
+                <span id="password1Error" class="error-message"></span>
+
+                <input type="password" class="SInput" id="password2" placeholder="Rewrite Password">
+                <span id="password2Error" class="error-message"></span>
+
+                <p>already a member? <a id="switchToLogin">login</a></p>
+                <button type="submit" id="sign-up">Sign Up</button>
+            </form>
+
+            <form id="signInForm" class="form">
+                <h2>Sign in</h2>
+
+                <input type="text" id="authenticator" placeholder="Username or Email">
+                <span id="authenticatorError" class="error-message"></span>
+
+                <input type="password" id="password" placeholder="Password">
+                <span id="passwordError" class="error-message"></span>
+
+                <p>don't have an account? <a id="switchToSignUp">create an account</a></p>
+                <button type="submit" id="sign-in">Sign In</button>
+            </form>
         </div>
-
-        <form id="signUpForm" class="form">
-            <h2>Create an account</h2>
-
-            <input type="text" id="username" placeholder="Username">
-            <span id="usernameError" class="error-message"></span>
-            
-            <input type="email" id="email" placeholder="Email">
-            <span id="emailError" class="error-message"></span>
-            
-            <div class="phoneContainer">
-                <input type="tel" id="phone" placeholder="Phone Number">
-            </div>
-            <span id="phoneError" class="error-message"></span>
-            
-            <input type="password" id="password1" placeholder="Password">
-            <span id="password1Error" class="error-message"></span>
-            
-            <input type="password" id="password2" placeholder="Rewrite Password">
-            <span id="password2Error" class="error-message"></span>
-            
-            <p>already a member? <a id="switchToLogin">login</a></p>
-            <button type="submit" id="sign-up">Sign Up</button>
-        </form>
-
-        <form id="signInForm" class="form">
-            <h2>Sign in</h2>
-            
-            <input type="text" id="authenticator" placeholder="Username or Email">
-            <span id="authenticatorError" class="error-message"></span>
-            
-            <input type="password" id="password" placeholder="Password">
-            <span id="passwordError" class="error-message"></span>
-            
-            <p>don't have an account? <a id="switchToSignUp">create an account</a></p>
-            <button type="submit" id="sign-in">Sign In</button>
-        </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>

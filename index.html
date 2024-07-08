@@ -6,6 +6,8 @@
     <title>Alostaz | Home Page</title>
     <link rel="stylesheet" type="text/css" href="/css/navbar.css">
     <link rel="stylesheet" type="text/css" href="/css/home.css" />
+    <link rel="stylesheet" type="text/css" href="/css/notification.css"/>
+    <script src="js/notification.js" type="module" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="Alostaz | Home Page">
     <meta name="description" content="دروس فيزياء اونلاين مع Alostaz. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة.">
@@ -34,7 +36,26 @@
     <special-header></special-header>
     <div class="main-container">
         <main>
-
+            <div class="popupContainer">
+                <div class="counters">
+                    <div class="counter error" id="errorCounter">
+                        <i class="material-icons">error</i>
+                        <span>0</span>
+                    </div>
+                    <div class="counter info" id="infoCounter">
+                        <i class="material-icons">info</i>
+                        <span>0</span>
+                    </div>
+                    <div class="counter success" id="successCounter">
+                        <i class="material-icons">check_circle</i>
+                        <span>0</span>
+                    </div>
+                    <div class="counter warning" id="warningCounter">
+                        <i class="material-icons">warning</i>
+                        <span>0</span>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
     <special-footer></special-footer>

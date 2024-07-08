@@ -41,6 +41,7 @@ function clearErrors() {
 signupBtn.addEventListener('click', (event) => {
     event.preventDefault();
     clearErrors();
+    let SInputs = document.getElementsByClassName('SInput');
     const username = document.getElementById('username').value.trim();
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
@@ -101,6 +102,9 @@ signupBtn.addEventListener('click', (event) => {
                         })
                             .then(() => {
                                 console.log('User data added to database');
+                                for (let i = 0; i < SInputs.length; i++) {
+                                    SInputs[i].value = '';
+                                }
                             })
                             .catch((error) => {
                                 console.error('Database error:', error);
