@@ -1,5 +1,4 @@
 import { addNotification, updateCounters } from './notification.js';
-export {validateEmail, validatePhone, clearErrors};
 
 document.addEventListener('DOMContentLoaded', updateCounters);
 
