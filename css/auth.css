@@ -137,11 +137,6 @@ button:hover {
     display: none;
 }
 
-.error-message {
-    color: red;
-    font-size: 12px;
-}
-
 @media screen and (max-width: 767px) {
     .auth{
         flex-direction: column;
