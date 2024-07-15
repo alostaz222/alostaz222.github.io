@@ -37,6 +37,20 @@ class SpecialHeader extends HTMLElement {
                         </li>
                         <li class="nav"><a href="/pricing">الاسعار</a></li>
                         <li class="nav"><a href="/contact">تواصل معنا</a></li>
+                        <ul>
+                            <div class='account'>
+                                <li>
+                                    <div class='account_dropDown'>
+                                        <p>حسابك</p>
+                                        <i class='material-icons acc_arr' id='acc_arr_u'>keyboard_arrow_up</i>
+                                        <i class='material-icons acc_arr' id='acc_arr_d'>keyboard_arrow_down</i>
+                                    </div>
+                                </li>
+                                <li class='acc_opt'><p>تسجيل الدخول</p><i class='material-icons'>login</i></li>
+                                <li class='acc_opt'><p>انشاء حساب</p><i class='material-icons'>person_add</i></li>
+                                <li class='acc_opt'><p>تعديل الحساب</p><i class='material-icons'>account_circle</i></li>
+                            </div>
+                        </ul>
                     </ul>
                 </nav>
                 <ul class="sec">

@@ -80,6 +80,10 @@ header li a, #stage, .material-icons {
     text-decoration: none;
 }
 
+header li {
+    cursor: pointer;
+}
+
 .material-icons {
     padding: 10.5px;
     cursor: pointer;
@@ -116,6 +120,66 @@ option {
 
 .active a {
     color: var(--background);
+}
+
+.account {
+    font-size: 16px;
+    color: var(--color);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    background: var(--background);
+    gap: 0;
+}
+
+ account_dropDown {
+    display: flex;
+    flex-direction: row;
+    gap: 0;justify-content: center;
+}
+
+.account_dropDown p {
+    outline: none;
+    border: none;
+    background: transparent;
+    padding: 14px 16px;
+    margin: 0;
+}
+
+.account_dropDown i {
+    padding-right: 0;
+}
+
+.account_dropDown:hover {
+    background-color: var(--hover);
+}
+
+.account_dropDown:hover > p, .account_dropDown:hover > .acc_arr{
+    color: var(--background);
+}
+
+#acc_arr_u {
+    display: none;
+}
+
+.acc_opt {
+    display: none;
+    padding: 0 16px 0 0;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.acc_opt:hover {
+    background: var(--hover);
+}
+
+.acc_opt:hover > p, .acc_opt:hover > i{
+    color: var(--background);
+}
+
+.account:hover > .acc_opt {
+    display: flex;
 }
 
 /* header */
