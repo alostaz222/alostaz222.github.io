@@ -4,7 +4,7 @@ class SpecialHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
             <header class="header" id="header">
-                <nav>
+                <nav class='nav'>
                     <ul class="headerShow">
                         <li><i class="material-icons" id='showMenu'>menu</i></li>
                         <li><i class="material-icons" id='hideMenu'>close</i></li>
@@ -13,30 +13,32 @@ class SpecialHeader extends HTMLElement {
                         <div class="headerShow">
                             <li><i class="material-icons" id='hideMenuInner'>close</i></li>
                         </div>
-                        <li class="nav"><a href="/">الصفحة الرئيسية</a></li>
-                        <li class="nav"><a href="/sessions">المحاضرات</a></li>
-                        <li class="nav">
-                            <select id="stage">
-                                <option disabled selected>--اختر الصف الدراسي--</option>
-                                <optgroup label="المرحلة الابتدائية">
-                                    <option value="4pm">الصف الرابع الابتدائي</option>
-                                    <option value="5pm">الصف الخامس الابتدائي</option>
-                                    <option value="6pm">الصف السادس الابتدائي</option>
-                                </optgroup>
-                                <optgroup label="المرحلة الاعدادية">
-                                    <option value="1pp">الصف الاول الاعدادي</option>
-                                    <option value="2pp">الصف الثاني الاعدادي</option>
-                                    <option value="3pp">الصف الثالث الاعدادي</option>
-                                </optgroup>
-                                <optgroup label="المرحلة الثانوية">
-                                    <option value="1s">الصف الاول الثانوي</option>
-                                    <option value="2s">الصف الثاني الثانوي</option>
-                                    <option value="3s">الصف الثالث الثانوي</option>
-                                </optgroup>
-                            </select>
-                        </li>
-                        <li class="nav"><a href="/pricing">الاسعار</a></li>
-                        <li class="nav"><a href="/contact">تواصل معنا</a></li>
+                        <div class='headcont'>
+                            <li class="nav"><a href="/">الصفحة الرئيسية</a></li>
+                            <li class="nav"><a href="/sessions">المحاضرات</a></li>
+                            <li class="nav">
+                                <select id="stage">
+                                    <option disabled selected>--اختر الصف الدراسي--</option>
+                                    <optgroup label="المرحلة الابتدائية">
+                                        <option value="4pm">الصف الرابع الابتدائي</option>
+                                        <option value="5pm">الصف الخامس الابتدائي</option>
+                                        <option value="6pm">الصف السادس الابتدائي</option>
+                                    </optgroup>
+                                    <optgroup label="المرحلة الاعدادية">
+                                        <option value="1pp">الصف الاول الاعدادي</option>
+                                        <option value="2pp">الصف الثاني الاعدادي</option>
+                                        <option value="3pp">الصف الثالث الاعدادي</option>
+                                    </optgroup>
+                                    <optgroup label="المرحلة الثانوية">
+                                        <option value="1s">الصف الاول الثانوي</option>
+                                        <option value="2s">الصف الثاني الثانوي</option>
+                                        <option value="3s">الصف الثالث الثانوي</option>
+                                    </optgroup>
+                                </select>
+                            </li>
+                            <li class="nav"><a href="/pricing">الاسعار</a></li>
+                            <li class="nav"><a href="/contact">تواصل معنا</a></li>
+                        </div>
                         <ul>
                             <div class='account'>
                                 <li>

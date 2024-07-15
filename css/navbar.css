@@ -84,6 +84,12 @@ header li {
     cursor: pointer;
 }
 
+.headcont {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+}
+
 .material-icons {
     padding: 10.5px;
     cursor: pointer;
@@ -123,7 +129,7 @@ option {
 }
 
 .account {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--color);
     position: absolute;
     display: flex;
@@ -131,9 +137,10 @@ option {
     z-index: 1;
     background: var(--background);
     gap: 0;
+    
 }
 
- account_dropDown {
+.account_dropDown {
     display: flex;
     flex-direction: row;
     gap: 0;justify-content: center;
@@ -180,6 +187,19 @@ option {
 
 .account:hover > .acc_opt {
     display: flex;
+}
+
+.account:hover p {
+    padding-right: 0px;
+}
+
+.account:hover i {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.account:hover {
+    padding: 0;
 }
 
 /* header */
@@ -360,8 +380,12 @@ footer {
         z-index: 2;
         width: 50%;
     }
+    
+    .headcont {
+        flex-direction: column;
+    }
 
-    .mainHeader li, #stage {
+    .mainHeader li, #stage, .account {
         width: 100%;
     }
 
