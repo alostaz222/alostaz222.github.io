@@ -247,7 +247,6 @@ main {
     flex-direction: column;
     overflow-y: auto; /* Add scrolling for overflow content */
     overflow-x: hidden;
-
 }
 
 #ads {
