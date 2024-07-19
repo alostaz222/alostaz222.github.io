@@ -14,6 +14,11 @@ stylesheet_path = 'sitemap.xsl'  # Define the path to your stylesheet
 # List of file extensions to include in the sitemap
 valid_extensions = ['.html', '.htm']
 
+# List of paths or patterns to ignore
+ignore_list = [
+    'google085c7894048661b1.html'
+]
+
 # Function to generate the XML for a single URL entry
 def generate_url_entry(loc, lastmod, changefreq='monthly', priority='0.5'):
     return f'''
@@ -25,14 +30,19 @@ def generate_url_entry(loc, lastmod, changefreq='monthly', priority='0.5'):
     </url>'''
 
 # Function to scan the directory and generate URL entries
-def scan_directory(directory, base_url):
+def scan_directory(directory, base_url, ignore_list):
     url_entries = []
     for subdir, _, files in os.walk(directory):
         for file in files:
+            file_path = os.path.join(subdir, file)
+            relative_path = os.path.relpath(file_path, directory)
+            loc = f"{base_url}/{relative_path.replace(os.path.sep, '/')}"
+            
+            # Skip ignored paths
+            if any(ignored in loc for ignored in ignore_list):
+                continue
+
             if os.path.splitext(file)[1] in valid_extensions:
-                file_path = os.path.join(subdir, file)
-                relative_path = os.path.relpath(file_path, directory)
-                loc = f"{base_url}/{relative_path.replace(os.path.sep, '/')}"
                 if loc.endswith('index.html'):
                     loc = loc.replace('/index.html', '') if loc != f"{base_url}/index.html" else base_url
                 else:
@@ -80,7 +90,7 @@ def add_stylesheet_reference(sitemap_path, stylesheet_path):
         file.writelines(lines)
 
 # Generate URL entries by scanning the root directory
-url_entries = scan_directory(root_dir, base_url)
+url_entries = scan_directory(root_dir, base_url, ignore_list)
 
 # Generate the sitemap XML
 sitemap_xml = generate_sitemap(url_entries)
