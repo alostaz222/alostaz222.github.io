@@ -51,26 +51,18 @@
                 </div>
 
                 <div class="directories">
-                    <div class="directory">
-                        <p class="dir-name">الحصة الاولى</p>
+                    <div class="directory" data-name="${result.directory}">
+                        <p class="dir-name">${result.directory}</p>
                         <div class="entry">
                             <div class="dir-text-cont">
                                 <div class="session-txt">
                                     <i class="material-icons">arrow_drop_down</i>
-                                    <p class="directory-text">الحصة الاولى - شرح</p>
+                                    <p class="directory-text">${result.directory} - ${result.dir-type}</p>
                                 </div>
                                 <input type="checkbox" disabled>
                             </div>
                             <div class="directory-item">
-                                <p class="entry-text">الدرس الاول</p>
-                                <input type="checkbox" disabled>
-                            </div>
-                            <div class="directory-item">
-                                <p class="entry-text">الدرس الثاني</p>
-                                <input type="checkbox" disabled>
-                            </div>
-                            <div class="directory-item">
-                                <p class="entry-text">الدرس الثالث</p>
+                                <p class="entry-text" data-dirType="${result.dir-type}">${result.name}</p>
                                 <input type="checkbox" disabled>
                             </div>
                         </div>
@@ -78,66 +70,12 @@
                             <div class="dir-text-cont">
                                 <div class="session-txt">
                                     <i class="material-icons">arrow_drop_down</i>
-                                    <p class="directory-text">الحصة الاولى - تطبيق</p>
+                                    <p class="directory-text">${result.directory} - ${result.dir-type}</p>
                                 </div>
                                 <input type="checkbox" disabled>
                             </div>
                             <div class="directory-item">
-                                <p class="entry-text">حل اسئلة الكتاب المدرسي</p>
-                                <input type="checkbox" disabled>
-                            </div>
-                            <div class="directory-item">
-                                <p class="entry-text">الواجب</p>
-                                <input type="checkbox" disabled>
-                            </div>
-                            <div class="directory-item">
-                                <p class="entry-text">حل الواجب</p>
-                                <input type="checkbox" disabled>
-                            </div>
-                        </div>
-                    </div>
-            
-                    <div class="directory">
-                        <p class="dir-name">الحصة الثانية</p>
-                        <div class="entry">
-                            <div class="dir-text-cont">
-                                <div class="session-txt">
-                                    <i class="material-icons">arrow_drop_down</i>
-                                    <p class="directory-text">الحصة الثانية - شرح</p>
-                                </div>
-                                <input type="checkbox" disabled>
-                            </div>
-                            <div class="directory-item">
-                                <p class="entry-text">الدرس الاول</p>
-                                <input type="checkbox" disabled>
-                            </div>
-                            <div class="directory-item">
-                                <p class="entry-text">الدرس الثاني</p>
-                                <input type="checkbox" disabled>
-                            </div>
-                            <div class="directory-item">
-                                <p class="entry-text">الدرس الثالث</p>
-                                <input type="checkbox" disabled>
-                            </div>
-                        </div>
-                        <div class="entry">
-                            <div class="dir-text-cont">
-                                <div class="session-txt">
-                                    <i class="material-icons">arrow_drop_down</i>
-                                    <p class="directory-text">الحصة الثانية - تطبيق</p>
-                                </div>
-                                <input type="checkbox" disabled>
-                            </div>
-                            <div class="directory-item">
-                                <p class="entry-text">حل اسئلة الكتاب المدرسي</p>
-                                <input type="checkbox" disabled>
-                            </div>
-                            <div class="directory-item">
-                                <p class="entry-text">الواجب</p>
-                                <input type="checkbox" disabled>
-                            </div>
-                            <div class="directory-item">
-                                <p class="entry-text">حل الواجب</p>
+                                <p class="entry-text" data-dirType="${result.data-dirType}">${result.name}</p>
                                 <input type="checkbox" disabled>
                             </div>
                         </div>
@@ -145,6 +83,7 @@
                 </div>
 
             </aside>
+            
             <main>
                 <div class="popupContainer">
                     <div class="counters">
