@@ -144,5 +144,5 @@ if (window.location.pathname == '/sessions' || window.location.pathname == '/ses
     
     // Optionally, call the function to sync heights on window resize
     window.addEventListener('resize', syncDivHeights);
-    
+    window.addEventListener('click', syncDivHeights);
 }
