@@ -7,6 +7,7 @@ const stgGroups = document.getElementsByClassName('stgGroup');
 let sidebar = document.getElementById('sidecontainer');
 let thirdContainer = document.getElementById('third-container');
 let videoData;
+let result; // Declare result in the outer scope
 
 // Get the popup container and content elements
 const popupContainer = document.querySelector('.popup-container');
@@ -166,11 +167,11 @@ function extractTextAfterSymbols(str, symbols, variables) {
 };
 
 function addEntry() {
-    const name = "!3s@term1#القوة$الحصة_الاولى%شرح^video.mp4";
+    const name = "!3s@term1#القوة$الحصة الاولى%شرح^video.mp4";
     const inputString = name.split('.')[0];
-    const symbols = ['!', '@', '#', '$', '%', '^', '&'];
-    const variables = ['stage', 'term', 'name', 'directory', 'session', 'type', 'dirType'];
-    const result = extractTextAfterSymbols(inputString, symbols, variables);
+    const symbols = ['!', '@', '#', '$', '%', '^'];
+    const variables = ['stage', 'term', 'name', 'directory', 'session', 'type'];
+    result = extractTextAfterSymbols(inputString, symbols, variables);
 
     console.log(result);
 };
@@ -211,18 +212,48 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        let directoryVal;
-        let firstEntryVal;
-        let secondEntryVal;
-        let fDirTextVal;
-        let sDirTextVal;
-        let fNameVal;
-        let sNameVal;
-        let fDirTypeVal;
-        let sDirTypeVal;
+        console.log(nameSearch);
 
-        if (nameSearch.firstEntry.dirText == result.name) {
+        let directoryVal = true;
+        let DirTextVal = true;
+        let NameVal = true;
+        let DirTypeVal = true;
+
+        if (nameSearch.directoryName == result.directory) {
+            directoryVal = false;
+        } else {
+            directoryVal = true;
+        };
+
+        if (nameSearch.firstEntry.name == result.name) {
+            NameVal = false;
+        } else {
+            NameVal = true;
+        };
+
+        if (nameSearch.firstEntry.dirType == result.dirType) {
+            DirTypeVal = false;
+        } else {
+            DirTypeVal = true;
+        };
+
+        if (nameSearch.firstEntry.dirText == `${result.directory} - ${result.session}`) {
+            DirTextVal = false;
+        } else {
+            DirTextVal = true;
+        };
+
+        // if (directoryVal == true) {
+        //     var dir = document.createElement('div');
+        //     dir.className = 'directory';
+        //     dir.dataset.name = `${result.directory}`;
+        //     dir.innerHTML = `<p class="dir-name">${result.directory}</p>`;
+
+        //     directories.
+        // } else {
             
-        }
+        // }
+
+        console.log(`directoryVal: ${directoryVal}`); console.log(`DirTextVal: ${DirTextVal}`); console.log(`DirTextVal: ${DirTextVal}`); console.log(`NameVal: ${NameVal}`);
     });
 });
