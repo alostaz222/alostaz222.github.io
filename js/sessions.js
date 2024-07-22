@@ -6,6 +6,7 @@ let videoName = document.getElementById('video-name');
 const stgGroups = document.getElementsByClassName('stgGroup');
 let sidebar = document.getElementById('sidecontainer');
 let thirdContainer = document.getElementById('third-container');
+let videoData;
 
 // Get the popup container and content elements
 const popupContainer = document.querySelector('.popup-container');
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('../api/videos.json')
         .then((res) => res.json())
         .then((data) => {
+            videoData = data
             data.forEach(e => {
                 let name = e.name;
                 sidebar.innerHTML += `
@@ -78,15 +80,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <button class="Vbtn" data-url="${e.url}" data-name="${name}">${name}</button>
                         </div>
                     `;
-
-                for (let i = 0; i < buttons.length; i++) {
-                    let button = buttons[i];
-                    let btnName = button.getAttribute("data-name");
-
-                    // naming and catecorization
-                    if (btnName.includes('@')) {
-                    }
-                }
             });
             addEventListenersToButtons(video);
         })
@@ -146,3 +139,90 @@ if (window.location.pathname == '/sessions' || window.location.pathname == '/ses
     window.addEventListener('resize', syncDivHeights);
     window.addEventListener('click', syncDivHeights);
 }
+
+// sidebar directories
+
+// naming
+
+function extractTextAfterSymbols(str, symbols, variables) {
+    const result = {};
+    symbols.forEach((symbol, index) => {
+        const variableName = variables[index];
+        if (str.includes(symbol)) {
+            const parts = str.split(symbol);
+            let textAfterSymbol = parts[1];
+            for (let i = 0; i < textAfterSymbol.length; i++) {
+                if (symbols.includes(textAfterSymbol[i])) {
+                    textAfterSymbol = textAfterSymbol.slice(0, i);
+                    break;
+                }
+            }
+            result[variableName] = textAfterSymbol.trim();
+        } else {
+            result[variableName] = "";
+        };
+    });
+    return result;
+};
+
+function addEntry() {
+    const name = "!3s@term1#القوة$الحصة_الاولى%شرح^video.mp4";
+    const inputString = name.split('.')[0];
+    const symbols = ['!', '@', '#', '$', '%', '^', '&'];
+    const variables = ['stage', 'term', 'name', 'directory', 'session', 'type', 'dirType'];
+    const result = extractTextAfterSymbols(inputString, symbols, variables);
+
+    console.log(result);
+};
+
+addEntry();
+
+// Assume the HTML structure is already present in the document
+document.addEventListener('DOMContentLoaded', () => {
+    // Select all directory elements
+    const directories = document.querySelectorAll('.directory');
+
+    directories.forEach((directory) => {
+        // Extract data-name attribute
+        const directoryName = directory.getAttribute('data-name');
+
+        // Extract values from the first entry
+        const firstEntryDirText = directory.querySelector('.entry .directory-text').textContent;
+        const firstEntryName = directory.querySelector('.entry .entry-text').textContent;
+        const firstEntryDirType = directory.querySelector('.entry .entry-text').getAttribute('data-dirType');
+
+        // Extract values from the second entry
+        const secondEntryDirText = directory.querySelectorAll('.entry')[1].querySelector('.directory-text').textContent;
+        const secondEntryName = directory.querySelectorAll('.entry')[1].querySelector('.entry-text').textContent;
+        const secondEntryDirType = directory.querySelectorAll('.entry')[1].querySelector('.entry-text').getAttribute('data-dirType');
+
+        // use the extracted values
+        let nameSearch = {
+            directoryName,
+            firstEntry: {
+                dirText: firstEntryDirText,
+                name: firstEntryName,
+                dirType: firstEntryDirType
+            },
+            secondEntry: {
+                dirText: secondEntryDirText,
+                name: secondEntryName,
+                dirType: secondEntryDirType
+            }
+        };
+
+        let directoryVal;
+        let firstEntryVal;
+        let secondEntryVal;
+        let fDirTextVal;
+        let sDirTextVal;
+        let fNameVal;
+        let sNameVal;
+        let fDirTypeVal;
+        let sDirTypeVal;
+
+        if (nameSearch.firstEntry.dirText == result.name) {
+            
+        }
+    });
+});

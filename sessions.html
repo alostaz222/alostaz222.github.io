@@ -39,30 +39,48 @@
         <div class="second-container">
             <aside id="sidebar">
                 <div id="sidecontainer">
-                    <div class="stgGroup" id="4pm">4pm</div>
-                    <div class="stgGroup" id="5pm">5pm</div>
-                    <div class="stgGroup" id="6pm">6pm</div>
-                    <div class="stgGroup" id="1pp">1pp</div>
-                    <div class="stgGroup" id="2pp">2pp</div>
-                    <div class="stgGroup" id="3pp">3pp</div>
-                    <div class="stgGroup" id="1s">1s</div>
-                    <div class="stgGroup" id="2s">2s</div>
-                    <div class="stgGroup" id="3s">3s</div>
+                    <div class="stgGroup" id="4pm">
+                        <div class="directories 4pm"></div>
+                    </div>
+                    <div class="stgGroup" id="5pm">
+                        <div class="directories 5pm"></div>
+                    </div>
+                    <div class="stgGroup" id="6pm">
+                        <div class="directories 6pm"></div>
+                    </div>
+                    <div class="stgGroup" id="1pp">
+                        <div class="directories 1pp"></div>
+                    </div>
+                    <div class="stgGroup" id="2pp">
+                        <div class="directories 2pp"></div>
+                    </div>
+                    <div class="stgGroup" id="3pp">
+                        <div class="directories 3pp"></div>
+                    </div>
+                    <div class="stgGroup" id="1s">
+                        <div class="directories 1s"></div>
+                    </div>
+                    <div class="stgGroup" id="2s">
+                        <div class="directories 2s"></div>
+                    </div>
+                    <div class="stgGroup" id="3s">
+                        <div class="directories 3s"></div>
+                    </div>
                 </div>
 
                 <div class="directories">
-                    <div class="directory" data-name="${result.directory}">
-                        <p class="dir-name">${result.directory}</p>
+                    <div class="directory" data-name="الحصة الاولى">
+                        <p class="dir-name">الحصة الاولى</p>
                         <div class="entry">
                             <div class="dir-text-cont">
                                 <div class="session-txt">
                                     <i class="material-icons">arrow_drop_down</i>
-                                    <p class="directory-text">${result.directory} - ${result.dir-type}</p>
+                                    <p class="directory-text">الحصة الاولى - شرح</p>
                                 </div>
                                 <input type="checkbox" disabled>
                             </div>
                             <div class="directory-item">
-                                <p class="entry-text" data-dirType="${result.dir-type}">${result.name}</p>
+                                <p class="entry-text" data-dirType="شرح">القوة</p>
                                 <input type="checkbox" disabled>
                             </div>
                         </div>
@@ -70,12 +88,12 @@
                             <div class="dir-text-cont">
                                 <div class="session-txt">
                                     <i class="material-icons">arrow_drop_down</i>
-                                    <p class="directory-text">${result.directory} - ${result.dir-type}</p>
+                                    <p class="directory-text">الحصة الاولى - تطبيق</p>
                                 </div>
                                 <input type="checkbox" disabled>
                             </div>
                             <div class="directory-item">
-                                <p class="entry-text" data-dirType="${result.data-dirType}">${result.name}</p>
+                                <p class="entry-text" data-dirType="تطبيق">الواجب</p>
                                 <input type="checkbox" disabled>
                             </div>
                         </div>
