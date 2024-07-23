@@ -8,6 +8,14 @@ let sidebar = document.getElementById('sidecontainer');
 let thirdContainer = document.getElementById('third-container');
 let videoData;
 let result; // Declare result in the outer scope
+let directoryName;
+let directoryStage;
+let firstEntryDirText;
+let firstEntryName;
+let firstEntryDirType;
+let secondEntryDirText;
+let secondEntryName;
+let secondEntryDirType;
 
 // Get the popup container and content elements
 const popupContainer = document.querySelector('.popup-container');
@@ -167,7 +175,7 @@ function extractTextAfterSymbols(str, symbols, variables) {
 };
 
 function addEntry() {
-    const name = "!3s@term1#القوة$الحصة الاولى%شرح^video.mp4";
+    const name = "!3s@term1#الواجب$الحصة الاولى%شرح^video.mp4";
     const inputString = name.split('.')[0];
     const symbols = ['!', '@', '#', '$', '%', '^'];
     const variables = ['stage', 'term', 'name', 'directory', 'session', 'type'];
@@ -178,88 +186,105 @@ function addEntry() {
 
 addEntry();
 
-// Assume the HTML structure is already present in the document
 document.addEventListener('DOMContentLoaded', () => {
-    // Select all directory elements
-    const directories = document.querySelectorAll('.directory');
+    const directoryGroup = document.getElementById(`${result.stage}`).querySelector('.directories');
+    let directoryExists = false;
+    let targetDirectory;
 
+    const directories = directoryGroup.querySelectorAll('.directory');
     directories.forEach((directory) => {
-
-        console.log(directory);
         // Extract data-name attribute
-        const directoryName = directory.getAttribute('data-name');
-        const directoryStage = directory.getAttribute('data-stage');
+        directoryName = directory.getAttribute('data-name');
 
-        // Extract values from the first entry
-        const firstEntryDirText = directory.querySelector('.entry .directory-text').textContent;
-        const firstEntryName = directory.querySelector('.entry .entry-text').textContent;
-        const firstEntryDirType = directory.querySelector('.entry .entry-text').getAttribute('data-dirType');
-
-        // Extract values from the second entry
-        const secondEntryDirText = directory.querySelectorAll('.entry')[1].querySelector('.directory-text').textContent;
-        const secondEntryName = directory.querySelectorAll('.entry')[1].querySelector('.entry-text').textContent;
-        const secondEntryDirType = directory.querySelectorAll('.entry')[1].querySelector('.entry-text').getAttribute('data-dirType');
-
-        // use the extracted values
-        let nameSearch = {
-            directoryName,
-            directoryStage,
-            firstEntry: {
-                dirText: firstEntryDirText,
-                name: firstEntryName,
-                dirType: firstEntryDirType
-            },
-            secondEntry: {
-                dirText: secondEntryDirText,
-                name: secondEntryName,
-                dirType: secondEntryDirType
-            }
-        };
-
-        console.log(nameSearch);
-
-        let directoryVal = true;
-        let DirTextVal = true;
-        let NameVal = true;
-        let DirTypeVal = true;
-
-        if (nameSearch.directoryName == result.directory) {
-            directoryVal = false;
-        } else {
-            directoryVal = true;
-        };
-
-        if (nameSearch.firstEntry.name == result.name) {
-            NameVal = false;
-        } else {
-            NameVal = true;
-        };
-
-        if (nameSearch.firstEntry.dirType == result.dirType) {
-            DirTypeVal = false;
-        } else {
-            DirTypeVal = true;
-        };
-
-        if (nameSearch.firstEntry.dirText == `${result.directory} - ${result.session}`) {
-            DirTextVal = false;
-        } else {
-            DirTextVal = true;
-        };
-
-        let stgDirectory = document.getElementById(`${result.stage}`).querySelector('.directories');
-
-        console.log(stgDirectory);
-
-        if (directoryVal == true) {
-            var dir = document.createElement('div');
-            dir.className = 'directory';
-            dir.dataset.name = `${result.directory}`;
-            dir.innerHTML = `<p class="dir-name">${result.directory}</p>`;
-        } else {
-
+        // Check if the directory matches the result.directory
+        if (directoryName == result.directory) {
+            directoryExists = true;
+            targetDirectory = directory;
         }
-
-        console.log(`directoryVal: ${directoryVal}`); console.log(`DirTypeVal: ${DirTypeVal}`); console.log(`DirTextVal: ${DirTextVal}`); console.log(`NameVal: ${NameVal}`);
     });
+
+    // If the directory does not exist, create a new directory with the provided template
+    if (!directoryExists) {
+        const newDirectory = document.createElement('div');
+        newDirectory.className = 'directory';
+        newDirectory.dataset.name = result.directory;
+        newDirectory.innerHTML = `
+            <p class="dir-name">${result.directory}</p>
+            <div class="entry">
+                <div class="dir-text-cont">
+                    <div class="session-txt">
+                        <i class="material-icons">arrow_drop_down</i>
+                        <p class="directory-text">${result.directory} - ${result.session}</p>
+                    </div>
+                    <input type="checkbox" disabled>
+                </div>
+                <div class="directory-item">
+                    <p class="entry-text" data-dirType="${result.type}">${result.name}</p>
+                    <input type="checkbox" disabled>
+                </div>
+            </div>
+        `;
+        directoryGroup.appendChild(newDirectory);
+        return; // No need to check entries since the directory is newly created
+    }
+
+    // If the directory exists, check if the entry exists within the directory
+    const entries = targetDirectory.querySelectorAll('.entry');
+    let entryExists = false;
+    let targetEntry;
+
+    entries.forEach((entry) => {
+        const dirTextCont = entry.querySelector('.dir-text-cont .directory-text').textContent;
+
+        if (dirTextCont == `${result.directory} - ${result.session}`) {
+            entryExists = true;
+            targetEntry = entry;
+        }
+    });
+
+    // If the entry does not exist, create a new entry with the provided template
+    if (!entryExists) {
+        const newEntry = document.createElement('div');
+        newEntry.className = 'entry';
+        newEntry.innerHTML = `
+            <div class="dir-text-cont">
+                <div class="session-txt">
+                    <i class="material-icons">arrow_drop_down</i>
+                    <p class="directory-text">${result.directory} - ${result.session}</p>
+                </div>
+                <input type="checkbox" disabled>
+            </div>
+            <div class="directory-item">
+                <p class="entry-text" data-dirType="${result.type}">${result.name}</p>
+                <input type="checkbox" disabled>
+            </div>
+        `;
+        targetDirectory.appendChild(newEntry);
+    } else {
+        // Check if the directory-item exists within the target entry
+        const directoryItems = targetEntry.querySelectorAll('.directory-item');
+        let directoryItemExists = false;
+
+        directoryItems.forEach((directoryItem) => {
+            const entryText = directoryItem.querySelector('.entry-text').textContent;
+            const entryDirType = directoryItem.querySelector('.entry-text').getAttribute('data-dirType');
+
+            if (entryText == result.name) {
+                directoryItemExists = true;
+            }
+        });
+
+        // If the directory-item does not exist, create a new directory-item with the provided template
+        if (!directoryItemExists) {
+            const newDirectoryItem = document.createElement('div');
+            newDirectoryItem.className = 'directory-item';
+            newDirectoryItem.innerHTML = `
+                <p class="entry-text" data-dirType="${result.type}">${result.name}</p>
+                <input type="checkbox" disabled>
+            `;
+            targetEntry.appendChild(newDirectoryItem);
+        } else {
+            console.log("Directory-item already exists. No action needed.");
+        }
+    }
 });
