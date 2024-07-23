@@ -135,7 +135,7 @@ function syncDivHeights() {
 if (window.location.pathname == '/sessions' || window.location.pathname == '/sessions.html') {
     // Call the function to sync heights on load
     window.addEventListener('load', syncDivHeights);
-    
+
     // Optionally, call the function to sync heights on window resize
     window.addEventListener('resize', syncDivHeights);
     window.addEventListener('click', syncDivHeights);
@@ -184,8 +184,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const directories = document.querySelectorAll('.directory');
 
     directories.forEach((directory) => {
+
+        console.log(directory);
         // Extract data-name attribute
         const directoryName = directory.getAttribute('data-name');
+        const directoryStage = directory.getAttribute('data-stage');
 
         // Extract values from the first entry
         const firstEntryDirText = directory.querySelector('.entry .directory-text').textContent;
@@ -200,6 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // use the extracted values
         let nameSearch = {
             directoryName,
+            directoryStage,
             firstEntry: {
                 dirText: firstEntryDirText,
                 name: firstEntryName,
@@ -243,17 +247,19 @@ document.addEventListener('DOMContentLoaded', () => {
             DirTextVal = true;
         };
 
-        // if (directoryVal == true) {
-        //     var dir = document.createElement('div');
-        //     dir.className = 'directory';
-        //     dir.dataset.name = `${result.directory}`;
-        //     dir.innerHTML = `<p class="dir-name">${result.directory}</p>`;
+        let stgDirectory = document.getElementById(`${result.stage}`).querySelector('.directories');
 
-        //     directories.
-        // } else {
-            
-        // }
+        console.log(stgDirectory);
 
-        console.log(`directoryVal: ${directoryVal}`); console.log(`DirTextVal: ${DirTextVal}`); console.log(`DirTextVal: ${DirTextVal}`); console.log(`NameVal: ${NameVal}`);
+        if (directoryVal == true) {
+            var dir = document.createElement('div');
+            dir.className = 'directory';
+            dir.dataset.name = `${result.directory}`;
+            dir.innerHTML = `<p class="dir-name">${result.directory}</p>`;
+        } else {
+
+        }
+
+        console.log(`directoryVal: ${directoryVal}`); console.log(`DirTypeVal: ${DirTypeVal}`); console.log(`DirTextVal: ${DirTextVal}`); console.log(`NameVal: ${NameVal}`);
     });
 });
