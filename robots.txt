@@ -1,6 +1,6 @@
 # Allow all web crawlers to access all content
 User-agent: *
-Disallow:
+Disallow: /admin/
 
 # Block web crawlers from accessing certain pages
 Disallow: /404

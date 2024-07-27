@@ -25,3 +25,8 @@ RewriteRule ^([^\.]+)$ $1.xml [NC,L]
 # Redirect requests for .xml files to 404 error
 RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.xml[? ].*$"
 RewriteRule .* - [L,R=404]
+
+AuthType Basic
+AuthName "Restricted Area"
+AuthUserFile ./admin/.htpasswd
+Require valid-user

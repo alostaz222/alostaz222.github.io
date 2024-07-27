@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+    <header>
+        <h1>Admin Dashboard</h1>
+    </header>
+    <main>
+        <select name="term" id="term">
+            <option value="first">الترم الأول</option>
+            <option value="second">الترم الثاني</option>
+        </select>
+        <form id="namingForm">
+            <label for="stage">Stage:</label>
+            <input type="text" id="stage" name="stage">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <label for="directory">Directory:</label>
+            <input type="text" id="directory" name="directory">
+            <label for="session">Session:</label>
+            <input type="text" id="session" name="session">
+            <label for="type">Type:</label>
+            <input type="text" id="type" name="type">
+            <button type="button" onclick="addEntry()">Add Entry</button>
+        </form>
+    </main>
+    <script src="admin.js"></script>
+</body>
+
+</html>
