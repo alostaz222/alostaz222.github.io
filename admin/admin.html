@@ -13,25 +13,25 @@
         <h1>Admin Dashboard</h1>
     </header>
     <main>
-        <select name="term" id="term">
-            <option value="first">الترم الأول</option>
-            <option value="second">الترم الثاني</option>
-        </select>
-        <form id="namingForm">
+        <form id="namingForm" enctype="multipart/form-data">
             <label for="stage">Stage:</label>
-            <input type="text" id="stage" name="stage">
+            <input type="text" id="stage" name="stage" required>
+            <label for="entryTerm">Term:</label>
+            <input type="text" id="entryTerm" name="entryTerm" required>
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" required>
             <label for="directory">Directory:</label>
-            <input type="text" id="directory" name="directory">
+            <input type="text" id="directory" name="directory" required>
             <label for="session">Session:</label>
-            <input type="text" id="session" name="session">
+            <input type="text" id="session" name="session" required>
             <label for="type">Type:</label>
-            <input type="text" id="type" name="type">
-            <button type="button" onclick="addEntry()">Add Entry</button>
+            <input type="text" id="type" name="type" required>
+            <label for="file">Video File:</label>
+            <input type="file" id="file" name="file" accept="video/*">
+            <button type="button" id="addEntryButton">Add Entry</button>
         </form>
     </main>
-    <script src="admin.js"></script>
+    <script type="module" src="admin.js"></script>
 </body>
 
 </html>
