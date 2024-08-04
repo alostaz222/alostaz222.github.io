@@ -15,19 +15,50 @@
     <main>
         <form id="namingForm" enctype="multipart/form-data">
             <label for="stage">Stage:</label>
-            <input type="text" id="stage" name="stage" required>
+            <select id="stage" name="stage" required>
+                <option selected disabled></option>
+                <optgroup label="المرحلة الابتدائية">
+                    <option value="4pm">الصف الرابع الابتدائي</option>
+                    <option value="5pm">الصف الخامس الابتدائي</option>
+                    <option value="6pm">الصف السادس الابتدائي</option>
+                </optgroup>
+                <optgroup label="المرحلة الاعدادية">
+                    <option value="1pp">الصف الأول الاعدادى</option>
+                    <option value="2pp">الصف الثاني الاعدادى</option>
+                    <option value="3pp">الصف الثالث الاعدادى</option>
+                </optgroup>
+                <optgroup label="المرحلة الثانوية">
+                    <option value="1s">الصف الأول الثانوى</option>
+                    <option value="2s">الصف الثاني الثانوى</option>
+                    <option value="3s">الصف الثالث الثانوى</option>
+
+                </optgroup>
+            </select>
             <label for="entryTerm">Term:</label>
-            <input type="text" id="entryTerm" name="entryTerm" required>
+            <select id="entryTerm" name="entryTerm" required>
+                <option selected disabled></option>
+                <option value="term1">الترم الأول</option>
+                <option value="term2">الترم الثاني</option>
+            </select>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
             <label for="directory">Directory:</label>
             <input type="text" id="directory" name="directory" required>
-            <label for="session">Session:</label>
-            <input type="text" id="session" name="session" required>
+            <label for="session">Session Type:</label>
+            <select id="session" name="session" required>
+                <option selected disabled></option>
+                <option value="شرح">شرح</option>
+                <option value="تطبيق">تطبيق</option>
+            </select>
             <label for="type">Type:</label>
-            <input type="text" id="type" name="type" required>
+            <select id="type" name="type" required>
+                <option selected disabled></option>
+                <option value="video">video</option>
+                <option value="exam">exam</option>
+                <option value="sheet">sheet</option>
+            </select>
             <label for="file">Video File:</label>
-            <input type="file" id="file" name="file" accept="video/*">
+            <input type="file" id="file" name="file">
             <button type="button" id="addEntryButton">Add Entry</button>
         </form>
     </main>
