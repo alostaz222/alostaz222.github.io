@@ -24,4 +24,3 @@ function typefinder() {
         fileLabel.textContent = 'File:'
     }
 }
-

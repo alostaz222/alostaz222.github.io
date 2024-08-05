@@ -7,7 +7,7 @@ const stgGroups = document.getElementsByClassName('stgGroup');
 let sidebar = document.getElementById('sidecontainer');
 let thirdContainer = document.getElementById('third-container');
 let videoData;
-let result; // Declare result in the outer scope
+let resulted; // Declare resulted in the outer scope
 let directoryName;
 let directoryStage;
 let firstEntryDirText;
@@ -16,6 +16,7 @@ let firstEntryDirType;
 let secondEntryDirText;
 let secondEntryName;
 let secondEntryDirType;
+let video = document.getElementById('videoPlayer');
 
 // Get the popup container and content elements
 const popupContainer = document.querySelector('.popup-container');
@@ -76,23 +77,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
     updatePopup()
 
-    let video = document.getElementById('videoPlayer');
-
-    fetch('../api/videos.json')
-        .then((res) => res.json())
-        .then((data) => {
-            videoData = data
-            data.forEach(e => {
-                let name = e.name;
-                sidebar.innerHTML += `
-                        <div class="video-entry">
-                            <button class="Vbtn" data-url="${e.url}" data-name="${name}">${name}</button>
-                        </div>
-                    `;
-            });
-            addEventListenersToButtons(video);
-        })
-        .catch((err) => console.error('Error fetching data:', err));
+    // fetch('../api/videos.json')
+    //     .then((res) => res.json())
+    //     .then((data) => {
+    //         videoData = data
+    //         data.forEach(e => {
+    //             let name = e.name;
+    //             sidebar.innerHTML += `
+    //                     <div class="video-entry">
+    //                         <button class="Vbtn" data-url="${e.url}" data-name="${name}">${name}</button>
+    //                     </div>
+    //                 `;
+    //         });
+    //         addEventListenersToButtons(video);
+    //     })
+    //     .catch((err) => console.error('Error fetching data:', err));
 });
 
 function addEventListenersToButtons(video) {
@@ -154,7 +153,7 @@ if (window.location.pathname == '/sessions' || window.location.pathname == '/ses
 // naming
 
 function extractTextAfterSymbols(str, symbols, variables) {
-    const result = {};
+    const resulted = {};
     symbols.forEach((symbol, index) => {
         const variableName = variables[index];
         if (str.includes(symbol)) {
@@ -166,12 +165,12 @@ function extractTextAfterSymbols(str, symbols, variables) {
                     break;
                 }
             }
-            result[variableName] = textAfterSymbol.trim();
+            resulted[variableName] = textAfterSymbol.trim();
         } else {
-            result[variableName] = "";
+            resulted[variableName] = "";
         };
     });
-    return result;
+    return resulted;
 };
 
 function addEntry() {
@@ -179,9 +178,9 @@ function addEntry() {
     const inputString = name.split('.')[0];
     const symbols = ['!', '@', '#', '$', '%', '^'];
     const variables = ['stage', 'term', 'name', 'directory', 'session', 'type'];
-    result = extractTextAfterSymbols(inputString, symbols, variables);
+    resulted = extractTextAfterSymbols(inputString, symbols, variables);
 
-    console.log(result);
+    console.log(resulted);
 };
 
 addEntry();
@@ -217,7 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <input type="checkbox" disabled>
                     </div>
                     <div class="directory-item">
-                        <p class="entry-text" data-dirType="${result.type}">${result.name}</p>
+                        <p class="entry-text" data-url="${result.url}" data-dirType="${result.type}">${result.name}</p>
                         <input type="checkbox" disabled>
                     </div>
                 </div>
@@ -251,7 +250,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <input type="checkbox" disabled>
                 </div>
                 <div class="directory-item">
-                    <p class="entry-text" data-dirType="${result.type}">${result.name}</p>
+                    <p class="entry-text" data-url="${result.url}" data-dirType="${result.type}">${result.name}</p>
                     <input type="checkbox" disabled>
                 </div>
             `;
@@ -273,7 +272,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newDirectoryItem = document.createElement('div');
                 newDirectoryItem.className = 'directory-item';
                 newDirectoryItem.innerHTML = `
-                    <p class="entry-text" data-dirType="${result.type}">${result.name}</p>
+                    <p class="entry-text" data-url="${result.url}" data-dirType="${result.type}">${result.name}</p>
                     <input type="checkbox" disabled>
                 `;
                 targetEntry.appendChild(newDirectoryItem);
