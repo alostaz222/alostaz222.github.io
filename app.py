@@ -29,7 +29,7 @@ def add_entry():
         file = request.files.get('file')
         if file:
             file_ext = os.path.splitext(file.filename)[1]
-            result = f"{entry['stage']}_{entry['term']}_{entry['name']}_{entry['directory']}_{entry['session']}_{entry['type']}_{entry['url']}"
+            result = f"{entry['stage']}_{entry['term']}_{entry['name']}_{entry['directory']}_{entry['session']}_{entry['type']}"
             unique_filename = f"{result}{file_ext}"
             file_path = os.path.join(UPLOAD_FOLDER, unique_filename)
             file.save(file_path)

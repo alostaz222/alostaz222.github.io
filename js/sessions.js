@@ -1,4 +1,4 @@
-let buttons = document.getElementsByClassName('Vbtn');
+let buttons = document.querySelectorAll('.directory-item');
 let stage = "";
 let stgOpt1 = document.getElementById('stage')
 let stgOpt = stgOpt1.cloneNode(true);
@@ -75,48 +75,58 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    updatePopup()
+    updatePopup();
 
-    // fetch('../api/videos.json')
-    //     .then((res) => res.json())
-    //     .then((data) => {
-    //         videoData = data
-    //         data.forEach(e => {
-    //             let name = e.name;
-    //             sidebar.innerHTML += `
-    //                     <div class="video-entry">
-    //                         <button class="Vbtn" data-url="${e.url}" data-name="${name}">${name}</button>
-    //                     </div>
-    //                 `;
-    //         });
-    //         addEventListenersToButtons(video);
-    //     })
-    //     .catch((err) => console.error('Error fetching data:', err));
 });
 
-function addEventListenersToButtons(video) {
-    for (let i = 0; i < buttons.length; i++) {
-        let button = buttons[i];
 
-        button.addEventListener('click', function () {
-            let url = this.getAttribute('data-url');
-            let source = video.querySelector('source');
-            if (source) {
-                source.src = url;
-                videoName.innerText = this.getAttribute('data-name');
-                video.load();  // Ensure the new video is loaded
-            } else {
-                console.error('Source element not found.');
-            }
+// fix this
+document.addEventListener('click', function(e) {
+    let target = e.target;
+    if (target.matches('.directory-item') || target.matches('.directory-item p')) {
+        if (target.matches('p')) {
+            target = target.closest('.directory-item');
+        }
 
-            if (videoName.innerText != "") {
-                videoName.style.display = 'block'
-            } else {
-                videoName.style.display = 'none'
-            }
-        })
+        let url = target.querySelector('p').getAttribute('data-url');
+        let source = video.querySelector('source');
+        if (source) {
+            source.src = url;
+            videoName.innerText = target.querySelector('p').getAttribute('data-name');
+            video.load();
+        }
+
+        videoName.style.display = videoName.innerText ? 'block' : 'none';
     }
-}
+
+    if (target.matches('.session-txt') || target.matches('.session-txt i') || target.matches('.session-txt p')) {
+        const entry = target.closest('.entry');
+        const directoryItems = entry.querySelectorAll('.directory-item');
+
+        directoryItems.forEach((directoryItem) => {
+            const isVisible = directoryItem.classList.contains('visible');
+
+            if (isVisible) {
+                // Hide the directory item by removing the visible class
+                directoryItem.classList.remove('visible');
+            } else {
+                // Show the directory item by adding the visible class
+                directoryItem.classList.add('visible');
+            }
+        });
+
+        const iconElement = entry.querySelector('.session-txt i');
+        if (iconElement) {
+            if (iconElement.innerText === 'arrow_drop_down') {
+                iconElement.innerText = 'arrow_drop_up';
+            } else {
+                iconElement.innerText = 'arrow_drop_down';
+            }
+        }
+    }
+});
+
+
 
 function syncDivHeights() {
     const div1 = document.getElementById('sidebar');
@@ -174,13 +184,7 @@ function extractTextAfterSymbols(str, symbols, variables) {
 };
 
 function addEntry() {
-    const name = "!3s@term1#الواجب$الحصة الاولى%شرح^video.mp4";
-    const inputString = name.split('.')[0];
-    const symbols = ['!', '@', '#', '$', '%', '^'];
-    const variables = ['stage', 'term', 'name', 'directory', 'session', 'type'];
-    resulted = extractTextAfterSymbols(inputString, symbols, variables);
 
-    console.log(resulted);
 };
 
 addEntry();
@@ -216,7 +220,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <input type="checkbox" disabled>
                     </div>
                     <div class="directory-item">
-                        <p class="entry-text" data-url="${result.url}" data-dirType="${result.type}">${result.name}</p>
+                        <p class="entry-text" data-url="${result.url}" data-dirType="${result.type}" data-name="${result.name}">${result.name}</p>
                         <input type="checkbox" disabled>
                     </div>
                 </div>
@@ -250,7 +254,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <input type="checkbox" disabled>
                 </div>
                 <div class="directory-item">
-                    <p class="entry-text" data-url="${result.url}" data-dirType="${result.type}">${result.name}</p>
+                    <p class="entry-text" data-url="${result.url}" data-dirType="${result.type}" data-name="${result.name}">${result.name}</p>
                     <input type="checkbox" disabled>
                 </div>
             `;
@@ -272,7 +276,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const newDirectoryItem = document.createElement('div');
                 newDirectoryItem.className = 'directory-item';
                 newDirectoryItem.innerHTML = `
-                    <p class="entry-text" data-url="${result.url}" data-dirType="${result.type}">${result.name}</p>
+                    <p class="entry-text" data-url="${result.url}" data-dirType="${result.type}" data-name="${result.name}">${result.name}</p>
                     <input type="checkbox" disabled>
                 `;
                 targetEntry.appendChild(newDirectoryItem);

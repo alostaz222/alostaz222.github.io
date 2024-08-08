@@ -1,1 +1,48 @@
-[]
+[
+    {
+        "stage": "4pm",
+        "term": "term1",
+        "name": "السرعة",
+        "directory": "الحصة الاولى",
+        "session": "شرح",
+        "type": "video",
+        "file": "4pm_term1_السرعة_الحصة الاولى_شرح_video.mp4",
+        "url": "./media/4pm_term1_السرعة_الحصة الاولى_شرح_video.mp4"
+    },
+    {
+        "stage": "4pm",
+        "term": "term1",
+        "name": "القوة",
+        "directory": "الحصة الاولى",
+        "session": "شرح",
+        "type": "video",
+        "file": "4pm_term1_القوة_الحصة الاولى_شرح_video.mp4",
+        "url": "/media/4pm_term1_القوة_الحصة الاولى_شرح_video.mp4"
+    },
+    {
+        "stage": "4pm",
+        "term": "term1",
+        "name": "الواجب",
+        "directory": "الحصة الاولى",
+        "session": "تطبيق",
+        "type": "exam"
+    },
+    {
+        "stage": "4pm",
+        "term": "term1",
+        "name": "الواجب",
+        "directory": "الحصة الثانية",
+        "session": "تطبيق",
+        "type": "exam"
+    },
+    {
+        "stage": "4pm",
+        "term": "term1",
+        "name": "الوزن",
+        "directory": "الحصة الثانية",
+        "session": "شرح",
+        "type": "video",
+        "file": "4pm_term1_الوزن_الحصة الثانية_شرح_video.mp4",
+        "url": "/media/4pm_term1_الوزن_الحصة الثانية_شرح_video.mp4"
+    }
+]
