@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="admin.css">
+    <style>
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <!-- Login Form -->
+    <div id="loginForm">
+        <h1>تسجيل الدخول</h1>
+        <form id="login">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" required>
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" required>
+            <button type="button" id="loginButton">تسجيل الدخول</button>
+            <p id="loginMessage" class="hidden"></p>
+        </form>
+    </div>
+
+    <!-- Admin Content -->
+    <div id="adminContent" class="hidden">
+        <header>
+            <h1>لوحة التحكم</h1>
+            <label for="CTerm">الترم الحالي:</label>
+            <select id="CTerm" name="CTerm">
+                <option value="fTerm">الترم الأول</option>
+                <option value="sTerm">الترم الثاني</option>
+            </select>
+        </header>
+        <main>
+            <form id="namingForm" enctype="multipart/form-data">
+                <label for="stage">الصف:</label>
+                <select id="stage" name="stage" required>
+                    <option selected disabled></option>
+                    <optgroup label="المرحلة الابتدائية">
+                        <option value="4pm">الصف الرابع الابتدائي</option>
+                        <option value="5pm">الصف الخامس الابتدائي</option>
+                        <option value="6pm">الصف السادس الابتدائي</option>
+                    </optgroup>
+                    <optgroup label="المرحلة الاعدادية">
+                        <option value="1pp">الصف الأول الاعدادى</option>
+                        <option value="2pp">الصف الثاني الاعدادى</option>
+                        <option value="3pp">الصف الثالث الاعدادى</option>
+                    </optgroup>
+                    <optgroup label="المرحلة الثانوية">
+                        <option value="1s">الصف الأول الثانوى</option>
+                        <option value="2s">الصف الثاني الثانوى</option>
+                        <option value="3s">الصف الثالث الثانوى</option>
+                    </optgroup>
+                </select>
+                <label for="entryTerm">الترم:</label>
+                <select id="entryTerm" name="entryTerm" required>
+                    <option selected disabled></option>
+                    <option value="term1">الترم الأول</option>
+                    <option value="term2">الترم الثاني</option>
+                </select>
+                <label for="name">اسم الدرس:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="directory">المجموعة:</label>
+                <select id="directory" name="directory" required></select>
+                <input type="hidden" name="directoryOrder" id="directoryOrder">
+                <label for="session">نوع المجموعة:</label>
+                <select id="session" name="session" required>
+                    <option selected disabled></option>
+                    <option value="شرح">شرح</option>
+                    <option value="تطبيق">تطبيق</option>
+                </select>
+                <label for="order">الترتيب:</label>
+                <select id="order" name="order" required></select>
+                <label for="type">النوع:</label>
+                <select id="type" name="type" required>
+                    <option selected disabled></option>
+                    <option value="video">الفيديو</option>
+                    <option value="exam">الإختبار</option>
+                    <option value="sheet">المذكرة</option>
+                </select>
+                <label for="availabilityDate">تاريخ الإتاحة:</label>
+                <input type="date" id="availabilityDate" name="availabilityDate" required>
+                <label for="file"></label>
+                <input type="file" id="file" name="file">
+                <button type="button" id="addEntryButton">إضافة</button>
+            </form>
+        </main>
+    </div>
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

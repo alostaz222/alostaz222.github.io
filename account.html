@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Alostaz | My Account</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/notification.css">
+    <link rel="stylesheet" type="text/css" href="/css/account.css">
+
+    <!-- Mobile Viewport Optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Title and Description -->
+    <meta name="title" content="Alostaz | My Account">
+    <meta name="description" content="دروس فيزياء اونلاين مع Alostaz. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة.">
+
+    <!-- Keywords for SEO -->
+    <meta name="keywords" content="Physics, alostaz, elostaz, Alostaz, Elostaz, MR.Bakr, فيزياء, تعليم, teacher, teaching, alostaz222, Alostaz222, Elostaz222, منصة تعليمية, Educational platform">
+
+    <!-- Author -->
+    <meta name="author" content="Alostaz">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alostaz222.github.io/account">
+
+    <!-- Open Graph Meta Tags for Social Media and SEO -->
+    <meta property="og:url" content="https://alostaz222.github.io/account">
+    <meta property="og:title" content="Alostaz | My Account">
+    <meta property="og:description" content="دروس فيزياء اونلاين مع Alostaz. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alostaz">
+
+    <!-- Structured Data with JSON-LD -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/account",
+            "description": "دروس فيزياء اونلاين مع Alostaz. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة."
+        }
+    </script>
+
+    <!-- Additional Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Firebase Setup -->
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
+</head>
+
+<body>
+    <special-header></special-header>
+    <special-logo></special-logo>
+
+    <div class="popupContainer">
+        <div class="counters">
+            <div class="counter error" id="errorCounter">
+                <i class="material-icons">error</i>
+                <span>0</span>
+            </div>
+            <div class="counter info" id="infoCounter">
+                <i class="material-icons">info</i>
+                <span>0</span>
+            </div>
+            <div class="counter success" id="successCounter">
+                <i class="material-icons">check_circle</i>
+                <span>0</span>
+            </div>
+            <div class="counter warning" id="warningCounter">
+                <i class="material-icons">warning</i>
+                <span>0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <h1>إعدادات المستخدم</h1>
+        <div class="userSettings">
+
+            <div class="user">
+                <div class="accPic">
+                    <label class="photoChoose" for="profilePic">
+                        <div>
+                            <i class="material-icons">photo_camera</i>
+                        </div>
+                    </label>
+                    <input type="file" name="profilePic" id="profilePic" style="display: none;">
+                    <i class="material-icons img">account_circle</i>
+                </div>
+                
+                <div id="userDetails"></div>
+
+                <div class="coupon">
+                    <div id="coupontext">تقدر ترشح الموقع لصحابك علشان ياخدوا خصم 20% من قيمة الإشتراك.<br> وكل مترشح الموقع لناس أكتر هيكون ليك نقط تبدلهم بهدايا و خصومات</div>
+                    <button id="useMyCoupon">استخدام الكوبون</button>
+                    <input type="hidden" id="coupon" name="coupon">
+                </div>
+
+                <button class="signOut">تسجيل خروج</button>
+            </div>
+
+            <div class="details">
+                <form>
+                    <div class="inputCont">
+                        <label for="username">اسم المستخدم:</label>
+                        <div class="input">
+                            <input type="text" id="username" disabled>
+                            <i class="material-icons" title="change username">sync</i>
+                        </div>
+                    </div>
+                    <div class="inputCont">
+                        <label for="email">البريد الإلكتروني:</label>
+                        <div class="input">
+                            <input type="text" id="email" disabled>
+                            <i class="material-icons" title="change email">sync</i>
+                        </div>
+                    </div>
+                    <div class="inputCont">
+                        <label for="phone">الهاتف:</label>
+                        <div class="input">
+                            <input type="tel" id="phone" placeholder=" " disabled>
+                            <i class="material-icons" title="change phone">sync</i>
+                        </div>
+                    </div>
+
+                    <h2>تحديث كلمة السر</h2>
+
+                    <div class="inputCont">
+                        <label for="oldPass">كلمة السر الحالية:</label>
+                        <div class="input">
+                            <input type="password" id="oldPass">
+                        </div>
+                    </div>
+                    <div class="inputCont">
+                        <label for="newPass">كلمة السر الجديدة:</label>
+                        <div class="input">
+                            <input type="password" id="newPass">
+                        </div>
+                    </div>
+                    <div class="inputCont">
+                        <label for="confirmPass">تأكيد كلمة السر:</label>
+                        <div class="input">
+                            <input type="password" id="confirmPass">
+                        </div>
+                    </div>
+
+                    <button id="updateUserData">تحديث</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <special-footer></special-footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+    <script type="module" src="/js/navbar.js"></script>
+    <script type="module" src="/js/notification.js"></script>
+    <script src="/js/account.js" type="module" defer></script>
+</body>
+
+</html>

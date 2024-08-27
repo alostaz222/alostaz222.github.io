@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Alostaz | Physics Sessions</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
+    <link rel="stylesheet" type="text/css" href="/css/sessions.css" />
+    <link rel="stylesheet" type="text/css" href="/css/notification.css" />
+
+    <!-- Scripts -->
+    <script src="js/notification.js" type="module" defer></script>
+
+    <!-- Mobile Viewport Optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Title and Description -->
+    <meta name="title" content="Alostaz | Physics Sessions">
+    <meta name="description" content="استفد من جلسات الفيزياء المسجلة مع Alostaz. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء.">
+
+    <!-- Keywords for SEO -->
+    <meta name="keywords" content="Physics, alostaz, elostaz, Alostaz, Elostaz, MR.Bakr, فيزياء, تعليم, teacher, teaching, alostaz222, Alostaz222, Elostaz222, منصة تعليمية, Educational platform">
+
+    <!-- Author -->
+    <meta name="author" content="Alostaz">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alostaz222.github.io/sessions">
+
+    <!-- Open Graph Meta Tags for Social Media and SEO -->
+    <meta property="og:url" content="https://alostaz222.github.io/sessions">
+    <meta property="og:title" content="Alostaz | Physics Sessions">
+    <meta property="og:description" content="استفد من جلسات الفيزياء المسجلة مع Alostaz. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alostaz">
+
+    <!-- Structured Data with JSON-LD -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/sessions",
+            "description": "استفد من جلسات الفيزياء المسجلة مع Alostaz. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء."
+        }
+    </script>
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Firebase Setup -->
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
+</head>
+
+
+<body>
+    <special-header></special-header>
+    <div class="main-container">
+        <special-logo></special-logo>
+        <div class="second-container">
+            <aside id="sidebar">
+                <div id="sidecontainer">
+                    <div class="stgGroup" id="4pm">
+                        <div class="directories 4pm"></div>
+                    </div>
+                    <div class="stgGroup" id="5pm">
+                        <div class="directories 5pm"></div>
+                    </div>
+                    <div class="stgGroup" id="6pm">
+                        <div class="directories 6pm"></div>
+                    </div>
+                    <div class="stgGroup" id="1pp">
+                        <div class="directories 1pp"></div>
+                    </div>
+                    <div class="stgGroup" id="2pp">
+                        <div class="directories 2pp"></div>
+                    </div>
+                    <div class="stgGroup" id="3pp">
+                        <div class="directories 3pp"></div>
+                    </div>
+                    <div class="stgGroup" id="1s">
+                        <div class="directories 1s"></div>
+                    </div>
+                    <div class="stgGroup" id="2s">
+                        <div class="directories 2s">
+                            
+                        </div>
+                    </div>
+                    <div class="stgGroup" id="3s">
+                        <div class="directories 3s">
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+
+            <main>
+                <div class="popupContainer">
+                    <div class="counters">
+                        <div class="counter error" id="errorCounter">
+                            <i class="material-icons">error</i>
+                            <span>0</span>
+                        </div>
+                        <div class="counter info" id="infoCounter">
+                            <i class="material-icons">info</i>
+                            <span>0</span>
+                        </div>
+                        <div class="counter success" id="successCounter">
+                            <i class="material-icons">check_circle</i>
+                            <span>0</span>
+                        </div>
+                        <div class="counter warning" id="warningCounter">
+                            <i class="material-icons">warning</i>
+                            <span>0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- The popup container -->
+                <div class="popup-container">
+                    <!-- The blur overlay -->
+                    <div class="blur-overlay"></div>
+                    <!-- The popup content -->
+                    <div class="popup-content">
+                        <h2>اختر الصف الدراسي ...</h2>
+                        <div class="container">
+                        </div>
+                    </div>
+                </div>
+                <div class="third-container" id="third-container">
+                    <h1 id="video-name"></h1>
+                    <div class="video-container">
+                        <special-video></special-video>
+                    </div>
+                    <div id="button">
+                        <button id="button1">التالي</button>
+                        <button id="button2">تم</button>
+                        <button id="button3">السابق</button>
+                    </div>
+                </div>
+            </main>
+        </div>
+        <aside id="ads">
+            <p>نحن غير مسؤلين عن اي اعلان غير لائق</p>
+            <!-- ads -->
+        </aside>
+    </div>
+    <special-footer></special-footer>
+    <script type="module" src="/js/navbar.js"></script>
+    <script type="module" src="/js/sessions.js" defer></script>
+</body>
+
+</html>

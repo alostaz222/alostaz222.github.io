@@ -1,0 +1,35 @@
+adding login form to admin folder
+
+searching for huge free file hosting
+
+adding user settings
+
+adding fully directory update
+
+adding landing page if the user isn't signed in
+
+adding availability date for directory items
+
+adding free samples
+
+adding discount coupon generator
+
+adding discount for the first 100 students
+
+adding free accounts for the students of the teacher
+
+if the students of the teacher invited 5 users to the website they will take two free lessons on land
+
+if the students of the teacher invited 5 students to the teacher they will take one free lesson on land and 25% discount for the other lesson
+
+make the sheets for free
+
+make some intro, outro and advertisement videos
+
+add loading page
+
+continue the coupon settings
+
+make an app for the admin page with password and apply pushing changes to the host on clicking a button in the app
+
+fix not updating local storage on generating new coupon

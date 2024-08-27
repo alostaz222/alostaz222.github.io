@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Alostaz | My Coupon</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/coupon.css">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Mobile Viewport Optimization -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Meta Description -->
+    <meta name="description" content="استخدم قسيمتك على Alostaz للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alostaz222.github.io/coupon">
+
+    <!-- Open Graph Meta Tags for Social Media and SEO -->
+    <meta property="og:url" content="https://alostaz222.github.io/coupon">
+    <meta property="og:title" content="Alostaz | My Coupon">
+    <meta property="og:description" content="استخدم قسيمتك على Alostaz للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alostaz">
+
+    <!-- Structured Data with JSON-LD -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/coupon",
+            "description": "استخدم قسيمتك على Alostaz للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن."
+        }
+    </script>
+
+    <!-- Firebase Setup -->
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
+</head>
+
+<body>
+    <special-header></special-header>
+    <special-logo></special-logo>
+
+    <div class="main-container">
+        <div class="first-line">
+            <div class="container">
+                <span class="contTitle">Coupon</span>
+                <div class="contText">
+                    <span id="coupon"></span>
+                </div>
+            </div>
+
+            <div class="container">
+                <span class="contTitle">Percentage</span>
+                <div class="contText">
+                    <span id="percentage"></span>
+                </div>
+            </div>
+        </div>
+        <div class="second-line">
+            <div class="container">
+                <span class="contTitle">Number Of Used Coupons</span>
+                <div class="contText">
+                    <span id="no.coupon"></span>
+                </div>
+            </div>
+            <div class="container">
+                <span class="contTitle">Ernings</span>
+                <div class="contText">
+                    <span id="ernings"></span>
+                </div>
+            </div>
+            <div class="container">
+                <span class="contTitle">Invite Friends</span>
+                <div class="contText">
+                    <span id="invite">
+                        <div id="whatsappShare" data-link="">Whatsapp</div>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="third-line">
+            <div class="container">
+                <span class="contTitle">Invited Friends</span>
+                <div class="contText">
+                    <span id="invited">
+                        
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <special-footer></special-footer>
+    <script src="/js/navbar.js"></script>
+    <script src="/js/coupon.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+# Set the default file to serve when a directory is requested
+DirectoryIndex index.html
+
+# Set the custom 404 error page
+ErrorDocument 404 /alostaz/404
+
+# Enable MultiViews option
+Options +MultiViews
+
+# Enable mod_rewrite engine
+RewriteEngine On
+
+# Hide .html extensions
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+# Redirect requests for .html files to 404 error
+RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.html[? ].*$"
+RewriteRule .* - [L,R=404]
+
+# Hide .xml extensions
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.xml [NC,L]
+
+# Redirect requests for .xml files to 404 error
+RewriteCond %{THE_REQUEST} "^[^ ]* .*?\.xml[? ].*$"
+RewriteRule .* - [L,R=404]
+
+AuthType Basic
+AuthName "Restricted Area"
+Require valid-user

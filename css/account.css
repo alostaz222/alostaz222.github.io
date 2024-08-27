@@ -1,0 +1,286 @@
+body {
+    direction: rtl;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: #333;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: var(--teal);
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: var(--teal);
+}
+
+.main-container {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 20px;
+    background-color: #ffffff75;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.userSettings {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.user {
+    flex: 1;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.accPic {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #eee;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.accPic .img {
+    color: var(--teal);
+    font-size: 145px;
+    flex: 1;
+}
+
+.accPic .photoChoose {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+    transition: opacity, .5s;
+    -webkit-transition: opacity, .5s;
+    -moz-transition: opacity, .5s;
+    -ms-transition: opacity, .5s;
+    -o-transition: opacity, .5s;
+}
+
+.photoChoose i {
+    color: #eee;
+}
+
+.accPic:hover .photoChoose {
+    opacity: 1;
+}
+
+#userDetails {
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: #e7f5e5;
+    border-right: 4px solid var(--teal);
+    border-radius: 4px;
+    color: var(--teal);
+    text-align: center;
+    width: 100%;
+}
+
+.coupon {
+    flex: 1;
+}
+
+#coupontext {
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: #fff4d2;
+    border-right: 4px solid #ff9800;
+    border-radius: 4px;
+    color: #e65100; /* Dark Orange */
+    width: 100%;
+}
+
+#useMyCoupon {
+    background: #e65100;
+    margin: 25px 0;
+}
+
+.couponCode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    margin: 0 auto;
+}
+
+svg {
+    max-width: 300px;
+}
+
+svg text {
+    font-weight: bold;
+}
+
+.details {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputCont {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.inputCont label {
+    font-weight: bold;
+    color: #555;
+}
+
+.inputCont .input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+}
+
+.inputCont input[type="text"],
+.inputCont input[type="password"],
+.inputCont input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    color: #555;
+    box-sizing: border-box;
+}
+
+.inputCont input:disabled {
+    background-color: #eee;
+}
+
+.inputCont .material-icons {
+    color: #888;
+    cursor: pointer;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.inputCont .material-icons:hover {
+    color: #333;
+}
+
+.inputCont .iti {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    position: relative;
+}
+
+.inputCont .iti__flag-container {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    pointer-events: auto;
+    z-index: 1;
+}
+
+.inputCont input[type="tel"] {
+    padding-left: 60px !important;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: var(--teal);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: rgb(0, 93, 93);
+}
+
+.user button {
+    margin-top: auto;
+    background-color: #c31a1a;
+}
+
+.user button:hover {
+    background-color: #a80000;
+}
+
+@media (min-width: 769px) {
+    .photoChoose {
+        opacity: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .userSettings {
+        flex-direction: column;
+    }
+
+    .user,
+    .details {
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .photoChoose {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 480px) {
+    .inputCont .input {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .inputCont .material-icons {
+        font-size: 1.2rem;
+    }
+
+    .photoChoose {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alostaz | Authentication</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة.">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://alostaz222.github.io/auth">
+
+    <!-- Open Graph Meta Tags for Social Media and SEO -->
+    <meta property="og:url" content="https://alostaz222.github.io/auth">
+    <meta property="og:title" content="Alostaz | Authentication">
+    <meta property="og:description" content="انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة.">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Alostaz">
+
+    <!-- Structured Data with JSON-LD -->
+    <script type="application/ld+json">
+        {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/auth",
+            "description": "انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة."
+        }
+    </script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="/css/notification.css" />
+    <link rel="stylesheet" href="/css/auth.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
+
+    <!-- Google Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body id="auth">
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
+
+    <div class="popupContainer">
+        <div class="counters">
+            <div class="counter error" id="errorCounter">
+                <i class="material-icons">error</i>
+                <span>0</span>
+            </div>
+            <div class="counter info" id="infoCounter">
+                <i class="material-icons">info</i>
+                <span>0</span>
+            </div>
+            <div class="counter success" id="successCounter">
+                <i class="material-icons">check_circle</i>
+                <span>0</span>
+            </div>
+            <div class="counter warning" id="warningCounter">
+                <i class="material-icons">warning</i>
+                <span>0</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="pageContainer">
+        <div class="auth" id="authContainer">
+
+            <div class="welcome" id="welcome">
+                <h1>انضم الى عائلة الأستاذ</h1>
+            </div>
+
+            <div class="container" id="container">
+                <a class="logo" href="/">
+                    <img src="logo.png" alt="logo">
+                </a>
+
+                <div class="showButtons">
+                    <button id="showSignUp">انشئ حسابًا</button>
+                    <button id="showSignIn">تسجيل الدخول</button>
+                </div>
+            </div>
+
+            <form id="signUpForm" class="form">
+                <h2>Create an account</h2>
+
+                <input type="text" class="SInput" id="username" placeholder="Username">
+
+                <input type="email" class="SInput" id="email" placeholder="Email">
+
+                <div class="phoneContainer">
+                    <input type="tel" class="SInput" id="phone" placeholder="Phone Number">
+                </div>
+
+                <input type="password" class="SInput" id="password1" placeholder="Password">
+
+                <input type="password" class="SInput" id="password2" placeholder="Rewrite Password">
+
+                <p>already a member? <a id="switchToLogin">login</a></p>
+                <button type="submit" id="sign-up">Sign Up</button>
+            </form>
+
+            <form id="signInForm" class="form">
+                <h2>Sign in</h2>
+
+                <input type="text" class="LInput" id="authenticator" placeholder="Username or Email">
+
+                <input type="password" class="LInput" id="password" placeholder="Password">
+
+                <p>don't have an account? <a id="switchToSignUp">create an account</a></p>
+                <button type="submit" id="sign-in">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
+    <script src="js/notification.js" type="module" defer></script>
+    <script type="module" src="/js/auth.js"></script>
+</body>
+
+</html>

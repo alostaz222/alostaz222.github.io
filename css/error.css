@@ -1,0 +1,83 @@
+:root {
+    --background: #E7FFFF;
+    --first-color: #222;
+    --second-color: rgba(0, 0, 0, 0.3);
+    --third-color: #ddd;
+    --fourth-color: #008B62;
+    --fifth-color: #00593E;
+    --sixth-color: rgba(0, 0, 0, 0.2);
+    --seventh-color: #444;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: var(--background);
+}
+
+h1 {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid var(--first-color);
+    color: var(--first-color);
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.75rem 1rem 0.6rem;
+    transition: all 0.2s linear;
+    box-shadow: 0 3px 8px var(--second-color);
+}
+
+a:hover {
+    background: var(--first-color);
+    color: var(--third-color);
+}
+
+.section {
+    padding: 4rem 2rem;
+}
+
+.section .error {
+    font-size: 150px;
+    color: var(--fourth-color);
+    text-shadow:
+        1px 1px 1px var(--fifth-color),
+        2px 2px 1px var(--fifth-color),
+        3px 3px 1px var(--fifth-color),
+        4px 4px 1px var(--fifth-color),
+        5px 5px 1px var(--fifth-color),
+        6px 6px 1px var(--fifth-color),
+        7px 7px 1px var(--fifth-color),
+        8px 8px 1px var(--fifth-color),
+        25px 25px 8px var(--sixth-color);
+}
+
+.page {
+    margin: 2rem 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--seventh-color);
+}
+
+.back-home {
+    display: inline-block;
+    border: 2px solid var(--first-color);
+    color: var(--first-color);
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 0.75rem 1rem 0.6rem;
+    transition: all 0.2s linear;
+    box-shadow: 0 3px 8px var(--second-color);
+}
+
+.back-home:hover {
+    background: var(--first-color);
+    color: var(--third-color);
+}

@@ -1,0 +1,135 @@
+.popupContainer {
+    direction: ltr !important;
+    position: relative;
+    width: 70%;
+    max-width: 600px;
+    z-index: 3;
+}
+
+.counters {
+    display: flex;
+    gap: 20px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 4px;
+    background-color: #fff;
+}
+
+.counter {
+    text-align: center;
+    min-width: 50px;
+}
+
+.counter h4 {
+    display: inline;
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.counter span {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.message {
+    top:20px;
+    left: 20px;
+    right: 20px;
+    padding: 15px;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    align-items: center;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    background-color: #fff;
+}
+
+.message i {
+    font-size: 24px;
+}
+
+.message .textContainer h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+
+.message .textContainer p {
+    margin: 0;
+    font-size: 14px;
+}
+
+.message.error {
+    background-color: #ffebee;
+    border-left: 5px solid #f44336;
+}
+
+.error i {
+    color: #f44336;
+}
+
+.message.info {
+    background-color: #e3f2fd;
+    border-left: 5px solid #2196f3;
+}
+
+.info i {
+    color: #2196f3;
+}
+
+.message.success {
+    background-color: #e8f5e9;
+    border-left: 5px solid #4caf50;
+}
+
+.success i {
+    color: #4caf50;
+}
+
+.message.warning {
+    background-color: #fff8e1;
+    border-left: 5px solid #ff9800;
+}
+
+.warning i {
+    color: #ff9800;
+}
+
+.message .close-icon {
+    margin-left: auto;
+    cursor: pointer;
+    font-size: 18px;
+    color: #888;
+    transition: color 0.3s;
+}
+
+.message .close-icon:hover {
+    color: #000;
+}
+
+@media (max-width: 600px) {
+
+    .counter {
+        margin-bottom: 10px;
+    }
+
+    .message:not(:first-child) {
+        margin-top: 10px;
+    }
+
+    .message .textContainer h4,
+    .message .textContainer p {
+        font-size: 14px;
+    }
+
+    .message i {
+        font-size: 20px;
+    }
+
+    .message .close-icon {
+        font-size: 16px;
+    }
+}
