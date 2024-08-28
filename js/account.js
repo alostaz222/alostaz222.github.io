@@ -37,7 +37,7 @@ const phoneInput = window.intlTelInput(phoneInputField, {
 
 function clearErrors() {
     document.querySelectorAll('.message').forEach(message => message.remove());
-    updateCounters()
+    updateCounters();
 }
 
 const username = document.getElementById('username');
@@ -61,12 +61,11 @@ function userUpdate() {
         username.value = '';
         email.value = '';
         phone.value = '';
-    };
-};
+    }
+}
 
-document.getElementById('useMyCoupon').addEventListener('click', generateCoupon)
+document.getElementById('useMyCoupon').addEventListener('click', generateCoupon);
 
-// Coupon generation function
 function generateCoupon() {
     const user = JSON.parse(localStorage.getItem('userData'));
     const username = user.username;
@@ -84,16 +83,15 @@ function generateCoupon() {
         if (snapshot.exists()) {
             addNotification('error', 'You have already generated a coupon.', '.popupContainer');
             setTimeout(clearErrors, 3000);
-            return;
+        } else {
+            // Clean up the username and generate a random number
+            const cleanedUsername = username.replace(/[^a-zA-Z]/g, '').substring(0, 7).toUpperCase();
+            const randomNum = Math.floor(Math.random() * 10000);
+            const coupon = `${cleanedUsername}${randomNum}`;
+
+            // Check if the coupon is already in Firebase
+            checkAndSaveCoupon(coupon);
         }
-
-        // Clean up the username and generate a random number
-        const cleanedUsername = username.replace(/[^a-zA-Z]/g, '');
-        const randomNum = Math.floor(Math.random() * 10000);
-        const coupon = `${cleanedUsername.substring(0, 7).toUpperCase()}${randomNum}`;
-
-        // Check if the coupon is already in Firebase
-        checkAndSaveCoupon(coupon);
     }).catch(error => {
         console.error('Error checking user coupons:', error);
         addNotification('error', 'An error occurred while checking existing coupons.', '.popupContainer');
@@ -101,7 +99,6 @@ function generateCoupon() {
     });
 }
 
-// Check and save coupon in Firebase
 function checkAndSaveCoupon(coupon) {
     const user = JSON.parse(localStorage.getItem('userData'));
     const couponRef = database.ref('coupons/' + coupon);
@@ -113,41 +110,50 @@ function checkAndSaveCoupon(coupon) {
             generateCoupon();
         } else {
             // Save the coupon to Firebase
-            const userRef = database.ref('users/' + username);
-
-            // Save coupon to user's G-coupon
-            userRef.child('G-coupon').set(coupon)
-                .then(() => {
-                    // Save the coupon details
-                    couponRef.set({
-                        generatedBy: username,
-                        usedBy: null
-                    })
-                    .then(() => {
-                        // Display the coupon in the DOM
-                        addNotification('success', `Coupon saved: ${coupon}`, '.popupContainer');
-                        setTimeout(clearErrors, 3000);
-
-                        // Redirect after 3 seconds
-                        setTimeout(() => {
-                            window.location.href = '/coupon';
-                        }, 3000);
-                    })
-                    .catch((error) => {
-                        console.error('Error saving coupon:', error);
-                    });
-                })
-                .catch((error) => {
-                    console.error('Error updating user coupons:', error);
-                });
+            saveCouponToDatabase(coupon, username);
         }
-    }).catch((error) => {
-        console.error('Error checking coupon:', error);
-        addNotification('error', "An error occurred while checking the coupon.", '.popupContainer');
+    }).catch(error => {
+        console.error('Error checking coupon in database:', error);
+        addNotification('error', 'An error occurred while checking the coupon.', '.popupContainer');
         setTimeout(clearErrors, 3000);
     });
 }
 
+function saveCouponToDatabase(coupon, username) {
+    const userRef = database.ref('users/' + username);
+    const couponRef = database.ref('coupons/' + coupon);
+
+    couponRef.set({
+        generatedBy: username,
+        usedBy: []  // Initialize an empty array
+    }).then(() => {
+        // Save coupon to user's G-coupon
+        userRef.child('G-coupon').set(coupon)
+            .then(() => {
+                addNotification('success', `Coupon saved: ${coupon}`, '.popupContainer');
+                setTimeout(clearErrors, 3000);
+
+                // Store the coupon in localStorage
+                const userData = JSON.parse(localStorage.getItem('userData'));
+                userData['G-coupon'] = coupon;
+                localStorage.setItem('userData', JSON.stringify(userData));
+
+                // Redirect after 3 seconds
+                setTimeout(() => {
+                    window.location.href = '/coupon';
+                }, 3000);
+            })
+            .catch(error => {
+                console.error('Error saving coupon to user data:', error);
+                addNotification('error', 'An error occurred while saving the coupon.', '.popupContainer');
+                setTimeout(clearErrors, 3000);
+            });
+    }).catch(error => {
+        console.error('Error saving coupon to the database:', error);
+        addNotification('error', 'An error occurred while saving the coupon.', '.popupContainer');
+        setTimeout(clearErrors, 3000);
+    });
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     userUpdate();
@@ -162,15 +168,14 @@ document.querySelector('.signOut').addEventListener('click', () => {
         userUpdate();
         addNotification('success', 'Signed Out', '.popupContainer');
         setTimeout(clearErrors, 3000);
-    }).catch((error) => {
+    }).catch(error => {
         console.error('Sign out error:', error);
         addNotification('error', 'Sign out error', '.popupContainer');
         setTimeout(clearErrors, 3000);
     });
 });
 
-
-firebase.auth().onAuthStateChanged((user) => {
+firebase.auth().onAuthStateChanged(user => {
     if (user) {
         // Dispatch an event if you want other parts of your app to know about the change
         window.dispatchEvent(new Event('storage'));
