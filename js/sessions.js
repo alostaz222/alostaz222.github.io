@@ -348,7 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
             // Assuming data is an object of entries
             for (const key in data) {
                 if (data.hasOwnProperty(key)) {
-                    console.log('Key:', key);
                     updateEntries(data[key]);
                 }
             }
