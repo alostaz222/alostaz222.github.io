@@ -33,6 +33,9 @@ def add_entry():
             'availabilityDate': request.form.get('formattedDate')  # New formatted date field
         }
 
+        # Creating a unique key for each entry based on the format ${stage}_${directoryOrder}_${order}
+        entry_key = f"{entry['stage']}_{entry['directoryOrder']}_{entry['order']}"
+
         file = request.files.get('file')
         if file:
             file_ext = os.path.splitext(file.filename)[1]
@@ -48,23 +51,16 @@ def add_entry():
             with open(entries_file, 'r', encoding='utf-8') as f:
                 entries = json.load(f)
         else:
-            entries = []
+            entries = {}
 
-        # Check if an entry with the same stage, directory, session, and name exists
-        existing_entry = next((e for e in entries if e['stage'] == entry['stage'] and e['directory'] == entry['directory'] and e['session'] == entry['session'] and e['name'] == entry['name']), None)
+        # Add or update the entry using the entry_key
+        entries[entry_key] = entry
 
-        if existing_entry:
-            existing_entry.update(entry)
-            message = 'Entry updated successfully!'
-        else:
-            entries.append(entry)
-            message = 'Entry added successfully!'
-
-        # Save updated entries to the file
+        # Save updated entries to the file as an object (dictionary)
         with open(entries_file, 'w', encoding='utf-8') as f:
             json.dump(entries, f, ensure_ascii=False, indent=4)
 
-        return jsonify({'status': 'success', 'message': message})
+        return jsonify({'status': 'success', 'message': 'Entry saved successfully!'})
 
     except Exception as e:
         print(f"Error: {e}")

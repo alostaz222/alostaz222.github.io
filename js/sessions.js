@@ -218,18 +218,19 @@ document.addEventListener('DOMContentLoaded', () => {
         const directoryGroup = document.getElementById(`${result.stage}`).querySelector('.directories');
         let directoryExists = false;
         let targetDirectory;
-
+    
+        // Check if the directory already exists
         const directories = directoryGroup.querySelectorAll('.directory');
         directories.forEach((directory) => {
             const directoryName = directory.getAttribute('data-name');
-
-            if (directoryName == result.directory) {
+            if (directoryName === result.directory) {
                 directoryExists = true;
                 targetDirectory = directory;
             }
         });
-
+    
         if (!directoryExists) {
+            // Create and append new directory if it doesn't exist
             const newDirectory = document.createElement('div');
             newDirectory.className = 'directory';
             newDirectory.dataset.name = result.directory;
@@ -260,20 +261,21 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
             directoryGroup.appendChild(newDirectory);
         } else {
+            // Directory exists, check for the entry
             const entries = targetDirectory.querySelectorAll('.entry');
             let entryExists = false;
             let targetEntry;
-
+    
             entries.forEach((entry) => {
                 const dirTextCont = entry.querySelector('.dir-text-cont .directory-text').textContent;
-
-                if (dirTextCont == `${result.directory} - ${result.session}`) {
+                if (dirTextCont === `${result.directory} - ${result.session}`) {
                     entryExists = true;
                     targetEntry = entry;
                 }
             });
-
+    
             if (!entryExists) {
+                // Create and append new entry if it doesn't exist
                 const newEntry = document.createElement('div');
                 newEntry.className = 'entry';
                 newEntry.dataset.type = result.session;
@@ -299,19 +301,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 targetDirectory.appendChild(newEntry);
             } else {
+                // Entry exists, check for the directory item
                 const directoryItems = targetEntry.querySelectorAll('.directory-item');
                 let directoryItemExists = false;
-
+    
                 directoryItems.forEach((directoryItem) => {
                     const entryText = directoryItem.querySelector('.entry-text').textContent;
-                    const entryDirType = directoryItem.querySelector('.entry-text').getAttribute('data-dirType');
-
-                    if (entryText == result.name) {
+                    if (entryText === result.name) {
                         directoryItemExists = true;
                     }
                 });
-
+    
                 if (!directoryItemExists) {
+                    // Create and append new directory item if it doesn't exist
                     const newDirectoryItem = document.createElement('div');
                     newDirectoryItem.className = 'directory-item';
                     newDirectoryItem.dataset.order = result.order;
@@ -319,15 +321,15 @@ document.addEventListener('DOMContentLoaded', () => {
                     newDirectoryItem.style.order = result.order;
                     newDirectoryItem.dataset.term = result.term;
                     newDirectoryItem.innerHTML = `
-                    <div>
-                        <i class='material-icons'></i>
-                        <p class="entry-text" data-url="${result.url}" data-order="${result.order}" data-name="${result.name}">${result.name}</p>
-                        <input type="checkbox" disabled>
-                    </div>
-                    <div class="ADate">
-                        <i class="material-icons">calendar_month</i>
-                        <span>${result.availabilityDate}</span>
-                    </div>
+                        <div>
+                            <i class='material-icons'></i>
+                            <p class="entry-text" data-url="${result.url}" data-order="${result.order}" data-name="${result.name}">${result.name}</p>
+                            <input type="checkbox" disabled>
+                        </div>
+                        <div class="ADate">
+                            <i class="material-icons">calendar_month</i>
+                            <span>${result.availabilityDate}</span>
+                        </div>
                     `;
                     targetEntry.appendChild(newDirectoryItem);
                 } else {
@@ -335,14 +337,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             }
         }
-
+    
         updateDirectoryIcons();
     };
-
+    
+    // Fetch and process the JSON file
     fetch('../api/entries.json')
         .then(response => response.json())
         .then(data => {
-            data.forEach(entry => updateEntries(entry));
+            // Assuming data is an object of entries
+            for (const key in data) {
+                if (data.hasOwnProperty(key)) {
+                    console.log('Key:', key);
+                    updateEntries(data[key]);
+                }
+            }
         })
         .catch(error => console.error('Error loading entries:', error));
 
