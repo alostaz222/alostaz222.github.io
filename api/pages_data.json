@@ -1,0 +1,198 @@
+{
+    "index": {
+        "title": "Alostaz | Home Page",
+        "favicon": "/favicon.ico",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "meta": {
+            "title": "Alostaz | Home Page",
+            "description": "اكتشف عالم الفيزياء بسهولة مع Alostaz. دورات ودروس فيزياء اونلاين مفصلة تناسب جميع المستويات التعليمية.",
+            "keywords": "Physics, Alostaz, Elostaz, الفيزياء, تعليم, فيزياء اونلاين, منصة تعليمية, دورات فيزياء, تعليم فيزياء, Educational platform, MR.Bakr",
+            "author": "Alostaz"
+        },
+        "canonical": "https://alostaz222.github.io/",
+        "og": {
+            "url": "https://alostaz222.github.io/",
+            "title": "Alostaz | Home Page",
+            "description": "اكتشف عالم الفيزياء بسهولة مع Alostaz. دورات ودروس فيزياء اونلاين مفصلة تناسب جميع المستويات التعليمية.",
+            "type": "website",
+            "site_name": "Alostaz"
+        },
+        "json_ld": {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io",
+            "description": "اكتشف عالم الفيزياء بسهولة مع Alostaz. دورات ودروس فيزياء اونلاين مفصلة تناسب جميع المستويات التعليمية."
+        }
+    },
+    "404": {
+        "title": "Alostaz | 404 Page Not Found",
+        "favicon": "/favicon.ico",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "meta": {
+            "title": "404 Page not found",
+            "author": "Alostaz"
+        },
+        "canonical": "https://alostaz222.github.io/404",
+        "og": {
+            "url": "https://alostaz222.github.io/404",
+            "title": "Alostaz | 404 Page Not Found",
+            "type": "website",
+            "site_name": "Alostaz"
+        },
+        "json_ld": {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/404"
+        }
+    },
+    "account": {
+        "title": "Alostaz | My Account",
+        "favicon": "/favicon.ico",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "meta": {
+            "title": "Alostaz | My Account",
+            "description": "دروس فيزياء اونلاين مع Alostaz. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة.",
+            "keywords": "Physics, alostaz, elostaz, Alostaz, Elostaz, MR.Bakr, فيزياء, تعليم, teacher, teaching, alostaz222, Alostaz222, Elostaz222, منصة تعليمية, Educational platform",
+            "author": "Alostaz"
+        },
+        "canonical": "https://alostaz222.github.io/account",
+        "og": {
+            "url": "https://alostaz222.github.io/account",
+            "title": "Alostaz | My Account",
+            "description": "دروس فيزياء اونلاين مع Alostaz. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة.",
+            "type": "website",
+            "site_name": "Alostaz"
+        },
+        "json_ld": {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/account",
+            "description": "دروس فيزياء اونلاين مع Alostaz. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة."
+        }
+    },
+    "auth": {
+        "title": "Alostaz | Authentication",
+        "meta": {
+            "description": "انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة."
+        },
+        "canonical": "https://alostaz222.github.io/auth",
+        "og": {
+            "url": "https://alostaz222.github.io/auth",
+            "title": "Alostaz | Authentication",
+            "description": "انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة.",
+            "type": "website",
+            "site_name": "Alostaz"
+        },
+        "json_ld": {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/auth",
+            "description": "انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة."
+        }
+    },
+    "contact": {
+        "title": "Alostaz | Contact-Us",
+        "favicon": "/favicon.ico",
+        "meta": {
+            "title": "Alostaz | Contact-Us",
+            "description": "تواصل مع Alostaz للحصول على دعم مخصص ومساعدة في استفساراتك حول دروس الفيزياء اونلاين. نحن هنا لمساعدتك في رحلتك التعليمية.",
+            "keywords": "Physics, alostaz, elostaz, Alostaz, Elostaz, MR.Bakr, فيزياء, تعليم, teacher, teaching, alostaz222, Alostaz222, Elostaz222, منصة تعليمية, Educational platform",
+            "author": "Alostaz"
+        },
+        "canonical": "https://alostaz222.github.io/contact",
+        "og": {
+            "url": "https://alostaz222.github.io/contact",
+            "title": "Alostaz | Contact-Us",
+            "description": "تواصل مع Alostaz للحصول على دعم مخصص ومساعدة في استفساراتك حول دروس الفيزياء اونلاين. نحن هنا لمساعدتك في رحلتك التعليمية.",
+            "type": "website",
+            "site_name": "Alostaz"
+        },
+        "json_ld": {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/contact",
+            "description": "تواصل مع Alostaz للحصول على دعم مخصص ومساعدة في استفساراتك حول دروس الفيزياء اونلاين. نحن هنا لمساعدتك في رحلتك التعليمية."
+        }
+    },
+    "coupon": {
+        "title": "Alostaz | My Coupon",
+        "favicon": "/favicon.ico",
+        "meta": {
+            "title": "Alostaz | My Coupon",
+            "description": "استخدم قسيمتك على Alostaz للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن.",
+            "author": "Alostaz"
+        },
+        "canonical": "https://alostaz222.github.io/coupon",
+        "og": {
+            "url": "https://alostaz222.github.io/coupon",
+            "title": "Alostaz | My Coupon",
+            "description": "استخدم قسيمتك على Alostaz للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن.",
+            "type": "website",
+            "site_name": "Alostaz"
+        },
+        "json_ld": {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/coupon",
+            "description": "استخدم قسيمتك على Alostaz للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن."
+        }
+    },
+    "pricing": {
+        "title": "Alostaz | Pricing",
+        "favicon": "/favicon.ico",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "meta": {
+            "title": "Alostaz | Pricing",
+            "description": "استفد من جميع دروس الفيزياء لكل المراحل الدراسية من الصف الرابع الابتدائي إلى الصف الثالث الثانوي مع Alostaz. سعر مناسب للجميع.",
+            "keywords": "Physics, alostaz, elostaz, Alostaz, Elostaz, MR.Bakr, فيزياء, تعليم, teacher, teaching, alostaz222, Alostaz222, Elostaz222, منصة تعليمية, Educational platform",
+            "author": "Alostaz"
+        },
+        "canonical": "https://alostaz222.github.io/pricing",
+        "og": {
+            "url": "https://alostaz222.github.io/pricing",
+            "title": "Alostaz | Pricing",
+            "description": "استفد من جميع دروس الفيزياء لكل المراحل الدراسية من الصف الرابع الابتدائي إلى الصف الثالث الثانوي مع Alostaz. سعر مناسب للجميع.",
+            "type": "website",
+            "site_name": "Alostaz"
+        },
+        "json_ld": {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/pricing",
+            "description": "استفد من جميع دروس الفيزياء لكل المراحل الدراسية من الصف الرابع الابتدائي إلى الصف الثالث الثانوي مع Alostaz. سعر مناسب للجميع."
+        }
+    },
+    "sessions": {
+        "title": "Alostaz | Physics Sessions",
+        "favicon": "/favicon.ico",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "meta": {
+            "title": "Alostaz | Physics Sessions",
+            "description": "استفد من جلسات الفيزياء المسجلة مع Alostaz. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء.",
+            "keywords": "Physics, alostaz, elostaz, Alostaz, Elostaz, MR.Bakr, فيزياء, تعليم, teacher, teaching, alostaz222, Alostaz222, Elostaz222, منصة تعليمية, Educational platform",
+            "author": "Alostaz"
+        },
+        "canonical": "https://alostaz222.github.io/sessions",
+        "og": {
+            "url": "https://alostaz222.github.io/sessions",
+            "title": "Alostaz | Physics Sessions",
+            "description": "استفد من جلسات الفيزياء المسجلة مع Alostaz. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء.",
+            "type": "website",
+            "site_name": "Alostaz"
+        },
+        "structured_data": {
+            "@context": "http://schema.org",
+            "@type": "WebSite",
+            "name": "Alostaz",
+            "url": "https://alostaz222.github.io/sessions",
+            "description": "استفد من جلسات الفيزياء المسجلة مع Alostaz. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء."
+        }
+    }
+}
