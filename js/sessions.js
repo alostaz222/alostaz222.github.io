@@ -211,16 +211,18 @@ function updateDirectoryIcons() {
         }
     });
 
-//     availability.forEach(item => {
-//         const dataType = item.getAttribute('data-availability');
-//         const iconElement = item.querySelector('i');
+    availability.forEach(item => {
+        const dataType = item.getAttribute('data-availability');
+        const iconElement = item;
 
-//         if (dataType === 'paid') {
-//             iconElement.textContent = 'paid';
-//         } else if (dataType === 'free') {
-//             iconElement.textContent = 'check_circle';
-//         }
-//     });
+        if (dataType === 'paid') {
+            iconElement.textContent = 'paid';
+            iconElement.setAttribute('title', 'هذه الجلسة تلزم الاشتراك ');
+        } else if (dataType === 'free') {
+            iconElement.textContent = 'check_circle';
+            iconElement.setAttribute('title', 'هذه الجلسة مجانية ');
+        }
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
