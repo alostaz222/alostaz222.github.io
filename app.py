@@ -23,6 +23,25 @@ def translate_to_francoarabic(arabic_text):
     # Translate Arabic characters to Franco-Arabic using the dictionary
     return ''.join([arabic_to_franco.get(char, char) for char in arabic_text])
 
+
+def ensure_json_file_initialized(file_path):
+    """Ensure the JSON file exists and is initialized with an empty dictionary if necessary."""
+    if not os.path.exists(file_path):
+        # If file doesn't exist, create it and initialize with an empty dictionary
+        with open(file_path, 'w', encoding='utf-8') as f:
+            json.dump({}, f, ensure_ascii=False, indent=4)
+    else:
+        # If file exists but is empty or contains invalid JSON, reset it to an empty dictionary
+        try:
+            with open(file_path, 'r', encoding='utf-8') as f:
+                data = f.read().strip()
+                if not data or data == "":
+                    raise ValueError("File is empty")
+                json.loads(data)  # Attempt to parse the JSON
+        except (ValueError, json.JSONDecodeError):
+            with open(file_path, 'w', encoding='utf-8') as f:
+                json.dump({}, f, ensure_ascii=False, indent=4)
+
 @app.route('/')
 def index():
     return app.send_static_file('admin.html')
@@ -34,7 +53,11 @@ def static_proxy(path):
 @app.route('/add-entry', methods=['POST'])
 def add_entry():
     try:
-        # Extract form data and translate the name field to Franco-Arabic
+        # Ensure the entries.json file is initialized
+        entries_file = 'api/entries.json'
+        ensure_json_file_initialized(entries_file)
+        
+        # Extract form data and translate the name field to English
         arabic_name = request.form.get('name')
         franco_name = translate_to_francoarabic(arabic_name)
 
