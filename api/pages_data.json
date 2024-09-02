@@ -31,12 +31,14 @@
         "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
             "title": "404 Page not found",
+            "description": "الصفحة التي تبحث عنها غير موجودة. يرجى التحقق من الرابط والعودة إلى الصفحة الرئيسية.",
             "author": "Alostaz"
         },
         "canonical": "https://alostaz222.github.io/404",
         "og": {
             "url": "https://alostaz222.github.io/404",
             "title": "Alostaz | 404 Page Not Found",
+            "description": "الصفحة التي تبحث عنها غير موجودة. يرجى التحقق من الرابط والعودة إلى الصفحة الرئيسية.",
             "type": "website",
             "site_name": "Alostaz"
         },
@@ -44,7 +46,8 @@
             "@context": "http://schema.org",
             "@type": "WebSite",
             "name": "Alostaz",
-            "url": "https://alostaz222.github.io/404"
+            "url": "https://alostaz222.github.io/404",
+            "description": "الصفحة التي تبحث عنها غير موجودة. يرجى التحقق من الرابط والعودة إلى الصفحة الرئيسية."
         }
     },
     "account": {
@@ -75,8 +78,11 @@
     },
     "auth": {
         "title": "Alostaz | Authentication",
+        "favicon": "/favicon.ico",
+        "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
-            "description": "انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة."
+            "description": "انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة.",
+            "author": "Alostaz"
         },
         "canonical": "https://alostaz222.github.io/auth",
         "og": {
@@ -97,6 +103,7 @@
     "contact": {
         "title": "Alostaz | Contact-Us",
         "favicon": "/favicon.ico",
+        "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
             "title": "Alostaz | Contact-Us",
             "description": "تواصل مع Alostaz للحصول على دعم مخصص ومساعدة في استفساراتك حول دروس الفيزياء اونلاين. نحن هنا لمساعدتك في رحلتك التعليمية.",
@@ -122,6 +129,7 @@
     "coupon": {
         "title": "Alostaz | My Coupon",
         "favicon": "/favicon.ico",
+        "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
             "title": "Alostaz | My Coupon",
             "description": "استخدم قسيمتك على Alostaz للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن.",
@@ -187,7 +195,7 @@
             "type": "website",
             "site_name": "Alostaz"
         },
-        "structured_data": {
+        "json_ld": {
             "@context": "http://schema.org",
             "@type": "WebSite",
             "name": "Alostaz",
