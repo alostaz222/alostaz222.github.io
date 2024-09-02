@@ -196,6 +196,7 @@ addEntry();
 
 function updateDirectoryIcons() {
     const directoryItems = document.querySelectorAll('.directory-item');
+    const availability = document.querySelectorAll('.ADate .availability');
 
     directoryItems.forEach(item => {
         const dataType = item.getAttribute('data-type');
@@ -209,6 +210,17 @@ function updateDirectoryIcons() {
             iconElement.textContent = 'description';
         }
     });
+
+//     availability.forEach(item => {
+//         const dataType = item.getAttribute('data-availability');
+//         const iconElement = item.querySelector('i');
+
+//         if (dataType === 'paid') {
+//             iconElement.textContent = 'paid';
+//         } else if (dataType === 'free') {
+//             iconElement.textContent = 'check_circle';
+//         }
+//     });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -255,6 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="ADate">
                             <i class="material-icons">calendar_month</i>
                             <span>${result.availabilityDate}</span>
+                            <i data-availability="${result.availability}" class="material-icons availability">unknown_med</i>
                         </div>
                     </div>
                 </div>
@@ -296,6 +309,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="ADate">
                             <i class="material-icons">calendar_month</i>
                             <span>${result.availabilityDate}</span>
+                            <i data-availability="${result.availability}" class="material-icons availability">unknown_med</i>
                         </div>
                     </div>
                 `;
@@ -329,6 +343,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="ADate">
                             <i class="material-icons">calendar_month</i>
                             <span>${result.availabilityDate}</span>
+                            <i data-availability="${result.availability}" class="material-icons availability">unknown_med</i>
                         </div>
                     `;
                     targetEntry.appendChild(newDirectoryItem);
