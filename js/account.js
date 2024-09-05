@@ -155,6 +155,41 @@ function saveCouponToDatabase(coupon, username) {
     });
 }
 
+// Update user details and password on form submission
+updateUserData.addEventListener('click', (event) => {
+    event.preventDefault();
+    const currentPasswordValue = currentPass.value;
+    const newPasswordValue = newPass.value;
+    const confirmPasswordValue = confirmPass.value;
+
+    if (newPasswordValue) {
+        if (!currentPasswordValue || !confirmPasswordValue) {
+            addNotification('error', 'Current and confirmation passwords are required when changing the password.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+            return;
+        }
+
+        if (newPasswordValue !== confirmPasswordValue) {
+            addNotification('error', 'New password and confirmation do not match.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+            return;
+        }
+
+        const user = firebase.auth().currentUser;
+        const credential = firebase.auth.EmailAuthProvider.credential(user.email, currentPasswordValue);
+
+        user.reauthenticateWithCredential(credential).then(() => {
+            return user.updatePassword(newPasswordValue);
+        }).then(() => {
+            addNotification('success', 'Password updated successfully.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+        }).catch(error => {
+            addNotification('error', error.message, '.popupContainer');
+            setTimeout(clearErrors, 3000);
+        });
+    }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     userUpdate();
     window.addEventListener('storage', () => {
