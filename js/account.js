@@ -40,7 +40,6 @@ function clearErrors() {
     updateCounters();
 }
 
-const username = document.getElementById('username');
 const email = document.getElementById('email');
 const phone = document.getElementById('phone');
 const currentPass = document.getElementById('oldPass');
@@ -52,13 +51,11 @@ function userUpdate() {
     const user = JSON.parse(localStorage.getItem('userData'));
     if (user) {
         document.getElementById('userDetails').innerHTML = `اهلًا ${user.username}`;
-        username.value = user.username;
         email.value = user.email;
         phone.value = user.phone;
     } else {
         document.getElementById('userDetails').innerText = '';
         document.getElementById('userDetails').innerText = 'No user is logged in.';
-        username.value = '';
         email.value = '';
         phone.value = '';
     }
