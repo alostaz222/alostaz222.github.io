@@ -163,14 +163,28 @@ updateUserData.addEventListener('click', (event) => {
     const confirmPasswordValue = confirmPass.value;
 
     if (newPasswordValue) {
-        if (!currentPasswordValue || !confirmPasswordValue) {
-            addNotification('error', 'Current and confirmation passwords are required when changing the password.', '.popupContainer');
+        if (!currentPasswordValue && !confirmPasswordValue) {
+            addNotification('error', 'Current and Confirmation passwords are required.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+            return;
+        } else if (!confirmPasswordValue) {
+            addNotification('error', 'Confirmation password is required.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+            return;
+        } else if (!currentPasswordValue) {
+            addNotification('error', 'Current password is required.', '.popupContainer');
             setTimeout(clearErrors, 3000);
             return;
         }
 
         if (newPasswordValue !== confirmPasswordValue) {
             addNotification('error', 'New password and confirmation do not match.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+            return;
+        }
+
+        if (newPasswordValue === currentPasswordValue) {
+            addNotification('error', "New password couldn't be the current password.", '.popupContainer');
             setTimeout(clearErrors, 3000);
             return;
         }
@@ -184,9 +198,36 @@ updateUserData.addEventListener('click', (event) => {
             addNotification('success', 'Password updated successfully.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }).catch(error => {
-            addNotification('error', error.message, '.popupContainer');
+            if (error.code === 'auth/wrong-password') {
+                addNotification('error', 'The current password is incorrect.', '.popupContainer');
+            } else {
+                addNotification('error', error.message, '.popupContainer');
+            }
             setTimeout(clearErrors, 3000);
         });
+    } else if (currentPasswordValue) {
+        if (!newPasswordValue && !confirmPasswordValue) {
+            addNotification('error', 'New password and Confirmation are required.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+        } else if (!confirmPasswordValue) {
+            addNotification('error', 'Confirmation password is required.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+        } else if (!newPasswordValue) {
+            addNotification('error', 'New password is required.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+        }
+
+    } else if(confirmPasswordValue) {
+        if (!newPasswordValue && !currentPasswordValue) {
+            addNotification('error', 'New and Current passwords are required.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+        } else if (!currentPasswordValue) {
+            addNotification('error', 'Current password is required.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+        } else if (!newPasswordValue) {
+            addNotification('error', 'New password is required.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+        }
     }
 });
 
