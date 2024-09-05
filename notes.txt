@@ -1,18 +1,20 @@
 searching for huge free file hosting
 
-adding user settings
+adding user settings (phone and email)
 
 adding landing page if the user isn't signed in
 
-adding discount for the first 100 students
+adding discount for the first 100 students (20%)
 
-adding discounted subscriptions for the students of the teacher
+adding discounted subscriptions for the students of the teacher (50%-60%)
 
-if the students of the teacher invited 5 users to the website they will take two free lessons on land
+if the students of the teacher invited 5 users to the website they will take two free lessons in the center
 
-if the students of the teacher invited 5 students to the teacher they will take one free lesson on land and 25% discount for the other lesson
+if the students of the teacher invited 5 students to the center they will take one free lesson in the center and 25% discount for the other lesson
 
-make the sheets for free
+make the sheets for free on website, social media
+
+make a book for all the stages
 
 make sheet and exam preveiwer
 
