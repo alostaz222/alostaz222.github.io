@@ -111,9 +111,19 @@
                     <input type="tel" class="SInput" id="phone" placeholder="Phone Number">
                 </div>
 
-                <input type="password" class="SInput" id="password1" placeholder="Password">
+                <div class="passwordWrapper">
+                    <input type="password" class="SInput" id="password1" placeholder="Password">
+                    <span class="togglePassword" data-target="password1">
+                        <i class="material-icons">visibility_off</i>
+                    </span>
+                </div>
 
-                <input type="password" class="SInput" id="password2" placeholder="Rewrite Password">
+                <div class="passwordWrapper">
+                    <input type="password" class="SInput" id="password2" placeholder="Rewrite Password">
+                    <span class="togglePassword" data-target="password2">
+                        <i class="material-icons">visibility_off</i>
+                    </span>
+                </div>
 
                 <p>already a member? <a id="switchToLogin">login</a></p>
                 <button type="submit" id="sign-up">Sign Up</button>
@@ -124,7 +134,12 @@
 
                 <input type="text" class="LInput" id="authenticator" placeholder="Username or Email">
 
-                <input type="password" class="LInput" id="password" placeholder="Password">
+                <div class="passwordWrapper">
+                    <input type="password" class="LInput" id="password" placeholder="Password">
+                    <span class="togglePassword" data-target="password">
+                        <i class="material-icons">visibility_off</i>
+                    </span>
+                </div>
 
                 <p>don't have an account? <a id="switchToSignUp">create an account</a></p>
                 <button type="submit" id="sign-in">Sign In</button>

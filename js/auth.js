@@ -52,6 +52,48 @@ function clearErrors() {
     updateCounters()
 }
 
+document.addEventListener('DOMContentLoaded', () => {
+    updateCounters();
+
+    // Show/Hide forms
+    document.getElementById('showSignUp').addEventListener('click', () => {
+        document.getElementById('signUpForm').style.display = 'flex';
+        document.getElementById('signInForm').style.display = 'none';
+    });
+
+    document.getElementById('showSignIn').addEventListener('click', () => {
+        document.getElementById('signUpForm').style.display = 'none';
+        document.getElementById('signInForm').style.display = 'flex';
+    });
+
+    document.getElementById('switchToLogin').addEventListener('click', () => {
+        document.getElementById('signUpForm').style.display = 'none';
+        document.getElementById('signInForm').style.display = 'flex';
+    });
+
+    document.getElementById('switchToSignUp').addEventListener('click', () => {
+        document.getElementById('signInForm').style.display = 'none';
+        document.getElementById('signUpForm').style.display = 'flex';
+    });
+});
+
+// Password visibility toggle
+const togglePasswordIcons = document.querySelectorAll('.togglePassword');
+togglePasswordIcons.forEach(icon => {
+    icon.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-target');
+        const input = document.getElementById(targetId);
+        const iconElement = this.querySelector('i');
+        if (input.type === "password") {
+            input.type = "text";
+            iconElement.textContent = "visibility";
+        } else {
+            input.type = "password";
+            iconElement.textContent = "visibility_off";
+        }
+    });
+});
+
 signupBtn.addEventListener('click', (event) => {
     event.preventDefault();
     clearErrors();

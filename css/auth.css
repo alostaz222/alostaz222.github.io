@@ -89,6 +89,21 @@ body {
     flex: 1;
 }
 
+.passwordWrapper {
+    position: relative;
+    width: 100%;
+    flex: 1;
+    display: flex;
+}
+
+.passwordWrapper i {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
 .phoneContainer {
     display: flex;
     flex-direction: row;
