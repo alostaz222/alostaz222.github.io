@@ -65,12 +65,12 @@ signupBtn.addEventListener('click', (event) => {
 
     let hasError = false;
 
-    if (!username || !email || !phone || !password1 || !password2 || !stage) {
+    if (!username || !email || !phone || !password1 || !password2 || stage == 'stage') {
         if (!username) {
             addNotification('error', 'Username is required.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
-        if (!stage) {
+        if (stage == 'stage') {
             addNotification('error', 'Your stage is required.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
