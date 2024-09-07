@@ -57,6 +57,7 @@ signupBtn.addEventListener('click', (event) => {
     clearErrors();
     let SInputs = document.getElementsByClassName('SInput');
     const username = document.getElementById('username').value.trim();
+    const stage = document.getElementById('stage').value;
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const password1 = document.getElementById('password1').value.trim();
@@ -64,9 +65,13 @@ signupBtn.addEventListener('click', (event) => {
 
     let hasError = false;
 
-    if (!username || !email || !phone || !password1 || !password2) {
+    if (!username || !email || !phone || !password1 || !password2 || !stage) {
         if (!username) {
             addNotification('error', 'Username is required.', '.popupContainer');
+            setTimeout(clearErrors, 3000);
+        }
+        if (!stage) {
+            addNotification('error', 'Your stage is required.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
         if (!email) {
@@ -131,6 +136,7 @@ signupBtn.addEventListener('click', (event) => {
                         const userData = {
                             userId: user.uid,
                             username: username,
+                            stage: stage,
                             email: email,
                             phone: fullPhoneNumber,
                             'G-coupon': null,
@@ -210,6 +216,7 @@ signInBtn.addEventListener('click', (event) => {
                                 uid: user.uid,
                                 email: user.email,
                                 username: userData.username,
+                                stage: userData.stage,
                                 phone: userData.phone,
                                 'G-coupon': userData['G-coupon'] ?? null,
                                 'U-coupon': userData['U-coupon'] ?? null
@@ -251,6 +258,7 @@ signInBtn.addEventListener('click', (event) => {
                                 uid: user.uid,
                                 email: user.email,
                                 username: userData.username,
+                                stage: userData.stage,
                                 phone: userData.phone,
                                 'G-coupon': userData['G-coupon'] ?? null,
                                 'U-coupon': userData['U-coupon'] ?? null
