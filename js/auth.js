@@ -39,7 +39,10 @@ const phoneInput = window.intlTelInput(phoneInputField, {
 });
 
 // Set the input placeholder to show the selected country code
-phoneInputField.value = `+${phoneInput.getSelectedCountryData().dialCode}`;
+phoneInputField.addEventListener('focus', () =>{
+    phoneInputField.style.direction = 'ltr';
+    phoneInputField.value = `+${phoneInput.getSelectedCountryData().dialCode}`;
+});
 
 // Update placeholder on country change
 phoneInputField.addEventListener('countrychange', function () {

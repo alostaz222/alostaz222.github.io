@@ -82,12 +82,12 @@
             </div>
 
             <form id="signUpForm" class="form">
-                <h2>Create an account</h2>
+                <h2>انشئ حسابًا</h2>
 
-                <input type="text" class="SInput" id="username" placeholder="Username">
+                <input type="text" class="SInput" id="username" placeholder="اسم المستخدم">
 
                 <select class="SInput" id="stage" name="stage" required>
-                    <option selected disabled>stage</option>
+                    <option selected disabled>الصف الدراسي</option>
                     <optgroup label="المرحلة الابتدائية">
                         <option value="4pm">الصف الرابع الابتدائي</option>
                         <option value="5pm">الصف الخامس الابتدائي</option>
@@ -105,44 +105,44 @@
                     </optgroup>
                 </select>
 
-                <input type="email" class="SInput" id="email" placeholder="Email">
+                <input type="email" class="SInput" id="email" placeholder="البريد الإلكتروني">
 
                 <div class="phoneContainer">
-                    <input type="tel" class="SInput" id="phone" placeholder="Phone Number">
+                    <input type="tel" class="SInput" id="phone" placeholder="رقم الهاتف">
                 </div>
 
                 <div class="passwordWrapper">
-                    <input type="password" class="SInput" id="password1" placeholder="Password">
+                    <input type="password" class="SInput" id="password1" placeholder="كلمة السر">
                     <span class="togglePassword" data-target="password1">
                         <i class="material-icons">visibility_off</i>
                     </span>
                 </div>
 
                 <div class="passwordWrapper">
-                    <input type="password" class="SInput" id="password2" placeholder="Rewrite Password">
+                    <input type="password" class="SInput" id="password2" placeholder="اعد كتابة كلمة السر">
                     <span class="togglePassword" data-target="password2">
                         <i class="material-icons">visibility_off</i>
                     </span>
                 </div>
 
-                <p>already a member? <a id="switchToLogin">login</a></p>
-                <button type="submit" id="sign-up">Sign Up</button>
+                <p>لديك حساب؟ <a id="switchToLogin">تسجيل الدخول</a></p>
+                <button type="submit" id="sign-up">انشاء</button>
             </form>
 
             <form id="signInForm" class="form">
-                <h2>Sign in</h2>
+                <h2>تسجيل الدخول</h2>
 
-                <input type="text" class="LInput" id="authenticator" placeholder="Username or Email">
+                <input type="text" class="LInput" id="authenticator" placeholder="اسم المستخدم أو البريد الألكتروني">
 
                 <div class="passwordWrapper">
-                    <input type="password" class="LInput" id="password" placeholder="Password">
+                    <input type="password" class="LInput" id="password" placeholder="كلمة السر">
                     <span class="togglePassword" data-target="password">
                         <i class="material-icons">visibility_off</i>
                     </span>
                 </div>
 
-                <p>don't have an account? <a id="switchToSignUp">create an account</a></p>
-                <button type="submit" id="sign-in">Sign In</button>
+                <p>ليس لديك حساب؟ <a id="switchToSignUp">انشاء حساب</a></p>
+                <button type="submit" id="sign-in">تسجيل الدخول</button>
             </form>
         </div>
     </div>
