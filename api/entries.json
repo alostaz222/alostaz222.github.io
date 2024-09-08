@@ -1,1 +1,15 @@
-{}
+{
+    "4pm_1_1_alsr3h": {
+        "stage": "4pm",
+        "term": "term1",
+        "name": "السرعة",
+        "franco_name": "alsr3h",
+        "availability": "paid",
+        "directory": "الحصة الأولى",
+        "directoryOrder": "1",
+        "session": "شرح",
+        "order": "1",
+        "type": "video",
+        "availabilityDate": "28-سبتمبر-2024"
+    }
+}

@@ -30,6 +30,7 @@
 
     <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="/css/notification.css" />
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css" />
     <link rel="stylesheet" href="/css/auth.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
 
@@ -38,6 +39,10 @@
 </head>
 
 <body id="auth">
+    <!-- Loader -->
+
+    <special-loader></special-loader>
+
     <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-auth-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.18.0/firebase-database-compat.js"></script>
@@ -154,6 +159,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"></script>
     <script src="js/notification.js" type="module" defer></script>
+    <script src="js/navbar.js" type="module" defer></script>
     <script type="module" src="/js/auth.js"></script>
 </body>
 

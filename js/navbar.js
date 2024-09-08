@@ -18,6 +18,31 @@ const database = firebase.database();
 
 /////////////////////////////////////////////////////
 
+class SpecialLoader extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+            <div class="loadingPage" id="loadingPage">
+                <div class="loaderCont">
+                    <div class="loader"></div>
+                </div>
+            </div>
+        `;
+
+        const loadingPage = document.getElementById('loadingPage');
+        window.addEventListener('load', () => {
+            setTimeout(loadingToggle, 1500)
+
+            function loadingToggle () {
+                loadingPage.style.display = 'none';
+                loadingPage.style.height = '0px'
+                const mainContainer = document.querySelectorAll('.main-container');
+                mainContainer[0].style.display = 'flex'
+            }
+        });
+    }
+}
+
+
 class SpecialHeader extends HTMLElement {
     connectedCallback() {
         this.innerHTML = `
@@ -108,7 +133,6 @@ class SpecialHeader extends HTMLElement {
 
             sideShow1.addEventListener('click', () => {
                 sidebar.style.display = 'flex';
-                thirdContainer.style.marginRight = '0px';
                 sideShow1.style.display = 'none';
                 sideShow2.style.display = 'block';
                 syncDivHeights();
@@ -214,6 +238,7 @@ class SpecialVideo extends HTMLElement {
     }
 }
 
+customElements.define("special-loader", SpecialLoader);
 customElements.define("special-header", SpecialHeader);
 customElements.define("special-logo", SpecialLogo);
 customElements.define("special-footer", SpecialFooter);
