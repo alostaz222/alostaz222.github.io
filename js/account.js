@@ -29,8 +29,14 @@ function validatePhone(phone) {
 }
 
 // Initialize the intl-tel-input plugin
-const phoneInputField = document.querySelector("#phone");
+const phoneInputField = document.querySelector("#sphone");
 const phoneInput = window.intlTelInput(phoneInputField, {
+    initialCountry: "eg",
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+});
+
+const phoneInputField2 = document.querySelector("#fphone");
+const phoneInput2 = window.intlTelInput(phoneInputField2, {
     initialCountry: "eg",
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
 });
@@ -41,7 +47,8 @@ function clearErrors() {
 }
 
 const email = document.getElementById('email');
-const phone = document.getElementById('phone');
+const student_phone = document.getElementById('sphone');
+const father_phone = document.getElementById('fphone');
 const currentPass = document.getElementById('oldPass');
 const newPass = document.getElementById('newPass');
 const confirmPass = document.getElementById('confirmPass');
@@ -52,12 +59,15 @@ function userUpdate() {
     if (user) {
         document.getElementById('userDetails').innerHTML = `اهلًا ${user.username}`;
         email.value = user.email;
-        phone.value = user.phone;
+        student_phone.value = user.student_phone;
+        father_phone.value = user.father_phone;
+
     } else {
         document.getElementById('userDetails').innerText = '';
         document.getElementById('userDetails').innerText = 'No user is logged in.';
         email.value = '';
-        phone.value = '';
+        student_phone.value = '';
+        father_phone.value = '';
     }
 }
 
@@ -241,6 +251,7 @@ document.querySelector('.signOut').addEventListener('click', () => {
         userUpdate();
         addNotification('success', 'Signed Out', '.popupContainer');
         setTimeout(clearErrors, 3000);
+        setTimeout(window.location.href = 'auth', 10000)
     }).catch(error => {
         console.error('Sign out error:', error);
         addNotification('error', 'Sign out error', '.popupContainer');

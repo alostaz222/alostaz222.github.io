@@ -33,6 +33,7 @@ function validatePhone(phone) {
 
 // Initialize the intl-tel-input plugin
 const phoneInputField = document.querySelector("#phone");
+const phoneInputField2 = document.querySelector("#phone2");
 const phoneInput = window.intlTelInput(phoneInputField, {
     initialCountry: "eg",
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
@@ -47,6 +48,23 @@ phoneInputField.addEventListener('focus', () =>{
 // Update placeholder on country change
 phoneInputField.addEventListener('countrychange', function () {
     phoneInputField.placeholder = phoneInput.getSelectedCountryData().dialCode;
+});
+
+
+const phoneInput2 = window.intlTelInput(phoneInputField2, {
+    initialCountry: "eg",
+    utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
+});
+
+// Set the input placeholder to show the selected country code
+phoneInputField2.addEventListener('focus', () =>{
+    phoneInputField2.style.direction = 'ltr';
+    phoneInputField2.value = `+${phoneInput2.getSelectedCountryData().dialCode}`;
+});
+
+// Update placeholder on country change
+phoneInputField2.addEventListener('countrychange', function () {
+    phoneInputField2.placeholder = phoneInput2.getSelectedCountryData().dialCode;
 });
 
 
@@ -100,17 +118,18 @@ togglePasswordIcons.forEach(icon => {
 signupBtn.addEventListener('click', (event) => {
     event.preventDefault();
     clearErrors();
-    let SInputs = document.getElementsByClassName('SInput');
+    const SInputs = document.getElementsByClassName('SInput');
     const username = document.getElementById('username').value.trim();
     const stage = document.getElementById('stage').value;
     const email = document.getElementById('email').value.trim();
     const phone = document.getElementById('phone').value.trim();
+    const phone2 = document.getElementById('phone2').value.trim();
     const password1 = document.getElementById('password1').value.trim();
     const password2 = document.getElementById('password2').value.trim();
 
     let hasError = false;
 
-    if (!username || !email || !phone || !password1 || !password2 || stage == 'stage') {
+    if (!username || !email || !phone || !phone2 || phone == phone2 || !password1 || !password2 || stage == 'stage') {
         if (!username) {
             addNotification('error', 'Username is required.', '.popupContainer');
             setTimeout(clearErrors, 3000);
@@ -124,8 +143,15 @@ signupBtn.addEventListener('click', (event) => {
             setTimeout(clearErrors, 3000);
         }
         if (!phone) {
-            addNotification('error', 'Phone is required.', '.popupContainer');
+            addNotification('error', 'Your phone is required.', '.popupContainer');
             setTimeout(clearErrors, 3000);
+        }
+        if (!phone2) {
+            addNotification('error', "Your father's phone is required.", '.popupContainer');
+            setTimeout(clearErrors, 3000);
+        }
+        if (phone == phone2) {
+            addNotification('error', "Father's phone couldn't be the same as your phone", '.popupContainer')
         }
         if (!password1) {
             addNotification('error', 'Password is required.', '.popupContainer');
@@ -164,7 +190,8 @@ signupBtn.addEventListener('click', (event) => {
 
     if (hasError) return;
 
-    const fullPhoneNumber = phoneInput.getNumber(); // Get the full phone number with the country code
+    const fullPhoneNumber = phoneInput.getNumber();
+    const fullPhoneNumber2 = phoneInput2.getNumber();
 
     // Check if username already exists
     database.ref(`users/${username}`).once('value')
@@ -183,7 +210,8 @@ signupBtn.addEventListener('click', (event) => {
                             username: username,
                             stage: stage,
                             email: email,
-                            phone: fullPhoneNumber,
+                            student_phone: fullPhoneNumber,
+                            father_phone: fullPhoneNumber2,
                             'G-coupon': null,
                             'U-coupon': null
                         };
@@ -197,6 +225,9 @@ signupBtn.addEventListener('click', (event) => {
                                 for (let i = 0; i < SInputs.length; i++) {
                                     SInputs[i].value = '';
                                 }
+
+                                // Redirection
+                                setTimeout(window.location.href = 'account', 10000);
                             })
                             .catch((error) => {
                                 console.error('Database error:', error);
@@ -229,6 +260,7 @@ signInBtn.addEventListener('click', (event) => {
     clearErrors();
     const authenticator = document.getElementById('authenticator').value.trim();
     const password = document.getElementById('password').value.trim();
+    const LInputs = document.getElementsByClassName('LInput');
 
     let hasError = false;
 
@@ -262,7 +294,8 @@ signInBtn.addEventListener('click', (event) => {
                                 email: user.email,
                                 username: userData.username,
                                 stage: userData.stage,
-                                phone: userData.phone,
+                                student_phone: userData.student_phone,
+                                father_phone: userData.father_phone,
                                 'G-coupon': userData['G-coupon'] ?? null,
                                 'U-coupon': userData['U-coupon'] ?? null
                             };
@@ -271,7 +304,13 @@ signInBtn.addEventListener('click', (event) => {
                             localStorage.setItem('userData', JSON.stringify(fullUserData));
                             addNotification('success', 'User signed in successfully.', '.popupContainer');
                             setTimeout(clearErrors, 3000);
-                            // Redirect to protected area, etc.
+
+                            for (let i = 0; i < LInputs.length; i++) {
+                                LInputs[i].value = '';
+                            }
+
+                            // Redirection
+                            setTimeout(window.location.href = 'account', 10000);
                         } else {
                             addNotification('error', 'User data not found in database.', '.popupContainer');
                             setTimeout(clearErrors, 3000);
@@ -304,7 +343,8 @@ signInBtn.addEventListener('click', (event) => {
                                 email: user.email,
                                 username: userData.username,
                                 stage: userData.stage,
-                                phone: userData.phone,
+                                student_phone: userData.student_phone,
+                                father_phone: userData.father_phone,
                                 'G-coupon': userData['G-coupon'] ?? null,
                                 'U-coupon': userData['U-coupon'] ?? null
                             };
@@ -313,7 +353,13 @@ signInBtn.addEventListener('click', (event) => {
                             localStorage.setItem('userData', JSON.stringify(fullUserData));
                             addNotification('success', 'User signed in successfully.', '.popupContainer');
                             setTimeout(clearErrors, 3000);
-                            // Redirect to protected area, etc.
+
+                            for (let i = 0; i < LInputs.length; i++) {
+                                LInputs[i].value = '';
+                            }
+
+                            // Redirection
+                            setTimeout(window.location.href = 'account', 10000);
                         })
                         .catch((error) => {
                             console.error('Signin error:', error);
