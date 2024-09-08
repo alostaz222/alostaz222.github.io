@@ -20,8 +20,6 @@ make sheet and exam veiwer
 
 make some intro, outro and advertisement videos
 
-add loading page
-
 make an app for the admin page and apply pushing changes to the host on clicking a button in the app
 
 Create a function that enables the admin to promote students to the next grades after the end of the school year, linked to the school season (from the admin pannel)
