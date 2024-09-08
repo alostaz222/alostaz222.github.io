@@ -218,6 +218,7 @@ main {
 }
 
 .main-container {
+    gap: 10px;
     display: none;
     flex-direction: column;
     flex: 1;
@@ -282,6 +283,7 @@ main {
 }
 
 #sidebar {
+    box-sizing: border-box;
     border: solid var(--text) 4px;
     font-weight: bolder;
     font-size: 17px;

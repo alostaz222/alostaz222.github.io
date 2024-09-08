@@ -1,5 +1,23 @@
 const head = document.head;
 
+function syncDivHeights() {
+    const div1 = document.getElementById('sidebar');
+    const div2 = document.getElementById('third-container');
+
+    div1.style.height = 'auto';
+    div2.style.height = 'auto';
+
+    const div1Height = div1.offsetHeight;
+    const div2Height = div2.offsetHeight;
+
+    if (window.matchMedia('(max-width: 767px)').matches) {
+        div1.style.height = '100%';
+    } else {
+        div1.style.height = div2Height + 'px';
+    }
+}
+
+
 // Firebase configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAulOUDi39BQc6DvYulOKqHymlLHjv8Bmo",
@@ -36,7 +54,9 @@ class SpecialLoader extends HTMLElement {
                 loadingPage.style.display = 'none';
                 loadingPage.style.height = '0px'
                 const mainContainer = document.querySelectorAll('.main-container');
-                mainContainer[0].style.display = 'flex'
+                mainContainer[0].style.display = 'flex';
+
+                syncDivHeights();
             }
         });
     }
@@ -113,24 +133,6 @@ class SpecialHeader extends HTMLElement {
             let hideMenuInner = document.getElementById('hideMenuInner');
             let menu = document.getElementById('mainHeader');
 
-
-            function syncDivHeights() {
-                const div1 = document.getElementById('sidebar');
-                const div2 = document.getElementById('third-container');
-
-                div1.style.height = 'auto';
-                div2.style.height = 'auto';
-
-                const div1Height = div1.offsetHeight;
-                const div2Height = div2.offsetHeight;
-
-                if (window.matchMedia('(max-width: 767px)').matches) {
-                    div1.style.height = '100%';
-                } else {
-                    div1.style.height = div2Height + 'px';
-                }
-            }
-
             sideShow1.addEventListener('click', () => {
                 sidebar.style.display = 'flex';
                 sideShow1.style.display = 'none';
@@ -145,6 +147,11 @@ class SpecialHeader extends HTMLElement {
                 sideShow1.style.display = 'block';
                 syncDivHeights();
             });
+
+            window.addEventListener('DOMContentLoaded', syncDivHeights);
+            window.addEventListener('resize', syncDivHeights);
+            window.addEventListener('load', syncDivHeights);
+            window.addEventListener('click', syncDivHeights);
 
             // Check if sidebar is visible initially for smaller screens
             if (window.location.pathname == '/sessions' || window.location.pathname == '/sessions.html') {
