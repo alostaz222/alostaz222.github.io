@@ -56,7 +56,9 @@ class SpecialLoader extends HTMLElement {
                 const mainContainer = document.querySelectorAll('.main-container');
                 mainContainer[0].style.display = 'flex';
 
-                syncDivHeights();
+                if (window.location.pathname == '/sessions' || window.location.pathname == '/sessions.html') {
+                    syncDivHeights();
+                };
             }
         });
     }
@@ -116,96 +118,101 @@ class SpecialHeader extends HTMLElement {
             </header>
         `;
 
-        const listItems = this.querySelectorAll('.nav a');
-        listItems.forEach(function (item) {
-            if (item.href === window.location.href) {
-                item.parentElement.classList.add('active');
-            }
-        });
 
-        document.addEventListener('DOMContentLoaded', () => {
-            let sideShow1 = document.getElementById('sideShow1');
-            let sideShow2 = document.getElementById('sideShow2');
-            let sidebar = document.getElementById('sidebar');
-            let thirdContainer = document.getElementById('third-container');
-            let showMenu = document.getElementById('showMenu');
-            let hideMenu = document.getElementById('hideMenu');
-            let hideMenuInner = document.getElementById('hideMenuInner');
-            let menu = document.getElementById('mainHeader');
+        const specialHeader = document.querySelector('special-header')
 
-            sideShow1.addEventListener('click', () => {
-                sidebar.style.display = 'flex';
-                sideShow1.style.display = 'none';
-                sideShow2.style.display = 'block';
-                syncDivHeights();
-            });
-
-            sideShow2.addEventListener('click', () => {
-                sidebar.style.display = 'none';
-                thirdContainer.style.marginRight = '12px';
-                sideShow2.style.display = 'none';
-                sideShow1.style.display = 'block';
-                syncDivHeights();
-            });
-
-            window.addEventListener('DOMContentLoaded', syncDivHeights);
-            window.addEventListener('resize', syncDivHeights);
-            window.addEventListener('load', syncDivHeights);
-            window.addEventListener('click', syncDivHeights);
-
-            // Check if sidebar is visible initially for smaller screens
-            if (window.location.pathname == '/sessions' || window.location.pathname == '/sessions.html') {
-                if (window.matchMedia('(max-width: 767px)').matches) {
-                    sidebar.style.display = 'none';
-                    sideShow1.style.display = 'block';
-                    sideShow2.style.display = 'none';
-                    thirdContainer.style.marginRight = '12px';
-                } else {
-                    // Default behavior for larger screens
-                    sidebar.style.display = 'flex';
-                    sideShow1.style.display = 'none';
-                    sideShow2.style.display = 'block';
-                    thirdContainer.style.marginRight = '0px';
+        if (specialHeader) {
+            const listItems = this.querySelectorAll('.nav a');
+            listItems.forEach(function (item) {
+                if (item.href === window.location.href) {
+                    item.parentElement.classList.add('active');
                 }
-            }
-
-            // Show/hide menu
-            hideMenu.style.display = "none";
-            hideMenu.style.display = 'none';
-
-            showMenu.addEventListener('click', () => {
-                menu.style.display = 'flex';
-                showMenu.style.display = 'none';
-                hideMenu.style.display = 'block';
-                hideMenuInner.style.display = 'block';
             });
+    
+            document.addEventListener('DOMContentLoaded', () => {
+                let sideShow1 = document.getElementById('sideShow1');
+                let sideShow2 = document.getElementById('sideShow2');
+                let sidebar = document.getElementById('sidebar');
+                let thirdContainer = document.getElementById('third-container');
+                let showMenu = document.getElementById('showMenu');
+                let hideMenu = document.getElementById('hideMenu');
+                let hideMenuInner = document.getElementById('hideMenuInner');
+                let menu = document.getElementById('mainHeader');
 
-            hideMenu.addEventListener('click', () => {
-                menu.style.display = 'none';
+
+                if (window.location.pathname == '/sessions' || window.location.pathname == '/sessions.html') {
+                    sideShow1.addEventListener('click', () => {
+                        sidebar.style.display = 'flex';
+                        sideShow1.style.display = 'none';
+                        sideShow2.style.display = 'block';
+                        syncDivHeights();
+                    });
+        
+                    sideShow2.addEventListener('click', () => {
+                        sidebar.style.display = 'none';
+                        thirdContainer.style.marginRight = '12px';
+                        sideShow2.style.display = 'none';
+                        sideShow1.style.display = 'block';
+                        syncDivHeights();
+                    });
+        
+                    window.addEventListener('DOMContentLoaded', syncDivHeights);
+                    window.addEventListener('resize', syncDivHeights);
+                    window.addEventListener('load', syncDivHeights);
+                    window.addEventListener('click', syncDivHeights);
+        
+                    // Check if sidebar is visible initially for smaller screens
+                    if (window.matchMedia('(max-width: 767px)').matches) {
+                        sidebar.style.display = 'none';
+                        sideShow1.style.display = 'block';
+                        sideShow2.style.display = 'none';
+                        thirdContainer.style.marginRight = '12px';
+                    } else {
+                        // Default behavior for larger screens
+                        sidebar.style.display = 'flex';
+                        sideShow1.style.display = 'none';
+                        sideShow2.style.display = 'block';
+                        thirdContainer.style.marginRight = '0px';
+                    }
+                }
+    
+                // Show/hide menu
+                hideMenu.style.display = "none";
                 hideMenu.style.display = 'none';
-                hideMenu.style.display = 'none';
-                showMenu.style.display = 'block';
+    
+                showMenu.addEventListener('click', () => {
+                    menu.style.display = 'flex';
+                    showMenu.style.display = 'none';
+                    hideMenu.style.display = 'block';
+                    hideMenuInner.style.display = 'block';
+                });
+    
+                hideMenu.addEventListener('click', () => {
+                    menu.style.display = 'none';
+                    hideMenu.style.display = 'none';
+                    hideMenu.style.display = 'none';
+                    showMenu.style.display = 'block';
+                });
+    
+                hideMenuInner.addEventListener('click', () => {
+                    menu.style.display = 'none';
+                    hideMenu.style.display = 'none';
+                    hideMenu.style.display = 'none';
+                    showMenu.style.display = 'block';
+                });
+    
+                // Check initial state of mainHeader to sync with show/hide menu buttons
+                if (menu.style.display === 'none') {
+                    showMenu.style.display = 'block';
+                    hideMenu.style.display = 'none';
+                    hideMenuInner.style.display = 'none';
+                } else if (menu.style.display === 'flex') {
+                    showMenu.style.display = 'none';
+                    hideMenu.style.display = 'block';
+                    hideMenuInner.style.display = 'block';
+                }
             });
-
-            hideMenuInner.addEventListener('click', () => {
-                menu.style.display = 'none';
-                hideMenu.style.display = 'none';
-                hideMenu.style.display = 'none';
-                showMenu.style.display = 'block';
-            });
-
-            // Check initial state of mainHeader to sync with show/hide menu buttons
-            if (menu.style.display === 'none') {
-                showMenu.style.display = 'block';
-                hideMenu.style.display = 'none';
-                hideMenuInner.style.display = 'none';
-            } else if (menu.style.display === 'flex') {
-                showMenu.style.display = 'none';
-                hideMenu.style.display = 'block';
-                hideMenuInner.style.display = 'block';
-            }
-        });
-
+        }
     }
 }
 
