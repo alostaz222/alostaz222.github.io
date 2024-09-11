@@ -1,83 +1,80 @@
-:root {
-    --background: #E7FFFF;
-    --first-color: #222;
-    --second-color: rgba(0, 0, 0, 0.3);
-    --third-color: #ddd;
-    --fourth-color: #008B62;
-    --fifth-color: #00593E;
-    --sixth-color: rgba(0, 0, 0, 0.2);
-    --seventh-color: #444;
-}
-
 html,
 body {
+    align-items: center;
+    justify-content: center;
+    display: flex;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: var(--background);
+    background-color: #E7FFFF;
 }
 
 h1 {
     margin: 0;
     padding: 0;
     text-decoration: none;
+    color: teal;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: 900;
+    margin: 10px auto;
+    padding: 10px;
+    text-decoration: none;
+    color: teal;
 }
 
 a {
     text-decoration: none;
     display: inline-block;
-    border: 2px solid var(--first-color);
-    color: var(--first-color);
+    border: 2px solid #222;
+    color: #222;
     text-transform: uppercase;
     font-weight: 600;
     padding: 0.75rem 1rem 0.6rem;
     transition: all 0.2s linear;
-    box-shadow: 0 3px 8px var(--second-color);
 }
 
 a:hover {
-    background: var(--first-color);
-    color: var(--third-color);
+    background: teal;
+    color: #fff;
 }
 
 .section {
+    height: 100%;
     padding: 4rem 2rem;
 }
 
 .section .error {
     font-size: 150px;
-    color: var(--fourth-color);
+    color: teal;
     text-shadow:
-        1px 1px 1px var(--fifth-color),
-        2px 2px 1px var(--fifth-color),
-        3px 3px 1px var(--fifth-color),
-        4px 4px 1px var(--fifth-color),
-        5px 5px 1px var(--fifth-color),
-        6px 6px 1px var(--fifth-color),
-        7px 7px 1px var(--fifth-color),
-        8px 8px 1px var(--fifth-color),
-        25px 25px 8px var(--sixth-color);
+        1px 1px 1px #d4cb9a,
+        2px 2px 1px #d4cb9a,
+        3px 3px 1px #d4cb9a,
+        4px 4px 1px #d4cb9a,
+        5px 5px 1px #d4cb9a,
+        6px 6px 1px #d4cb9a,
+        7px 7px 1px #d4cb9a
 }
 
 .page {
     margin: 2rem 0;
     font-size: 20px;
     font-weight: 600;
-    color: var(--seventh-color);
 }
 
 .back-home {
     display: inline-block;
-    border: 2px solid var(--first-color);
-    color: var(--first-color);
+    border: 2px solid #222;
+    color: #222;
     text-transform: uppercase;
     font-weight: 600;
     padding: 0.75rem 1rem 0.6rem;
     transition: all 0.2s linear;
-    box-shadow: 0 3px 8px var(--second-color);
 }
 
 .back-home:hover {
-    background: var(--first-color);
-    color: var(--third-color);
+    background: #222;
 }

@@ -8,7 +8,7 @@ body {
     margin: 0;
 }
 
-.pageContainer {
+.main-container {
     width: 100%;
     height: 100%;
     display: flex;
@@ -83,11 +83,22 @@ body {
 }
 
 .form input, .form select {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    flex: 1;
+    text-align: right !important;
+    color: var(--coal) !important;
+    padding: 10px !important;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    font-size: 16px !important;
+    flex: 1 !important;
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    -ms-border-radius: 4px !important;
+    -o-border-radius: 4px !important;
+}
+
+.form select option, .form select optgroup {
+    background-color: var(--background);
+    color: var(--coal);
 }
 
 .passwordWrapper {
