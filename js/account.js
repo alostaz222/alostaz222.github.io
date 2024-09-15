@@ -64,7 +64,7 @@ function userUpdate() {
 
     } else {
         document.getElementById('userDetails').innerText = '';
-        document.getElementById('userDetails').innerText = 'No user is logged in.';
+        document.getElementById('userDetails').innerText = 'لا يوجد مستخدم مسجل.';
         email.value = '';
         student_phone.value = '';
         father_phone.value = '';
