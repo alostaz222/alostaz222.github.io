@@ -82,6 +82,14 @@ body {
     gap: 10px;
 }
 
+h2 {
+    margin-bottom: 5px;
+}
+
+span {
+    margin-bottom: 15px;
+}
+
 .form input, .form select {
     text-align: right !important;
     color: var(--coal) !important;
@@ -134,10 +142,17 @@ body {
 }
 
 .iti input[type="tel"] {
+    padding-left: 50px !important;
+    text-align: left !important;
+    direction: ltr !important;
     direction: rtl;
     width: 100%;
 }
 
+.iti input[type="tel"]::placeholder {
+    direction: rtl !important;
+    text-align: right;
+}
 
 form a {
     color: -webkit-link;
