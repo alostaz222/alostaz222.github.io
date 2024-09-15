@@ -86,11 +86,11 @@
                 </div>
             </div>
 
-            <form id="signUpForm" class="form">
+            <form id="signUpForm" class="form" autocomplete="on">
                 <h2>انشئ حسابًا</h2>
                 <span> (برجاء ادخال البيانات باللغة الاجليزية)</span>
 
-                <input type="text" class="SInput" id="username" placeholder="اسم المستخدم">
+                <input type="text" class="SInput" id="username" name="username" placeholder="اسم المستخدم">
 
                 <select class="SInput" id="stage" name="stage" required>
                     <option value="stage" selected disabled>الصف الدراسي</option>
@@ -111,25 +111,25 @@
                     </optgroup>
                 </select>
 
-                <input type="email" class="SInput" id="email" placeholder="البريد الإلكتروني">
+                <input type="email" class="SInput" id="email" name="email" placeholder="البريد الإلكتروني">
 
                 <div class="phoneContainer">
-                    <input type="tel" class="SInput" id="phone" placeholder="رقم الطالب">
+                    <input type="tel" class="SInput" id="phone" name="phone" placeholder="رقم الطالب">
                 </div>
 
                 <div class="phoneContainer">
-                    <input type="tel" class="SInput" id="phone2" placeholder="رقم الأب">
+                    <input type="tel" class="SInput" id="phone2" name="phone2" placeholder="رقم الأب">
                 </div>
 
                 <div class="passwordWrapper">
-                    <input type="password" class="SInput" id="password1" placeholder="كلمة السر">
+                    <input type="password" class="SInput" id="password1" name="password1" placeholder="كلمة السر">
                     <span class="togglePassword" data-target="password1">
                         <i class="material-icons">visibility_off</i>
                     </span>
                 </div>
 
                 <div class="passwordWrapper">
-                    <input type="password" class="SInput" id="password2" placeholder="اعد كتابة كلمة السر">
+                    <input type="password" class="SInput" id="password2" name="password2" placeholder="اعد كتابة كلمة السر">
                     <span class="togglePassword" data-target="password2">
                         <i class="material-icons">visibility_off</i>
                     </span>
@@ -139,14 +139,14 @@
                 <button type="submit" id="sign-up">انشاء</button>
             </form>
 
-            <form id="signInForm" class="form">
+            <form id="signInForm" class="form" autocomplete="on">
                 <h2>تسجيل الدخول</h2>
                 <span> (برجاء ادخال البيانات باللغة الاجليزية)</span>
 
-                <input type="text" class="LInput" id="authenticator" placeholder="اسم المستخدم أو البريد الألكتروني">
+                <input type="text" class="LInput" id="authenticator" name="authenticator" placeholder="اسم المستخدم أو البريد الألكتروني">
 
                 <div class="passwordWrapper">
-                    <input type="password" class="LInput" id="password" placeholder="كلمة السر">
+                    <input type="password" class="LInput" id="password" name="password" placeholder="كلمة السر">
                     <span class="togglePassword" data-target="password">
                         <i class="material-icons">visibility_off</i>
                     </span>

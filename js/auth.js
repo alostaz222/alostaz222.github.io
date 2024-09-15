@@ -45,11 +45,6 @@ phoneInputField.addEventListener('focus', () =>{
     phoneInputField.value = `+${phoneInput.getSelectedCountryData().dialCode}`;
 });
 
-// Update placeholder on country change
-phoneInputField.addEventListener('countrychange', function () {
-    phoneInputField.placeholder = phoneInput.getSelectedCountryData().dialCode;
-});
-
 
 const phoneInput2 = window.intlTelInput(phoneInputField2, {
     initialCountry: "eg",
@@ -60,11 +55,6 @@ const phoneInput2 = window.intlTelInput(phoneInputField2, {
 phoneInputField2.addEventListener('focus', () =>{
     phoneInputField2.style.direction = 'ltr';
     phoneInputField2.value = `+${phoneInput2.getSelectedCountryData().dialCode}`;
-});
-
-// Update placeholder on country change
-phoneInputField2.addEventListener('countrychange', function () {
-    phoneInputField2.placeholder = phoneInput2.getSelectedCountryData().dialCode;
 });
 
 
