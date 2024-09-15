@@ -37,31 +37,36 @@ function addNotification(type, text, location_to_add) {
 
     const icon = document.createElement('i');
     icon.classList.add('material-icons');
-    switch (type) {
-        case 'error':
-            icon.textContent = 'error';
-            break;
-        case 'info':
-            icon.textContent = 'info';
-            break;
-        case 'success':
-            icon.textContent = 'check_circle';
-            break;
-        case 'warning':
-            icon.textContent = 'warning';
-            break;
-        default:
-            icon.textContent = 'info';
-    }
 
     const textContainer = document.createElement('div');
     textContainer.classList.add('textContainer');
 
     const title = document.createElement('h4');
-    title.textContent = type.charAt(0).toUpperCase() + type.slice(1); // Capitalize type for title
 
     const messageText = document.createElement('p');
     messageText.textContent = text;
+
+    switch (type) {
+        case 'error':
+            icon.textContent = 'error';
+            title.textContent = 'خطأ';
+            break;
+        case 'info':
+            icon.textContent = 'info';
+            title.textContent = 'معلومة';
+            break;
+        case 'success':
+            icon.textContent = 'check_circle';
+            title.textContent = 'نجاح';
+            break;
+        case 'warning':
+            icon.textContent = 'warning';
+            title.textContent = 'تحذير';
+            break;
+        default:
+            icon.textContent = 'info';
+            title.textContent = 'معلومة';
+    }
 
     const closeIcon = document.createElement('i');
     closeIcon.classList.add('material-icons', 'close-icon');

@@ -41,6 +41,6 @@ WAshare.addEventListener('click', () => {
         const shareLink = WAshare.getAttribute('data-link');
         window.open(shareLink, '_blank');
     } else {
-        alert('Please enter your username and coupon percentage.');
+        alert('برجاء تسجيل الدخول');
     }
 });

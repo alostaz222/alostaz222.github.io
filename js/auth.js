@@ -131,59 +131,59 @@ signupBtn.addEventListener('click', (event) => {
 
     if (!username || !email || !phone || !phone2 || phone == phone2 || !password1 || !password2 || stage == 'stage') {
         if (!username) {
-            addNotification('error', 'Username is required.', '.popupContainer');
+            addNotification('error', 'اسم المستخدم مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
         if (stage == 'stage') {
-            addNotification('error', 'Your stage is required.', '.popupContainer');
+            addNotification('error', 'صفك الدراسي مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
         if (!email) {
-            addNotification('error', 'Email is required.', '.popupContainer');
+            addNotification('error', 'بريدك الالكتروني مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
         if (!phone) {
-            addNotification('error', 'Your phone is required.', '.popupContainer');
+            addNotification('error', 'هاتفك مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
         if (!phone2) {
-            addNotification('error', "Your father's phone is required.", '.popupContainer');
+            addNotification('error', "هاتف والدك مطلوب.", '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
         if (phone == phone2) {
-            addNotification('error', "Father's phone couldn't be the same as your phone", '.popupContainer')
+            addNotification('error', "هاتف والدك لا يمكن ان يطابق هاتفك", '.popupContainer')
         }
         if (!password1) {
-            addNotification('error', 'Password is required.', '.popupContainer');
+            addNotification('error', 'كلمة المرور مطلوبة.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
         if (!password2) {
-            addNotification('error', 'Confirm Password is required.', '.popupContainer');
+            addNotification('error', 'تأكيد كلمة المرور مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
         hasError = true;
     }
 
     if (!validateEmail(email)) {
-        addNotification('error', 'Please enter a valid email address.', '.popupContainer');
+        addNotification('error', 'برجاء ادخال بريد الكتروني صالح.', '.popupContainer');
         setTimeout(clearErrors, 3000);
         hasError = true;
     }
 
     if (!validatePhone(phone)) {
-        addNotification('error', 'Please enter a valid phone number.', '.popupContainer');
+        addNotification('error', 'برجاء ادخال رقم هاتف صالح.', '.popupContainer');
         setTimeout(clearErrors, 3000);
         hasError = true;
     }
 
     if (password1 !== password2) {
-        addNotification('error', 'Passwords do not match.', '.popupContainer');
+        addNotification('error', 'كلمة السر وتأكيدها يجب ان يكونا متتطابقان.', '.popupContainer');
         setTimeout(clearErrors, 3000);
         hasError = true;
     }
 
     if (password1.length < 6) { // Minimum password length validation
-        addNotification('error', 'Password must be at least 6 characters long.', '.popupContainer');
+    addNotification('error', 'كلمة المرور يجب الّا تقل عن ستة احرف.', '.popupContainer');
         setTimeout(clearErrors, 3000);
         hasError = true;
     }
@@ -197,7 +197,7 @@ signupBtn.addEventListener('click', (event) => {
     database.ref(`users/${username}`).once('value')
         .then((snapshot) => {
             if (snapshot.exists()) {
-                addNotification('error', 'Username already taken. Please choose another one.', '.popupContainer');
+                addNotification('error', 'اسم المستخدم موجود بالفعل، قم بتجربة اسم اخر.', '.popupContainer');
                 setTimeout(clearErrors, 3000);
             } else {
                 // Create user
@@ -220,7 +220,7 @@ signupBtn.addEventListener('click', (event) => {
                             .then(() => {
                                 console.log('User data added to database');
                                 localStorage.setItem('userData', JSON.stringify(userData));
-                                addNotification('success', 'User data added to database.', '.popupContainer');
+                                addNotification('success', 'تم اضافة بيانات المستخدم لقاعدة البينات بنجاح.', '.popupContainer');
                                 setTimeout(clearErrors, 3000);
                                 for (let i = 0; i < SInputs.length; i++) {
                                     SInputs[i].value = '';
@@ -231,7 +231,7 @@ signupBtn.addEventListener('click', (event) => {
                             })
                             .catch((error) => {
                                 console.error('Database error:', error);
-                                addNotification('error', 'Database error. Please try again.', '.popupContainer');
+                                addNotification('error', 'خطأ في قاعدة البينات، جرب مرة أخرى.', '.popupContainer');
                                 setTimeout(clearErrors, 3000);
                             });
 
@@ -239,10 +239,10 @@ signupBtn.addEventListener('click', (event) => {
                     .catch((error) => {
                         console.error('Signup error:', error);
                         if (error.code === 'auth/email-already-in-use') {
-                            addNotification('error', 'Email is already in use. Please use a different email.', '.popupContainer');
+                            addNotification('error', 'البريد الالكتروني مستخدم، قم باستخدام بريد اخر.', '.popupContainer');
                             setTimeout(clearErrors, 3000);
                         } else {
-                            addNotification('error', 'Signup error. Please try again.', '.popupContainer');
+                            addNotification('error', 'خطأ اثناء انشاء الحساب.', '.popupContainer');
                             setTimeout(clearErrors, 3000);
                         }
                     });
@@ -250,7 +250,7 @@ signupBtn.addEventListener('click', (event) => {
         })
         .catch((error) => {
             console.error('Error checking username:', error);
-            addNotification('error', 'Error checking username. Please try again.', '.popupContainer');
+            addNotification('error', 'خطأ في فحص اسم المستخدم.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         });
 });
@@ -266,11 +266,11 @@ signInBtn.addEventListener('click', (event) => {
 
     if (!authenticator || !password) {
         if (!authenticator) {
-            addNotification('error', 'Username or Email is required.', '.popupContainer');
+            addNotification('error', 'اسم المستخدم او البريد الالكتروني مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         };
         if (!password) {
-            addNotification('error', 'Password is required.', '.popupContainer');
+            addNotification('error', 'كلمة المرور مطلوبة.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         };
         hasError = true;
@@ -302,7 +302,7 @@ signInBtn.addEventListener('click', (event) => {
 
                             // Store the full user data in localStorage
                             localStorage.setItem('userData', JSON.stringify(fullUserData));
-                            addNotification('success', 'User signed in successfully.', '.popupContainer');
+                            addNotification('success', 'تم تسجيل الدخول بنجاح.', '.popupContainer');
                             setTimeout(clearErrors, 3000);
 
                             for (let i = 0; i < LInputs.length; i++) {
@@ -312,19 +312,19 @@ signInBtn.addEventListener('click', (event) => {
                             // Redirection
                             setTimeout(window.location.href = 'account', 10000);
                         } else {
-                            addNotification('error', 'User data not found in database.', '.popupContainer');
+                            addNotification('error', 'بيانات المستخدم غير موجودة في قاعدة البيانات.', '.popupContainer');
                             setTimeout(clearErrors, 3000);
                         }
                     })
                     .catch((error) => {
                         console.error('Database error:', error);
-                        addNotification('error', 'Database error. Please try again.', '.popupContainer');
+                        addNotification('error', 'خطأ في قاعدة اليانات.', '.popupContainer');
                         setTimeout(clearErrors, 3000);
                     });
             })
             .catch((error) => {
                 console.error('Signin error:', error);
-                addNotification('error', 'Signin error. Please try again.', '.popupContainer');
+                addNotification('error', 'خطأ في تسجيل الدخول.', '.popupContainer');
                 setTimeout(clearErrors, 3000);
             });
     } else {
@@ -351,7 +351,7 @@ signInBtn.addEventListener('click', (event) => {
 
                             // Store the full user data in localStorage
                             localStorage.setItem('userData', JSON.stringify(fullUserData));
-                            addNotification('success', 'User signed in successfully.', '.popupContainer');
+                            addNotification('success', 'تم تسجيل الدخول بنجاح.', '.popupContainer');
                             setTimeout(clearErrors, 3000);
 
                             for (let i = 0; i < LInputs.length; i++) {
@@ -363,17 +363,17 @@ signInBtn.addEventListener('click', (event) => {
                         })
                         .catch((error) => {
                             console.error('Signin error:', error);
-                            addNotification('error', 'Signin error. Please try again.', '.popupContainer');
+                            addNotification('error', 'خطأ في تسجيل الدخول.', '.popupContainer');
                             setTimeout(clearErrors, 3000);
                         });
                 } else {
-                    addNotification('error', 'Invalid username or email.', '.popupContainer');
+                    addNotification('error', 'اسم المستخدم او البريد الالكتروني غير صالح.', '.popupContainer');
                     setTimeout(clearErrors, 3000);
                 }
             })
             .catch((error) => {
                 console.error('Error checking username:', error);
-                addNotification('error', 'Error checking username. Please try again.', '.popupContainer');
+                addNotification('error', 'خطأ في فحص اسم المستخدم.', '.popupContainer');
                 setTimeout(clearErrors, 3000);
             });
     }

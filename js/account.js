@@ -78,7 +78,7 @@ function generateCoupon() {
     const username = user.username;
 
     if (!username) {
-        addNotification('error', 'Please enter your username', '.popupContainer');
+        addNotification('error', 'برجاء تسجيل الدخول.', '.popupContainer');
         setTimeout(clearErrors, 3000);
         return;
     }
@@ -88,7 +88,7 @@ function generateCoupon() {
     // Check if the user already has a generated coupon
     userRef.child('G-coupon').get().then(snapshot => {
         if (snapshot.exists()) {
-            addNotification('error', 'You have already generated a coupon.', '.popupContainer');
+            addNotification('error', 'لقد قمت بالفعل بإنشاء كوبون.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         } else {
             // Clean up the username and generate a random number
@@ -101,7 +101,7 @@ function generateCoupon() {
         }
     }).catch(error => {
         console.error('Error checking user coupons:', error);
-        addNotification('error', 'An error occurred while checking existing coupons.', '.popupContainer');
+        addNotification('error', 'حدث خطأ أثناء التحقق من الكوبونات الموجودة.', '.popupContainer');
         setTimeout(clearErrors, 3000);
     });
 }
@@ -121,7 +121,7 @@ function checkAndSaveCoupon(coupon) {
         }
     }).catch(error => {
         console.error('Error checking coupon in database:', error);
-        addNotification('error', 'An error occurred while checking the coupon.', '.popupContainer');
+        addNotification('error', 'حدث خطأ أثناء التحقق من الكوبون.', '.popupContainer');
         setTimeout(clearErrors, 3000);
     });
 }
@@ -137,7 +137,7 @@ function saveCouponToDatabase(coupon, username) {
         // Save coupon to user's G-coupon
         userRef.child('G-coupon').set(coupon)
             .then(() => {
-                addNotification('success', `Coupon saved: ${coupon}`, '.popupContainer');
+                addNotification('success', `تم حفظ الكوبون: ${coupon}`, '.popupContainer');
                 setTimeout(clearErrors, 3000);
 
                 // Store the coupon in localStorage
@@ -152,12 +152,12 @@ function saveCouponToDatabase(coupon, username) {
             })
             .catch(error => {
                 console.error('Error saving coupon to user data:', error);
-                addNotification('error', 'An error occurred while saving the coupon.', '.popupContainer');
+                addNotification('error', 'حدث خطأ اثناء حفظ الكوبون.', '.popupContainer');
                 setTimeout(clearErrors, 3000);
             });
     }).catch(error => {
         console.error('Error saving coupon to the database:', error);
-        addNotification('error', 'An error occurred while saving the coupon.', '.popupContainer');
+        addNotification('error', 'حدث خطأ اثناء حفظ الكوبون.', '.popupContainer');
         setTimeout(clearErrors, 3000);
     });
 }
@@ -171,27 +171,27 @@ updateUserData.addEventListener('click', (event) => {
 
     if (newPasswordValue) {
         if (!currentPasswordValue && !confirmPasswordValue) {
-            addNotification('error', 'Current and Confirmation passwords are required.', '.popupContainer');
+            addNotification('error', 'كلمة المرور الحالية وتأكيدها كلاهما مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
             return;
         } else if (!confirmPasswordValue) {
-            addNotification('error', 'Confirmation password is required.', '.popupContainer');
+            addNotification('error', 'تأكيد كلمة المرور مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
             return;
         } else if (!currentPasswordValue) {
-            addNotification('error', 'Current password is required.', '.popupContainer');
+            addNotification('error', 'كلمة المرور الحالية مطلوبة.', '.popupContainer');
             setTimeout(clearErrors, 3000);
             return;
         }
 
         if (newPasswordValue !== confirmPasswordValue) {
-            addNotification('error', 'New password and confirmation do not match.', '.popupContainer');
+            addNotification('error', 'كلمة المرور الجديدة وتأكيدها ليسا متتطابقتان.', '.popupContainer');
             setTimeout(clearErrors, 3000);
             return;
         }
 
         if (newPasswordValue === currentPasswordValue) {
-            addNotification('error', "New password couldn't be the current password.", '.popupContainer');
+            addNotification('error', "لا يمكن أن تكون كلمة المرور الجديدة هي كلمة المرور الحالية.", '.popupContainer');
             setTimeout(clearErrors, 3000);
             return;
         }
@@ -202,11 +202,11 @@ updateUserData.addEventListener('click', (event) => {
         user.reauthenticateWithCredential(credential).then(() => {
             return user.updatePassword(newPasswordValue);
         }).then(() => {
-            addNotification('success', 'Password updated successfully.', '.popupContainer');
+            addNotification('success', 'تم تحديث كلمة المرور بنجاح.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }).catch(error => {
             if (error.code === 'auth/wrong-password') {
-                addNotification('error', 'The current password is incorrect.', '.popupContainer');
+                addNotification('error', 'كلمة المرور الحالية غير صحيحة.', '.popupContainer');
             } else {
                 addNotification('error', error.message, '.popupContainer');
             }
@@ -214,25 +214,25 @@ updateUserData.addEventListener('click', (event) => {
         });
     } else if (currentPasswordValue) {
         if (!newPasswordValue && !confirmPasswordValue) {
-            addNotification('error', 'New password and Confirmation are required.', '.popupContainer');
+            addNotification('error', 'كلمة المرور الجديدة وتأكيدها كلاهما مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         } else if (!confirmPasswordValue) {
-            addNotification('error', 'Confirmation password is required.', '.popupContainer');
+            addNotification('error', 'تأكيد كلمة المرور مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         } else if (!newPasswordValue) {
-            addNotification('error', 'New password is required.', '.popupContainer');
+            addNotification('error', 'كلمة المرور الجديدة مطلوبة.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
 
     } else if(confirmPasswordValue) {
         if (!newPasswordValue && !currentPasswordValue) {
-            addNotification('error', 'New and Current passwords are required.', '.popupContainer');
+            addNotification('error', 'كلمة المرور الجديدة والحالية كلاهما مطلوب.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         } else if (!currentPasswordValue) {
-            addNotification('error', 'Current password is required.', '.popupContainer');
+            addNotification('error', 'كلمة المرور الحالية مطلوبة.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         } else if (!newPasswordValue) {
-            addNotification('error', 'New password is required.', '.popupContainer');
+            addNotification('error', 'كلمة المرور الجديدة مطلوبة.', '.popupContainer');
             setTimeout(clearErrors, 3000);
         }
     }
@@ -249,12 +249,12 @@ document.querySelector('.signOut').addEventListener('click', () => {
     firebase.auth().signOut().then(() => {
         localStorage.removeItem('userData');
         userUpdate();
-        addNotification('success', 'Signed Out', '.popupContainer');
+        addNotification('success', 'تم تسجيل الخروج', '.popupContainer');
         setTimeout(clearErrors, 3000);
         setTimeout(window.location.href = 'auth', 10000)
     }).catch(error => {
         console.error('Sign out error:', error);
-        addNotification('error', 'Sign out error', '.popupContainer');
+        addNotification('error', 'حدث خطأ أثناء تسجيل الخروج', '.popupContainer');
         setTimeout(clearErrors, 3000);
     });
 });

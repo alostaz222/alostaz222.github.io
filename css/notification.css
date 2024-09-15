@@ -1,5 +1,4 @@
 .popupContainer {
-    direction: ltr !important;
     position: relative;
     width: 70%;
     max-width: 600px;
@@ -7,6 +6,7 @@
 }
 
 .counters {
+    direction: rtl;
     display: none;
     gap: 20px;
     position: fixed;
@@ -34,6 +34,7 @@
 }
 
 .message {
+    direction: rtl !important;
     top:20px;
     left: 20px;
     right: 20px;
@@ -64,7 +65,7 @@
 
 .message.error {
     background-color: #ffebee;
-    border-left: 5px solid #f44336;
+    border-right: 5px solid #f44336;
 }
 
 .error i {
@@ -73,7 +74,7 @@
 
 .message.info {
     background-color: #e3f2fd;
-    border-left: 5px solid #2196f3;
+    border-right: 5px solid #2196f3;
 }
 
 .info i {
@@ -82,7 +83,7 @@
 
 .message.success {
     background-color: #e8f5e9;
-    border-left: 5px solid #4caf50;
+    border-right: 5px solid #4caf50;
 }
 
 .success i {
@@ -91,7 +92,7 @@
 
 .message.warning {
     background-color: #fff8e1;
-    border-left: 5px solid #ff9800;
+    border-right: 5px solid #ff9800;
 }
 
 .warning i {
@@ -99,7 +100,7 @@
 }
 
 .message .close-icon {
-    margin-left: auto;
+    margin-right: auto;
     cursor: pointer;
     font-size: 18px;
     color: #888;
