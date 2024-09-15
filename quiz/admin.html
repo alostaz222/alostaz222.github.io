@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Maker</title>
+    <link rel="stylesheet" href="quiz.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="header">
+        <h1>انشاء اختبار</h1>
+    </div>
+    <button class="add">
+        <span>اضافة سؤال</span>
+        <i class="material-icons">add</i>
+    </button>
+    <main>
+        <form id="quiz">
+            <div class="quiz">
+                <div class="settings">
+                    <div class="setCont">
+                        <label for="quiz_type">نوع الاختبار</label>
+                        <select name="quiz_type" id="quiz_type">
+                            <option value="exam">اختبار</option>
+                            <option value="homework">واجب</option>
+                        </select>
+                    </div>
+                        
+                    <div class="setCont">
+                        <label for="timer">المؤقت</label>
+                        <input id="timer" name="timer" type="text" placeholder="الوقت بالدقائق">
+                    </div>
+                </div>
+
+                <div class="entry">
+                    <div class="setCont">
+                        <label>نوع السؤال</label>
+                        <select class="question_type">
+                            <option value="MCQ">اختيار من متعدد</option>
+                            <option value="essay">مقالي</option>
+                        </select>
+                    </div>
+                    <div class="questionCont">
+                        <label>السؤال</label>
+                        <textarea class="question"></textarea>
+                    </div>
+
+                    <div class="ansContainer">
+                        <div class="answerCont">
+                            <label>اجابة 1</label>
+                            <input class="answer">
+                        </div>
+                        
+                        <div class="answerCont">
+                            <label>اجابة 2</label>
+                            <input class="answer">
+                        </div>
+
+                        <div class="answerCont">
+                            <label>اجابة 3</label>
+                            <input class="answer">
+                        </div>
+
+                        <div class="answerCont">
+                            <label for="question">اجابة 4</label>
+                            <input class="answer">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

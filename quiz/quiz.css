@@ -1,0 +1,130 @@
+html, body {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    margin: 0;
+    background: #f4f4f4;
+    padding-bottom: 50px;
+}
+
+.header {
+    background-color: #222;
+    padding: 5%;
+}
+
+h1 {
+    color: white;
+}
+
+form {
+    text-align: right;
+    direction: rtl;
+    display: flex;
+    justify-content: center;
+}
+
+.add {
+    font-size: 15px;
+    font-weight: 700;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    width: 200px;
+    border: none;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+}
+
+.quiz {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+}
+
+.settings {
+    background: #fff;
+    width: 60%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: row;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    gap: 30px;
+}
+
+.setCont {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 10px;
+}
+
+.settings label {
+    flex: 1;
+}
+
+input, select, button, textarea {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.entry {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 60%;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.questionCont {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.entry textarea {
+    flex: 1;
+    height: 20px;
+}
+
+.ansContainer {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.answerCont {
+    display: flex;
+    flex: 1;
+    gap: 10px;
+}
+
+.answer {
+    flex: 4;
+}

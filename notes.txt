@@ -1,5 +1,9 @@
 Delete stage selection completely from sessions page 
 
+complete form generator and merg it with the admin page
+
+try to make a pdf to form function for the form generator
+
 searching for huge free file hosting
 
 adding user settings (phone and email)
