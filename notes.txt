@@ -1,3 +1,5 @@
+Delete stage selection completely from sessions page 
+
 searching for huge free file hosting
 
 adding user settings (phone and email)
@@ -6,7 +8,7 @@ adding landing page if the user isn't signed in
 
 adding discount for the first 100 students (20%)
 
-adding discounted subscriptions for the students of the teacher (50%-60%)
+adding discounted subscriptions for the students of the teacher (30%-45%)
 
 if the students of the teacher invited 5 users to the website they will take two free lessons in the center
 
