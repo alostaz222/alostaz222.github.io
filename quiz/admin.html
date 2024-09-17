@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Maker</title>
-    <link rel="stylesheet" href="quiz.css">
+    <link rel="stylesheet" href="../css/quizAdmin.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -46,30 +46,36 @@
                         <textarea class="question"></textarea>
                     </div>
 
-                    <div class="ansContainer">
+                    <div class="MCQContainer">
                         <div class="answerCont">
-                            <label>اجابة 1</label>
+                            <label>اجابة_1</label>
                             <input class="answer">
                         </div>
                         
                         <div class="answerCont">
-                            <label>اجابة 2</label>
+                            <label>اجابة_2</label>
                             <input class="answer">
                         </div>
 
                         <div class="answerCont">
-                            <label>اجابة 3</label>
+                            <label>اجابة_3</label>
                             <input class="answer">
                         </div>
 
                         <div class="answerCont">
-                            <label for="question">اجابة 4</label>
+                            <label for="question">اجابة_4</label>
                             <input class="answer">
                         </div>
+                    </div>
+
+                    <div class="essayCont">
+                        <p>اجابة السؤال الاختياري تصحح يدويا من قِبل المعلم في لوحة التحكم الجزء الخاص بالاجوبة المقالية ويتم احتساب درجتها منفصلة عن درجة الاختبار الكلي وترسل الى الطالب في واجهة الطالب ويتم اعادة ارسالها الى ولي الأمر</p>
                     </div>
                 </div>
             </div>
         </form>
     </main>
+
+    <script src="/js/quizAdmin.js"></script>
 </body>
 </html>

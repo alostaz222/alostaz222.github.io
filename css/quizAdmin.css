@@ -113,7 +113,7 @@ input, select, button, textarea {
     height: 20px;
 }
 
-.ansContainer {
+.MCQContainer {
     display: flex;
     gap: 10px;
     flex-wrap: wrap;
@@ -127,4 +127,21 @@ input, select, button, textarea {
 
 .answer {
     flex: 4;
+}
+
+
+.essayCont {
+    width: 100%;
+    flex: 1;
+}
+
+.essayCont p {
+    box-sizing: border-box;
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: #fff4d2;
+    border-right: 4px solid #ff9800;
+    border-radius: 4px;
+    color: #a93d03;
+    width: 100%;
 }
