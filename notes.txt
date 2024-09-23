@@ -1,4 +1,4 @@
-Delete stage selection completely from sessions page 
+Delete stage selection completely from sessions page and get it from the account
 
 complete form generator and merg it with the admin page
 
