@@ -1,206 +1,206 @@
 {
     "index": {
-        "title": "Alostaz | Home Page",
+        "title": "fizyacademy | Home Page",
         "favicon": "/favicon.ico",
         "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
-            "title": "Alostaz | Home Page",
-            "description": "اكتشف عالم الفيزياء بسهولة مع Alostaz. دورات ودروس فيزياء اونلاين مفصلة تناسب جميع المستويات التعليمية.",
-            "keywords": "Physics, Alostaz, Elostaz, الفيزياء, تعليم, فيزياء اونلاين, منصة تعليمية, دورات فيزياء, تعليم فيزياء, Educational platform, MR.Bakr",
-            "author": "Alostaz"
+            "title": "fizyacademy | Home Page",
+            "description": "اكتشف عالم الفيزياء بسهولة مع fizyacademy. دورات ودروس فيزياء اونلاين مفصلة تناسب جميع المستويات التعليمية.",
+            "keywords": "Physics, fizyacademy, الفيزياء, تعليم, فيزياء اونلاين, منصة تعليمية, دورات فيزياء, تعليم فيزياء, Educational platform, MR.Bakr",
+            "author": "fizyacademy"
         },
-        "canonical": "https://alostaz222.github.io/",
+        "canonical": "https://fizyacademy.github.io/",
         "og": {
-            "url": "https://alostaz222.github.io/",
-            "title": "Alostaz | Home Page",
-            "description": "اكتشف عالم الفيزياء بسهولة مع Alostaz. دورات ودروس فيزياء اونلاين مفصلة تناسب جميع المستويات التعليمية.",
+            "url": "https://fizyacademy.github.io/",
+            "title": "fizyacademy | Home Page",
+            "description": "اكتشف عالم الفيزياء بسهولة مع fizyacademy. دورات ودروس فيزياء اونلاين مفصلة تناسب جميع المستويات التعليمية.",
             "type": "website",
-            "site_name": "Alostaz"
+            "site_name": "fizyacademy"
         },
         "json_ld": {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "Alostaz",
-            "url": "https://alostaz222.github.io",
-            "description": "اكتشف عالم الفيزياء بسهولة مع Alostaz. دورات ودروس فيزياء اونلاين مفصلة تناسب جميع المستويات التعليمية."
+            "name": "fizyacademy",
+            "url": "https://fizyacademy.github.io",
+            "description": "اكتشف عالم الفيزياء بسهولة مع fizyacademy. دورات ودروس فيزياء اونلاين مفصلة تناسب جميع المستويات التعليمية."
         }
     },
     "404": {
-        "title": "Alostaz | 404 Page Not Found",
+        "title": "fizyacademy | 404 Page Not Found",
         "favicon": "/favicon.ico",
         "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
             "title": "404 Page not found",
             "description": "الصفحة التي تبحث عنها غير موجودة. يرجى التحقق من الرابط والعودة إلى الصفحة الرئيسية.",
-            "author": "Alostaz"
+            "author": "fizyacademy"
         },
-        "canonical": "https://alostaz222.github.io/404",
+        "canonical": "https://fizyacademy.github.io/404",
         "og": {
-            "url": "https://alostaz222.github.io/404",
-            "title": "Alostaz | 404 Page Not Found",
+            "url": "https://fizyacademy.github.io/404",
+            "title": "fizyacademy | 404 Page Not Found",
             "description": "الصفحة التي تبحث عنها غير موجودة. يرجى التحقق من الرابط والعودة إلى الصفحة الرئيسية.",
             "type": "website",
-            "site_name": "Alostaz"
+            "site_name": "fizyacademy"
         },
         "json_ld": {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "Alostaz",
-            "url": "https://alostaz222.github.io/404",
+            "name": "fizyacademy",
+            "url": "https://fizyacademy.github.io/404",
             "description": "الصفحة التي تبحث عنها غير موجودة. يرجى التحقق من الرابط والعودة إلى الصفحة الرئيسية."
         }
     },
     "account": {
-        "title": "Alostaz | My Account",
+        "title": "fizyacademy | My Account",
         "favicon": "/favicon.ico",
         "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
-            "title": "Alostaz | My Account",
-            "description": "دروس فيزياء اونلاين مع Alostaz. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة.",
-            "keywords": "Physics, alostaz, elostaz, Alostaz, Elostaz, MR.Bakr, فيزياء, تعليم, teacher, teaching, alostaz222, Alostaz222, Elostaz222, منصة تعليمية, Educational platform",
-            "author": "Alostaz"
+            "title": "fizyacademy | My Account",
+            "description": "دروس فيزياء اونلاين مع fizyacademy. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة.",
+            "keywords": "Physics, fizyacademy, MR.Bakr, فيزياء, تعليم, teacher, teaching, fizyacademy, منصة تعليمية, Educational platform",
+            "author": "fizyacademy"
         },
-        "canonical": "https://alostaz222.github.io/account",
+        "canonical": "https://fizyacademy.github.io/account",
         "og": {
-            "url": "https://alostaz222.github.io/account",
-            "title": "Alostaz | My Account",
-            "description": "دروس فيزياء اونلاين مع Alostaz. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة.",
+            "url": "https://fizyacademy.github.io/account",
+            "title": "fizyacademy | My Account",
+            "description": "دروس فيزياء اونلاين مع fizyacademy. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة.",
             "type": "website",
-            "site_name": "Alostaz"
+            "site_name": "fizyacademy"
         },
         "json_ld": {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "Alostaz",
-            "url": "https://alostaz222.github.io/account",
-            "description": "دروس فيزياء اونلاين مع Alostaz. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة."
+            "name": "fizyacademy",
+            "url": "https://fizyacademy.github.io/account",
+            "description": "دروس فيزياء اونلاين مع fizyacademy. تعلم الفيزياء بسهولة ويسر مع دروسنا المفصلة."
         }
     },
     "auth": {
-        "title": "Alostaz | Authentication",
+        "title": "fizyacademy | Authentication",
         "favicon": "/favicon.ico",
         "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
-            "description": "انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة.",
-            "author": "Alostaz"
+            "description": "انضم إلى fizyacademy وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة.",
+            "author": "fizyacademy"
         },
-        "canonical": "https://alostaz222.github.io/auth",
+        "canonical": "https://fizyacademy.github.io/auth",
         "og": {
-            "url": "https://alostaz222.github.io/auth",
-            "title": "Alostaz | Authentication",
-            "description": "انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة.",
+            "url": "https://fizyacademy.github.io/auth",
+            "title": "fizyacademy | Authentication",
+            "description": "انضم إلى fizyacademy وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة.",
             "type": "website",
-            "site_name": "Alostaz"
+            "site_name": "fizyacademy"
         },
         "json_ld": {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "Alostaz",
-            "url": "https://alostaz222.github.io/auth",
-            "description": "انضم إلى Alostaz وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة."
+            "name": "fizyacademy",
+            "url": "https://fizyacademy.github.io/auth",
+            "description": "انضم إلى fizyacademy وابدأ رحلتك في تعلم الفيزياء اونلاين. سجل حسابك الآن للوصول إلى دورات ودروس الفيزياء المفصلة."
         }
     },
     "contact": {
-        "title": "Alostaz | Contact-Us",
+        "title": "fizyacademy | Contact-Us",
         "favicon": "/favicon.ico",
         "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
-            "title": "Alostaz | Contact-Us",
-            "description": "تواصل مع Alostaz للحصول على دعم مخصص ومساعدة في استفساراتك حول دروس الفيزياء اونلاين. نحن هنا لمساعدتك في رحلتك التعليمية.",
-            "keywords": "Physics, alostaz, elostaz, Alostaz, Elostaz, MR.Bakr, فيزياء, تعليم, teacher, teaching, alostaz222, Alostaz222, Elostaz222, منصة تعليمية, Educational platform",
-            "author": "Alostaz"
+            "title": "fizyacademy | Contact-Us",
+            "description": "تواصل مع fizyacademy للحصول على دعم مخصص ومساعدة في استفساراتك حول دروس الفيزياء اونلاين. نحن هنا لمساعدتك في رحلتك التعليمية.",
+            "keywords": "Physics, fizyacademy, MR.Bakr, فيزياء, تعليم, teacher, teaching, fizyacademy222, منصة تعليمية, Educational platform",
+            "author": "fizyacademy"
         },
-        "canonical": "https://alostaz222.github.io/contact",
+        "canonical": "https://fizyacademy.github.io/contact",
         "og": {
-            "url": "https://alostaz222.github.io/contact",
-            "title": "Alostaz | Contact-Us",
-            "description": "تواصل مع Alostaz للحصول على دعم مخصص ومساعدة في استفساراتك حول دروس الفيزياء اونلاين. نحن هنا لمساعدتك في رحلتك التعليمية.",
+            "url": "https://fizyacademy.github.io/contact",
+            "title": "fizyacademy | Contact-Us",
+            "description": "تواصل مع fizyacademy للحصول على دعم مخصص ومساعدة في استفساراتك حول دروس الفيزياء اونلاين. نحن هنا لمساعدتك في رحلتك التعليمية.",
             "type": "website",
-            "site_name": "Alostaz"
+            "site_name": "fizyacademy"
         },
         "json_ld": {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "Alostaz",
-            "url": "https://alostaz222.github.io/contact",
-            "description": "تواصل مع Alostaz للحصول على دعم مخصص ومساعدة في استفساراتك حول دروس الفيزياء اونلاين. نحن هنا لمساعدتك في رحلتك التعليمية."
+            "name": "fizyacademy",
+            "url": "https://fizyacademy.github.io/contact",
+            "description": "تواصل مع fizyacademy للحصول على دعم مخصص ومساعدة في استفساراتك حول دروس الفيزياء اونلاين. نحن هنا لمساعدتك في رحلتك التعليمية."
         }
     },
     "coupon": {
-        "title": "Alostaz | My Coupon",
+        "title": "fizyacademy | My Coupon",
         "favicon": "/favicon.ico",
         "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
-            "title": "Alostaz | My Coupon",
-            "description": "استخدم قسيمتك على Alostaz للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن.",
-            "author": "Alostaz"
+            "title": "fizyacademy | My Coupon",
+            "description": "استخدم قسيمتك على fizyacademy للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن.",
+            "author": "fizyacademy"
         },
-        "canonical": "https://alostaz222.github.io/coupon",
+        "canonical": "https://fizyacademy.github.io/coupon",
         "og": {
-            "url": "https://alostaz222.github.io/coupon",
-            "title": "Alostaz | My Coupon",
-            "description": "استخدم قسيمتك على Alostaz للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن.",
+            "url": "https://fizyacademy.github.io/coupon",
+            "title": "fizyacademy | My Coupon",
+            "description": "استخدم قسيمتك على fizyacademy للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن.",
             "type": "website",
-            "site_name": "Alostaz"
+            "site_name": "fizyacademy"
         },
         "json_ld": {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "Alostaz",
-            "url": "https://alostaz222.github.io/coupon",
-            "description": "استخدم قسيمتك على Alostaz للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن."
+            "name": "fizyacademy",
+            "url": "https://fizyacademy.github.io/coupon",
+            "description": "استخدم قسيمتك على fizyacademy للحصول على مزايا إضافية في تعلم الفيزياء اونلاين. استمتع بالدروس المفصلة وابدأ رحلة تعلمك الآن."
         }
     },
     "pricing": {
-        "title": "Alostaz | Pricing",
+        "title": "fizyacademy | Pricing",
         "favicon": "/favicon.ico",
         "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
-            "title": "Alostaz | Pricing",
-            "description": "استفد من جميع دروس الفيزياء لكل المراحل الدراسية من الصف الرابع الابتدائي إلى الصف الثالث الثانوي مع Alostaz. سعر مناسب للجميع.",
-            "keywords": "Physics, alostaz, elostaz, Alostaz, Elostaz, MR.Bakr, فيزياء, تعليم, teacher, teaching, alostaz222, Alostaz222, Elostaz222, منصة تعليمية, Educational platform",
-            "author": "Alostaz"
+            "title": "fizyacademy | Pricing",
+            "description": "استفد من جميع دروس الفيزياء لكل المراحل الدراسية من الصف الرابع الابتدائي إلى الصف الثالث الثانوي مع fizyacademy. سعر مناسب للجميع.",
+            "keywords": "Physics, fizyacademy, MR.Bakr, فيزياء, تعليم, teacher, teaching, fizyacademy222, منصة تعليمية, Educational platform",
+            "author": "fizyacademy"
         },
-        "canonical": "https://alostaz222.github.io/pricing",
+        "canonical": "https://fizyacademy.github.io/pricing",
         "og": {
-            "url": "https://alostaz222.github.io/pricing",
-            "title": "Alostaz | Pricing",
-            "description": "استفد من جميع دروس الفيزياء لكل المراحل الدراسية من الصف الرابع الابتدائي إلى الصف الثالث الثانوي مع Alostaz. سعر مناسب للجميع.",
+            "url": "https://fizyacademy.github.io/pricing",
+            "title": "fizyacademy | Pricing",
+            "description": "استفد من جميع دروس الفيزياء لكل المراحل الدراسية من الصف الرابع الابتدائي إلى الصف الثالث الثانوي مع fizyacademy. سعر مناسب للجميع.",
             "type": "website",
-            "site_name": "Alostaz"
+            "site_name": "fizyacademy"
         },
         "json_ld": {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "Alostaz",
-            "url": "https://alostaz222.github.io/pricing",
-            "description": "استفد من جميع دروس الفيزياء لكل المراحل الدراسية من الصف الرابع الابتدائي إلى الصف الثالث الثانوي مع Alostaz. سعر مناسب للجميع."
+            "name": "fizyacademy",
+            "url": "https://fizyacademy.github.io/pricing",
+            "description": "استفد من جميع دروس الفيزياء لكل المراحل الدراسية من الصف الرابع الابتدائي إلى الصف الثالث الثانوي مع fizyacademy. سعر مناسب للجميع."
         }
     },
     "sessions": {
-        "title": "Alostaz | Physics Sessions",
+        "title": "fizyacademy | Physics Sessions",
         "favicon": "/favicon.ico",
         "viewport": "width=device-width, initial-scale=1.0",
         "meta": {
-            "title": "Alostaz | Physics Sessions",
-            "description": "استفد من جلسات الفيزياء المسجلة مع Alostaz. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء.",
-            "keywords": "Physics, alostaz, elostaz, Alostaz, Elostaz, MR.Bakr, فيزياء, تعليم, teacher, teaching, alostaz222, Alostaz222, Elostaz222, منصة تعليمية, Educational platform",
-            "author": "Alostaz"
+            "title": "fizyacademy | Physics Sessions",
+            "description": "استفد من جلسات الفيزياء المسجلة مع fizyacademy. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء.",
+            "keywords": "Physics, fizyacademy, MR.Bakr, فيزياء, تعليم, teacher, teaching, fizyacademy, منصة تعليمية, Educational platform",
+            "author": "fizyacademy"
         },
-        "canonical": "https://alostaz222.github.io/sessions",
+        "canonical": "https://fizyacademy.github.io/sessions",
         "og": {
-            "url": "https://alostaz222.github.io/sessions",
-            "title": "Alostaz | Physics Sessions",
-            "description": "استفد من جلسات الفيزياء المسجلة مع Alostaz. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء.",
+            "url": "https://fizyacademy.github.io/sessions",
+            "title": "fizyacademy | Physics Sessions",
+            "description": "استفد من جلسات الفيزياء المسجلة مع fizyacademy. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء.",
             "type": "website",
-            "site_name": "Alostaz"
+            "site_name": "fizyacademy"
         },
         "json_ld": {
             "@context": "http://schema.org",
             "@type": "WebSite",
-            "name": "Alostaz",
-            "url": "https://alostaz222.github.io/sessions",
-            "description": "استفد من جلسات الفيزياء المسجلة مع Alostaz. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء."
+            "name": "fizyacademy",
+            "url": "https://fizyacademy.github.io/sessions",
+            "description": "استفد من جلسات الفيزياء المسجلة مع fizyacademy. احصل على محتوى تعليمي مفصل يمكنك الوصول إليه في أي وقت لتحسين مهاراتك في الفيزياء."
         }
     }
 }
