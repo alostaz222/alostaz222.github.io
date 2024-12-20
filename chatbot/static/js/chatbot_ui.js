@@ -1,5 +1,3 @@
-// File: chatbot/static/js/chatbot_ui.js
-
 document.addEventListener("DOMContentLoaded", () => {
     const chatForm = document.getElementById("chat-form");
     const chatInput = document.getElementById("chat-input");
@@ -14,6 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
         chatOutput.innerHTML += `<div class="user-message">${question}</div>`;
         chatInput.value = "";
 
+        // Add a "bot is typing" message
+        chatOutput.innerHTML += `<div class="bot-message typing">...</div>`;
+        chatOutput.scrollTop = chatOutput.scrollHeight;
+
         // Send question to chatbot API
         const response = await fetch("/api/ask", {
             method: "POST",
@@ -22,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         const data = await response.json();
+        // Remove typing and display the actual answer
+        document.querySelector(".typing").remove();
         chatOutput.innerHTML += `<div class="bot-message">${data.answer}</div>`;
     });
 });

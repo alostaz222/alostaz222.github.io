@@ -1,5 +1,3 @@
-# File: chatbot/api/question_handler.py
-
 class QuestionHandler:
     def __init__(self, nlp_engine):
         self.nlp_engine = nlp_engine
@@ -10,12 +8,14 @@ class QuestionHandler:
         :param question: str
         :return: dict
         """
-        # Analyze question with NLP engine
         parsed_question = self.nlp_engine.process_question(question)
 
         if parsed_question["intent"] == "topic_search":
-            # Example response
-            return {"status": "answered", "answer": f"Here is information about {parsed_question['context']['topic']}."}
+            topic = parsed_question['context']['topic']
+            return {"status": "answered", "answer": f"Here is a detailed explanation about {topic}: \n- Newton's Laws describe the relationship between the motion of an object and the forces acting on it."}
 
-        # Return a fallback if not handled
-        return {"status": "unanswered"}
+        if parsed_question["intent"] == "location_search":
+            location = parsed_question['context']['location']
+            return {"status": "answered", "answer": f"Here is some information about {location}."}
+
+        return {"status": "unanswered", "answer": "I couldn't find the information you're asking for. Please contact your teacher for more details."}

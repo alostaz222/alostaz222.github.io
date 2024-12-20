@@ -1,5 +1,3 @@
-<!-- File: chatbot/templates/chatbot.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,15 +5,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PhysicsChatbot</title>
     <link rel="stylesheet" href="/static/css/chatbot.css">
+    <style>
+        /* Basic styling for tabs */
+        .tab {
+            display: none;
+        }
+        .tab.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div id="chat-container">
+        <!-- Chatbot UI -->
         <div id="chat-output"></div>
         <form id="chat-form">
             <input type="text" id="chat-input" placeholder="Ask a question..." required>
             <button type="submit">Send</button>
         </form>
     </div>
+
+    <!-- Tabs for teacher and student -->
+    <div>
+        <button onclick="showTab('teacher')">Teacher's Tab</button>
+        <button onclick="showTab('student')">Student's Tab</button>
+    </div>
+
+    <div id="teacher" class="tab">
+        <h3>Unanswered Questions</h3>
+        <div id="teacher-questions"></div>
+        <input type="text" id="teacher-answer" placeholder="Write your answer here">
+        <button id="submit-answer">Submit Answer</button>
+    </div>
+
+    <div id="student" class="tab">
+        <h3>Answered Questions</h3>
+        <div id="student-questions"></div>
+    </div>
+
     <script src="/static/js/chatbot_ui.js"></script>
+    <script>
+        // Function to switch between tabs
+        function showTab(tab) {
+            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+            document.getElementById(tab).classList.add('active');
+        }
+
+        // Load unanswered questions for the teacher
+        async function loadTeacherQuestions() {
+            const response = await fetch('/teacher/questions');
+            const data = await response.json();
+            const teacherQuestionsDiv = document.getElementById('teacher-questions');
+            teacherQuestionsDiv.innerHTML = '';
+            data.questions.forEach(question => {
+                const questionDiv = document.createElement('div');
+                questionDiv.innerText = `${question.question} (by ${question.student})`;
+                questionDiv.dataset.id = question.id;
+                teacherQuestionsDiv.appendChild(questionDiv);
+            });
+        }
+
+        // Load answered questions for the student
+        async function loadStudentQuestions() {
+            const response = await fetch('/student/questions');
+            const data = await response.json();
+            const studentQuestionsDiv = document.getElementById('student-questions');
+            studentQuestionsDiv.innerHTML = '';
+            data.questions.forEach(question => {
+                const questionDiv = document.createElement('div');
+                questionDiv.innerText = `${question.question} - Answer: ${question.answer} (by ${question.teacher})`;
+                studentQuestionsDiv.appendChild(questionDiv);
+            });
+        }
+
+        // Submit an answer as the teacher
+        document.getElementById('submit-answer').addEventListener('click', async () => {
+            const answer = document.getElementById('teacher-answer').value;
+            const questionId = document.querySelector('.selected-question').dataset.id;
+            const response = await fetch('/teacher/answer', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question_id: questionId, answer })
+            });
+            const data = await response.json();
+            alert(data.message);
+            loadTeacherQuestions();  // Reload unanswered questions after answering
+        });
+
+        // Initially load unanswered questions for teacher
+        loadTeacherQuestions();
+        loadStudentQuestions();
+    </script>
 </body>
 </html>
